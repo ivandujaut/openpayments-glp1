@@ -26,14 +26,20 @@ CABECERA = (
     "# Regenerable con: uv run scripts/01_descargar.py\n"
 )
 
-# TODO(primera sesión): completar con las URLs reales del Dataset Download Page,
-# capturadas el AAAA-MM-DD. Una entrada por Program Year (ZIP del año completo).
+# Capturadas el 2026-08-25 de openpaymentsdata.cms.gov/datasets/download
+# (Dataset Downloads). El sufijo del nombre es el sello de publicación de CMS:
+# P06302026 = publicado 2026-06-30, _06032026 = datos al 2026-06-03. Ese sello
+# cambia en cada refresh anual de CMS: si cambia, cambian las URLs y saltan los
+# checksums del manifiesto — que es exactamente lo que queremos que pase.
+# Cada ZIP es el año completo (General + Research + Ownership); 02_convertir
+# extrae solo el CSV OP_DTL_GNRL. Tamaños al día de captura: 2021 869 MB,
+# 2022 998 MB, 2023 1.2 GB, 2024 1.2 GB, 2025 1.3 GB (~5.5 GB en total).
 URLS: dict[int, str] = {
-    # 2021: "https://download.cms.gov/openpayments/PGYR2021_...zip",
-    # 2022: "...",
-    # 2023: "...",
-    # 2024: "...",
-    # 2025: "...",
+    2021: "https://download.cms.gov/openpayments/PGYR2021_P06302026_06032026.zip",
+    2022: "https://download.cms.gov/openpayments/PGYR2022_P06302026_06032026.zip",
+    2023: "https://download.cms.gov/openpayments/PGYR2023_P06302026_06032026.zip",
+    2024: "https://download.cms.gov/openpayments/PGYR2024_P06302026_06032026.zip",
+    2025: "https://download.cms.gov/openpayments/PGYR2025_P06302026_06032026.zip",
 }
 
 

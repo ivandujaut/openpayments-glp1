@@ -1,0 +1,7 @@
+# Manifiesto de descarga. Columnas separadas por tab: anio, sha256, url
+# Regenerable con: uv run scripts/01_descargar.py
+2021	831d2864534454e22493ef820fa1729f5465d8be58b2deb112d4576255b67308	https://download.cms.gov/openpayments/PGYR2021_P06302026_06032026.zip
+2022	1eedaf2615f19ef0ef5d420951ca0694e53502082a9824e28e461b9066ffcecc	https://download.cms.gov/openpayments/PGYR2022_P06302026_06032026.zip
+2023	868934ce3deeafcd0a1e533a6bd7b0ad938d6aef8f802b1bb04c4899a51e50e7	https://download.cms.gov/openpayments/PGYR2023_P06302026_06032026.zip
+2024	6d73c39493ef70ef5655921526cb9f9888101b7543c0d9d807202a9511a7dbd5	https://download.cms.gov/openpayments/PGYR2024_P06302026_06032026.zip
+2025	03e143773654b26380c240f4111ed69b7834d4cbc7c6f4e29a22c76fd701f4de	https://download.cms.gov/openpayments/PGYR2025_P06302026_06032026.zip
