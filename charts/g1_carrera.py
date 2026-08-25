@@ -22,25 +22,25 @@ CACHE = ROOT / "findings" / "cache" / "corte-01_carrera.json"
 
 TEXTOS = {
     "es": {
-        "titulo": "En dólares Lilly pasó al frente en 2023 y 2024. En cantidad de pagos, nunca.",
+        "titulo": "Novo lidera en cantidad de pagos los cinco años; en dólares, Lilly pasa al frente en 2023-24",
         "subtitulo": ("Pagos de Novo Nordisk y Eli Lilly a profesionales de la salud por productos GLP-1, "
                       "2021–2025 · CMS Open Payments (General Payments)"),
         "panel_usd": "Millones de USD",
         "panel_pagos": "Cantidad de pagos (miles)",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
-        "nota": "Zona sombreada: años en que cada unidad da un ganador distinto.",
+        "nota": "Zona sombreada: años en que cada unidad da un ganador distinto. La ventaja de Lilly en dólares es su programa de disertantes (ver g2).",
         "archivo": "g1_carrera",
     },
     "en": {
-        "titulo": "In dollars, Lilly led in 2023 and 2024. In number of payments, never.",
+        "titulo": "Novo leads on payment count all five years; in dollars, Lilly pulls ahead in 2023-24",
         "subtitulo": ("Novo Nordisk and Eli Lilly payments to healthcare professionals for GLP-1 products, "
                       "2021–2025 · CMS Open Payments (General Payments)"),
         "panel_usd": "USD millions",
         "panel_pagos": "Number of payments (thousands)",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
-        "nota": "Shaded band: years where each unit yields a different winner.",
+        "nota": "Shaded band: years where each unit yields a different winner. Lilly's dollar lead is its speaker program (see g2).",
         "archivo": "g1_carrera.en",
     },
 }

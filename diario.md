@@ -112,3 +112,53 @@ Formato por entrada (una por sesión, al cierre):
 - **Próximo paso concreto:** implementar D-002/D-003/D-004 en `src/vistas.py`
   (constantes + vista `glp1` con el prorrateo), y reproducir con la vista los
   números preliminares de esta entrada. Si no coinciden, la vista está mal.
+
+---
+
+## 2026-08-25 — corte 01 y su red-team: el ataque reescribió el hallazgo
+
+- **Se decidió:** **D-005 · unidad primaria.** Dólares y pagos se calculan
+  siempre y cada finding declara cuál lidera; en el corte 01 no lidera ninguna
+  porque el hallazgo era que se contradicen. Se frenó antes de escribir el corte:
+  tocaba una decisión no registrada.
+- **Se produjo:**
+  - `analysis/corte-01_carrera.py` → `findings/cache/corte-01_carrera.json`
+  - `charts/g1_carrera.py` → `figures/g1_carrera[.en].png`
+  - `charts/g2_disertantes.py` → `figures/g2_disertantes[.en].png`
+  - `findings/corte-01_carrera.md`
+  - Tres scripts de ataque: `ataque-01_sensibilidad-decisiones.py`,
+    `ataque-02_artefactos-dato.py`, `ataque-03_explicaciones-negocio.py`
+  - `src/figstyle.py` suma `nueva_figura_apilada()` y extrae `_aplicar_rc()`
+  - Reconciliación: `OFICIALES` completo, `04_checks.py` de 10 a 36
+    comparaciones, todas Δ = 0,00%. Registrada en `findings/checks.md`.
+- **El ataque mató el titular, y eso fue lo más valioso del día.** El corte salió
+  diciendo "en dólares Lilly pasó al frente en 2023 y 2024". El ataque C2
+  (excluir honorarios de disertante) mostró que sin esa naturaleza **Novo supera
+  a Lilly los cinco años**, con ratios de 1,46x a 7,24x. La ventaja de Lilly no
+  era "invirtió más": era "invirtió más en un programa". Lilly casi duplicó sus
+  pagos de disertante (6.517 → 12.485) mientras Novo redujo los suyos
+  (6.809 → 4.898). Título, TL;DR y figura principal reescritos; g2 nació del
+  ataque y es ahora el gráfico que manda.
+- **Resultado del red-team:** 10 ataques con test corrido. H1 (Lilly gana en
+  dólares en 2023-24) sobrevivió 8/10; H2 (Novo gana en pagos los 5 años)
+  sobrevivió 9/10. H1 cae en las dos familias que preguntan de dónde viene la
+  ventaja, que es donde importa. Sensibilidad a mis decisiones: 4/4 en ambas
+  hipótesis — ninguna alternativa rechazada en D-002/D-003/D-004 cambia el
+  resultado.
+- **Quedó abierto:**
+  - **Hallazgo colateral sin explotar (ataque C1):** al recortar el 1% de pagos
+    más caros, Lilly supera a Novo también en **2025**. El liderazgo de Novo ese
+    año depende de su cola de pagos grandes; en el cuerpo de la distribución
+    Lilly ya estaba arriba. Merece corte propio.
+  - **La separación disertante/resto es una elección sin D-NNN.** Nació del
+    ataque, no de una decisión registrada. Si el corte se publica, necesita la
+    suya.
+  - La hipótesis de la escasez de semaglutida sigue sin testear y exige una
+    fuente fuera de Open Payments.
+  - Cola: D-006 (especialidades), D-007 (deflactar), D-008 (75 filas con fecha
+    corrupta de PY2024).
+  - De antes: `pandas` en 3.0.5 sin pinear.
+- **Próximo paso concreto:** registrar la decisión que falta sobre separar
+  honorarios de disertante del resto (es la que sostiene el titular actual), y
+  recién después evaluar `/derivar` o el corte sobre la cola de pagos grandes
+  que abrió C1.

@@ -60,6 +60,24 @@ def main() -> None:
         """
     ).df()
 
+    # Descomposición disertante / resto. La agrega el ataque 03 (C2): la ventaja
+    # de Lilly en dólares vive entera en esa naturaleza, y la figura tiene que
+    # poder mostrarlo sin volver al parquet.
+    disertante = con.sql(
+        """
+        SELECT anio,
+               sum(usd) FILTER (grupo = 'novo'  AND es_disertante)  AS novo_disertante,
+               sum(usd) FILTER (grupo = 'lilly' AND es_disertante)  AS lilly_disertante,
+               sum(usd) FILTER (grupo = 'novo'  AND NOT es_disertante)  AS novo_resto,
+               sum(usd) FILTER (grupo = 'lilly' AND NOT es_disertante) AS lilly_resto,
+               count(DISTINCT record_id) FILTER (grupo = 'novo'  AND es_disertante) AS novo_disertante_n,
+               count(DISTINCT record_id) FILTER (grupo = 'lilly' AND es_disertante) AS lilly_disertante_n
+        FROM (SELECT *, naturaleza LIKE 'Compensation for services other than%'
+                       AS es_disertante FROM glp1)
+        GROUP BY 1 ORDER BY 1
+        """
+    ).df()
+
     # Desglose por producto: quién aporta a cada lado de la carrera.
     producto = con.sql(
         """
@@ -85,6 +103,7 @@ def main() -> None:
             for f in serie.itertuples()
         ],
         "naturaleza": naturaleza.to_dict("records"),
+        "disertante_vs_resto": disertante.to_dict("records"),
         "producto": producto.to_dict("records"),
         "totales": {
             "novo_usd": float(serie.novo_usd.sum()),
