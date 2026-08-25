@@ -78,6 +78,14 @@ NATURALEZA_VOZ = (
     "Consulting Fee",
 )
 
+# D-008: la taxonomía NUCC de CMS es jerárquica ('tipo|clasificación|área',
+# 340 valores en la ventana). Se agrupa en cinco categorías evaluadas EN ORDEN;
+# la primera que matchea gana. La prioridad es la decisión, no un detalle: un
+# NP de Family Medicine cae en NP/PA y no en primaria, y eso mueve USD 18,21M.
+# Endocrinología va primero pero no le quita nada a nadie: es prácticamente
+# exclusiva de médicos (247.067 pagos contra 3 de enfermería).
+NUCC_NP_PA = "Physician Assistants & Advanced Practice Nursing Providers"
+
 N_SLOTS = 5  # el dataset declara hasta 5 productos por fila
 
 _COL_NOMBRE = "Name_of_Drug_or_Biological_or_Device_or_Medical_Supply_{i}"
@@ -136,6 +144,7 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
         f"WHEN {_sql_lista([p])[1:-1]} THEN '{d['molecula']}'" for p, d in GLP1.items()
     )
     voz = _sql_lista(NATURALEZA_VOZ)
+    np_pa = NUCC_NP_PA
 
     con.sql(
         f"""
@@ -176,6 +185,19 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
             CASE WHEN b.naturaleza IN {voz} THEN 'voz' ELSE 'campo' END
                                                 AS grupo_naturaleza,
             b.tipo_receptor,
+            CASE
+                WHEN b.especialidad_cruda ILIKE '%endocrin%' THEN 'endocrinologia'
+                WHEN b.especialidad_cruda ILIKE '%obesity medicine%'
+                    THEN 'medicina de obesidad'
+                WHEN b.especialidad_cruda LIKE '{np_pa}%' THEN 'NP/PA'
+                WHEN b.especialidad_cruda LIKE 'Allopathic%|Family Medicine%'
+                  OR b.especialidad_cruda LIKE 'Allopathic%|General Practice%'
+                  OR b.especialidad_cruda
+                     = 'Allopathic & Osteopathic Physicians|Internal Medicine'
+                    THEN 'primaria'
+                WHEN b.especialidad_cruda IS NULL THEN NULL
+                ELSE 'resto'
+            END                                 AS especialidad,
             b.especialidad_cruda, b.receptor_id, b.estado, b.n_pagos_agregados
         FROM base b, UNNEST(b.productos_glp1) AS p(producto)
         """

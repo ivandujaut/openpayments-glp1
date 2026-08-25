@@ -297,3 +297,53 @@ Formato por entrada (una por sesión, al cierre):
   corrido, así que `/derivar` está habilitado sobre cualquiera de los dos. La
   alternativa es seguir la cola de decisiones, empezando por especialidades, que
   abre el corte 03 (a qué perfil profesional le paga cada compañía).
+
+---
+
+## 2026-08-25 — corte 03: el dinero sigue al especialista, no al volumen
+
+- **Se decidió:** **D-008 · agrupación de especialidades.** Cinco categorías
+  evaluadas en orden: endocrinología, medicina de obesidad, NP/PA, primaria
+  (médico), resto. Se frenó antes de implementar, como corresponde.
+- **La decisión real fue la regla de prioridad.** "NP/PA" es un tipo de
+  proveedor mientras "endocrinología" y "primaria" son especialidades, así que un
+  enfermero de Family Medicine podía caer en dos categorías. Se eligió que el
+  tipo mande: eso mueve **USD 18,21M**. Sin esa regla escrita, dos
+  implementaciones del mismo criterio darían números distintos.
+  Endocrinología no genera conflicto: es prácticamente exclusiva de médicos
+  (247.067 pagos contra 3 de enfermería).
+- **Por qué la especialidad y no el tipo como eje:** el tipo de proveedor casi no
+  separa a las compañías (Novo 78,1% a médicos, Lilly 83,8%). La especialidad sí:
+  doce puntos de diferencia en endocrinología.
+- **Se produjo:** `especialidad` en `src/vistas.py`,
+  `analysis/corte-03_especialidades.py`, `charts/g4_especialidades.py`,
+  `figures/g4_especialidades[.en].png`, `findings/corte-03_especialidades.md`.
+- **El hallazgo:** **5.367 endocrinólogos recibieron USD 65,09M; 120.145
+  enfermeros y asistentes, 35,24M.** USD 12.129 por cabeza contra 293, factor 41.
+  Endocrinología es el 2,1% de los profesionales alcanzados y el 36% del dinero.
+- **Y la diferencia entre compañías:** endocrinología es el **43,6%** del gasto
+  de Lilly y el **31,5%** del de Novo. Novo compensa repartiendo más al canal de
+  volumen (21,8% a NP/PA contra 16,0%) y al resto de especialidades (16,2% contra
+  9,2%).
+- **Los tres cortes convergen.** El 01 encontró que la ventaja de Lilly vive en
+  pagos que compran la voz del profesional; el 02, que su círculo de voz es la
+  mitad de grande que el de Novo; el 03 nombra a ese círculo: son
+  endocrinólogos. No es la misma medición tres veces — son tres ángulos
+  independientes de la misma estrategia.
+- **Dato lateral:** medicina de obesidad son 242 profesionales a USD 9.002 por
+  cabeza, el segundo valor más alto de la tabla. Especialidad joven; si crece,
+  es un corte propio.
+- **Quedó abierto:**
+  - **El corte 03 no tiene red-team.** Cinco ataques listados; el más peligroso
+    es que la especialidad es **autodeclarada** por el reportante — si un mismo
+    `Profile_ID` cambia de especialidad entre años, el corte se cae.
+  - El segundo: ¿la brecha entre compañías sobrevive mirando sólo contacto de
+    campo, o es un subproducto del corte 01?
+  - Verificado que el cambio en `vistas.py` no rompió los cortes 01 y 02: mismos
+    números.
+  - Cola: D-009 (deflactar), D-010 (75 filas con fecha corrupta de PY2024).
+  - Sigue pendiente el test limpio del efecto lanzamiento (C2 del corte 02) y la
+    hipótesis de escasez de semaglutida.
+  - Ocho commits locales sin pushear.
+- **Próximo paso concreto:** `/atacar corte-03`, empezando por la estabilidad de
+  la especialidad autodeclarada.

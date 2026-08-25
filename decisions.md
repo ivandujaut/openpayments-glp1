@@ -14,8 +14,8 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
    (prorrateo en partes iguales entre todos los productos declarados).
 5. ~~**Unidad primaria por corte**~~ → resuelta en **D-005** (ambas siempre;
    cada finding declara su líder. En el corte 01 el hallazgo es la divergencia).
-6. **Agrupación de especialidades**: qué taxonomías caen en "endocrinología",
-   "atención primaria", "NP/PA" y "resto".
+6. ~~**Agrupación de especialidades**~~ → resuelta en **D-008** (cinco
+   categorías con prioridad explícita; el tipo manda en NP/PA).
    *(Fuera de esta cola original se resolvieron: **D-006**, agrupación de
    naturalezas de pago, tras el red-team del corte 01; y **D-007**, métrica de
    concentración por receptor, al abrir el corte 02.)*
@@ -433,4 +433,66 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 
 - **Scripts afectados:** `analysis/corte-02_concentracion.py`,
   `charts/g3_concentracion.py`, `findings/corte-02_concentracion.md`.
+- **Estado:** vigente
+
+## D-008 — Agrupación de especialidades: cinco categorías, el tipo manda en NP/PA  (2026-08-25)
+- **Decisión:** `Covered_Recipient_Specialty_1` se agrupa en cinco categorías,
+  evaluadas **en este orden** (la primera que matchea gana):
+
+  ```
+  1. endocrinología       especialidad contiene 'endocrin'
+  2. medicina de obesidad especialidad contiene 'obesity medicine'
+  3. NP/PA                nivel 1 = 'Physician Assistants & Advanced Practice
+                          Nursing Providers'
+  4. primaria (médico)    Family Medicine · General Practice · Internal Medicine
+                          sin subespecialidad
+  5. resto                todo lo demás
+  ```
+
+  La taxonomía de CMS es NUCC jerárquica de dos o tres niveles separados por `|`
+  (340 valores distintos en la ventana). El nivel 1 es tipo de proveedor; los
+  niveles 2 y 3, la especialidad.
+
+- **La regla de prioridad es la decisión, y no es neutral.** "NP/PA" es un tipo
+  de proveedor mientras "endocrinología" y "primaria" son especialidades: un
+  enfermero de Family Medicine podría caer en dos categorías. Se elige que el
+  **tipo mande**, así que ese caso cuenta como NP/PA. Eso mueve **USD 18,21M**
+  (NP/PA con subespecialidad Family, Primary Care o Adult Health) que en otra
+  regla serían "primaria". Sin esa regla escrita, dos implementaciones del mismo
+  criterio darían números distintos.
+
+- **Endocrinología no genera conflicto:** es prácticamente exclusiva de médicos
+  (247.067 pagos de `Allopathic & Osteopathic Physicians` contra 3 de
+  `Nursing Service Providers`). La prioridad 1 no le quita nada a nadie.
+
+- **Por qué la especialidad y no el tipo de proveedor como eje principal:** el
+  tipo casi no separa a las compañías (Novo destina 78,1% a médicos, Lilly
+  83,8%), mientras la especialidad sí: **endocrinología es el 43,6% del gasto de
+  Lilly contra el 31,5% del de Novo**, doce puntos de diferencia.
+
+- **El dato que la agrupación deja ver:** 5.367 endocrinólogos reciben USD
+  65,09M y 120.145 NP/PA reciben USD 35,24M. Son **USD 12.128 por endocrinólogo
+  contra USD 293 por NP/PA**, un factor de 40.
+
+- **Alternativas rechazadas:**
+  - *Dos dimensiones cruzadas* (tipo × especialidad). Es la correcta desde el
+    punto de vista lógico: cada fila cae en una sola celda y no hace falta regla
+    de prioridad. Se rechaza por costo de lectura — 8 a 10 celdas vuelven la
+    figura densa para lo que agrega, dado que endocrinología ya no se solapa. Si
+    un corte futuro necesita ver "NP/PA de primaria" como grupo propio, esta
+    decisión debe reabrirse.
+  - *Sólo especialidad clínica*, ignorando el tipo. Más limpio conceptualmente,
+    pero pierde el canal NP/PA, que es donde Novo más se diferencia (21,8% de su
+    gasto contra 16,0% de Lilly) y que vale 4x menos por cabeza.
+
+- **Qué la invalidaría:**
+  - Que aparezcan NP/PA con especialidad de endocrinología en volumen: hoy son
+    3 pagos y la prioridad 1 los mandaría a endocrinología, no a NP/PA.
+  - Que CMS cambie la taxonomía NUCC o su formato jerárquico entre años (los
+    cinco años actuales comparten esquema; verificado en la carga).
+  - Que el caso pase a preguntar por canal de promoción y no por perfil clínico:
+    ahí el tipo de proveedor debería ser el eje y no el desempate.
+
+- **Scripts afectados:** `src/vistas.py` (la columna `especialidad` vive acá),
+  `analysis/corte-03_especialidades.py`, `charts/g4_especialidades.py`.
 - **Estado:** vigente
