@@ -246,3 +246,54 @@ Formato por entrada (una por sesión, al cierre):
   - Cinco commits locales sin pushear.
 - **Próximo paso concreto:** `/atacar corte-02`, empezando por el test de
   `Profile_ID` contra `NPI`. Sin eso, la cifra de concentración no se publica.
+- **Cerrado en la misma sesión:** ver la entrada siguiente (red-team del 02).
+
+---
+
+## 2026-08-25 — red-team del corte 02: el ataque refinó el hallazgo
+
+- **Se decidió:** nada. Ninguna decisión nueva; los ataques usaron D-002, D-004,
+  D-006 y D-007 ya registradas, y sus alternativas rechazadas.
+- **Se produjo:** `analysis/ataque-04_identidad-receptor.py`,
+  `ataque-05_robustez-concentracion.py`, `ataque-06_concentracion-negocio.py`.
+  El corte 02 se amplió con el bloque `por_naturaleza` para que los números que
+  el finding cita salgan del corte y no de una consulta suelta.
+- **Resultado: 20 ataques con test corrido. H1 sobrevivió 19/20, H2 18/20.**
+- **El ataque crítico pasó limpio.** Toda la métrica descansaba en que
+  `Covered_Recipient_Profile_ID` identifique una persona estable. Contrastado
+  contra `Covered_Recipient_NPI`: **cero** Profile_ID con varios NPI, **cero**
+  NPI bajo varios Profile_ID, y recalcular todo con NPI da 35,65 vs 20,46 —
+  ratio 1,74x idéntico. La métrica mide personas.
+- **C1 era la explicación alternativa más plausible y falló.** Novo llega a 37%
+  más profesionales, así que su denominador podía diluir el top 100 por
+  construcción. Emparejando las redes a 1.000, 10.000, 50.000 y 152.493, Lilly
+  sigue concentrando más (1,49x a 1,73x). No es artefacto de alcance.
+- **C3 invirtió el signo y encontró algo mejor que la métrica original.** Mirando
+  sólo contacto de campo, **Novo concentra más que Lilly** (6,72% vs 4,77%). La
+  concentración de Lilly no es un rasgo general de su gasto: vive entera en su
+  programa de voz. Y ahí está el dato más nítido del corte: **Lilly reparte USD
+  48,42M entre 657 profesionales; Novo reparte USD 61,73M entre 1.139.** El club
+  de Lilly es la mitad de grande y cobra un tercio más por cabeza (USD 73.700
+  contra 54.193).
+- **Dos fallos, ambos informativos:**
+  - **H2 falla en 2021**: ese año el top 100 de Novo acumulaba más pagos que el
+    de Lilly (80 vs 64). Lilly construyó su programa dentro de la ventana — de
+    64 pagos promedio en 2021 a 118 en 2024. El patrón no precede al período.
+  - **C2 quedó no concluyente y se publica como tal.** Al excluir Mounjaro,
+    Zepbound y Wegovy para testear el efecto lanzamiento, a Lilly le queda sólo
+    Trulicity (8,27M) contra 85,25M de Novo: la muestra se degenera y el 2,68x
+    que arroja no significa nada. Un test limpio exige otro diseño (excluir sólo
+    el año de lanzamiento de cada producto) y queda pendiente.
+- **Quedó abierto:**
+  - El test limpio del efecto lanzamiento que C2 no logró ser.
+  - Concentración institucional: el `Profile_ID` cuenta como independientes a
+    profesionales de un mismo centro; una red aparentemente dispersa podría ser
+    un puñado de instituciones.
+  - Cola: D-008 (especialidades), D-009 (deflactar), D-010 (75 filas con fecha
+    corrupta de PY2024).
+  - La hipótesis de escasez de semaglutida sigue sin testear.
+  - Siete commits locales sin pushear.
+- **Próximo paso concreto:** los dos cortes tienen checks verdes y red-team
+  corrido, así que `/derivar` está habilitado sobre cualquiera de los dos. La
+  alternativa es seguir la cola de decisiones, empezando por especialidades, que
+  abre el corte 03 (a qué perfil profesional le paga cada compañía).

@@ -1,6 +1,6 @@
 # Cien médicos concentran el 36% de lo que Lilly gasta en GLP-1 — y trabajan el doble que los de Novo
 
-**Corte 02 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Métrica líder: % del gasto al top 100 (D-007) · Red-team: pendiente**
+**Corte 02 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Métrica líder: % del gasto al top 100 (D-007) · Red-team: 20 ataques, sobrevivió 19 (H1) / 18 (H2)**
 
 ## TL;DR
 
@@ -14,6 +14,13 @@ Lo llamativo no es el dinero sino el ritmo: **entrar al top 100 cuesta casi lo
 mismo en las dos compañías** (USD 172.608 en Lilly, USD 172.768 en Novo), pero
 los cien de Lilly acumulan **431 pagos promedio contra 246 de Novo**. Reciben
 cifras parecidas repartidas en casi el doble de contactos.
+
+**El red-team encontró algo más nítido que la métrica original.** La
+concentración de Lilly no es general: vive entera en su programa de "voz"
+(D-006), que resulta ser un círculo mucho más chico. **Lilly reparte USD 48,42M
+entre 657 profesionales; Novo reparte USD 61,73M entre 1.139.** En el contacto
+de campo el signo se invierte —Novo concentra algo más (6,72% vs. 4,77%)—
+aunque ahí las dos son muy dispersas.
 
 Este corte responde una pregunta que dejó abierta el red-team del corte 01: el
 ataque C1 mostró que al recortar el 1% de pagos más caros, Lilly supera a Novo
@@ -67,7 +74,24 @@ Todos salen de `analysis/corte-02_concentracion.py` →
 | Lilly | 5,24 | 21,14 | **35,64** | 72,17 | 73,60 |
 | Novo | 2,83 | 11,79 | **20,44** | 54,23 | 62,79 |
 
-**Perfil del top 100** — el hallazgo más nítido del corte:
+**Los dos círculos de "voz"** — lo que encontró el ataque C3:
+
+| | Lilly | Novo |
+|---|---|---|
+| Profesionales que reciben pagos de "voz" | **657** | **1.139** |
+| Gasto en "voz" | USD 48,42M | USD 61,73M |
+| Promedio por profesional | USD 73.700 | USD 54.193 |
+| % de ese gasto al top 100 | 49,06% | 32,11% |
+
+Y en contacto de campo, el signo se invierte:
+
+| | Lilly | Novo |
+|---|---|---|
+| Profesionales | 152.430 | 209.369 |
+| Gasto | USD 20,71M | USD 49,25M |
+| % al top 100 | 4,77% | **6,72%** |
+
+**Perfil del top 100** — el hallazgo del corte en la métrica declarada:
 
 | | Lilly | Novo |
 |---|---|---|
@@ -82,29 +106,89 @@ corte 01. La diferencia son los USD 75.300 de hospitales docentes, que no tienen
 
 ## Intenté matarlo
 
-*(Pendiente: falta correr `/atacar`.)* Los ataques que ya se ven necesarios:
+**20 ataques con test corrido. H1 sobrevivió 19/20 · H2 sobrevivió 18/20.**
+Scripts: `analysis/ataque-04_identidad-receptor.py` ·
+`ataque-05_robustez-concentracion.py` · `ataque-06_concentracion-negocio.py`.
 
-1. **¿Es un artefacto de `Profile_ID`?** Si un mismo profesional tuviera varios
-   IDs, o si un ID agrupara a más de una persona, la concentración estaría mal
-   medida. Test: contrastar `Profile_ID` contra `Covered_Recipient_NPI`.
-2. **¿Sobrevive año a año?** Todos los números son del acumulado 2021–2025. Si la
-   brecha aparece en un solo año, el hallazgo es otro.
-3. **¿Es el tamaño de red y no la estrategia?** Novo llega a 37% más
-   profesionales. Test: recortar ambas redes al mismo tamaño y recalcular.
-4. **¿Lo explica el mix de productos?** Zepbound y Mounjaro se lanzaron dentro de
-   la ventana; un lanzamiento concentra gasto en pocos líderes de opinión.
-5. **¿Los 431 pagos son personas trabajando o agregación contable?**
-   `Number_of_Payments_Included_in_Total_Amount` puede inflar el conteo.
+- **H1**: Lilly concentra más que Novo (% del gasto al top 100).
+- **H2**: El top 100 de Lilly acumula más pagos que el de Novo.
+
+### El ataque crítico: ¿mide personas o identificadores? (3/3 pasa)
+
+Toda la métrica descansa en que `Covered_Recipient_Profile_ID` identifique una
+persona de forma estable. Contrastado contra `Covered_Recipient_NPI`:
+
+| Test | Resultado |
+|---|---|
+| Profile_ID con más de un NPI (inflaría la concentración) | **0** |
+| NPI bajo más de un Profile_ID (fragmentaría) | **0** |
+| Recalcular todo con NPI como clave | 35,65% vs 20,46% — **ratio 1,74x idéntico** |
+
+La correspondencia es uno a uno. La métrica mide personas.
+
+### Familia A — artefactos del dato
+
+| Ataque | Resultado |
+|---|---|
+| A2 año por año (2021 · 2022 · 2023 · 2024 · 2025) | ✓ H1 en los cinco (2,23x · 2,05x · 1,84x · 1,57x · 1,72x) — **✗ H2 sólo en 2021** |
+| A3 pagos ponderados por `Number_of_Payments` | ✓ H1 ✓ H2 (443 vs 283) |
+| A4 sólo médicos, sin NP/PA | ✓ H1 ✓ H2 (41,80 vs 25,77) |
+
+**H2 falla en 2021 y eso es informativo, no un problema:** ese año el top 100 de
+Novo acumulaba más pagos que el de Lilly (80 vs 64). Lilly construyó su programa
+después — de 64 pagos promedio en 2021 a 118 en 2024. El patrón que describe el
+corte se forma dentro de la ventana, no la precede.
+
+### Familia B — sensibilidad a mis decisiones (4/4 sobrevive)
+
+| Ataque | Resultado |
+|---|---|
+| B1 D-002 alt: sólo entidad operativa US | ✓ H1 ✓ H2 (1,75x) |
+| B2 D-004 alt: fila entera, sin prorratear | ✓ H1 ✓ H2 (1,88x) |
+| B3 D-007 alt: top 1% y Gini, las métricas rechazadas | ✓ ambas ordenan igual (74,30 vs 64,92 · 0,8846 vs 0,8549) |
+
+### Familia C — explicaciones alternativas
+
+| Ataque | Resultado |
+|---|---|
+| C1 redes recortadas a 1.000 / 10.000 / 50.000 / 152.493 | ✓ H1 ✓ H2 en las cuatro (1,49x a 1,73x) |
+| C2 sin productos lanzados en la ventana | **no concluyente**, ver abajo |
+| C3 sólo contacto de campo | **✗ H1** — el signo se invierte (0,71x) |
+| C3b sólo el grupo "voz" | ✓ H1 ✓ H2 (1,53x) |
+
+**C1 era la explicación más plausible y falló.** Novo llega a 37% más
+profesionales, así que su denominador podría diluir el peso del top 100 por
+construcción. Emparejando las redes a cuatro tamaños distintos, Lilly sigue
+concentrando más en todos. No es artefacto de alcance.
+
+**C2 no concluye, y hay que decirlo:** al excluir Mounjaro, Zepbound y Wegovy, a
+Lilly le queda **sólo Trulicity (USD 8,27M)** contra USD 85,25M de Novo. La
+comparación deja de ser entre estrategias y pasa a ser entre una compañía con
+negocio y otra sin él. El test da 2,68x a favor de Lilly, pero ese número no
+significa nada: la muestra quedó degenerada. **Un test limpio del efecto
+lanzamiento exige otro diseño** — por ejemplo excluir sólo el año de lanzamiento
+de cada producto — y queda pendiente.
+
+**C3 invirtió el signo y refinó el hallazgo.** Mirando sólo contacto de campo,
+Novo concentra más que Lilly (6,72% vs. 4,77%). La concentración de Lilly no es
+un rasgo general de su gasto: **es un rasgo de su programa de voz**, que reparte
+USD 48,42M entre 657 profesionales contra los 1.139 de Novo. Eso no mata H1 en el
+agregado —que es lo que el corte afirma— pero acota su alcance, y el TL;DR lo
+dice.
 
 ## Qué me haría cambiar de opinión
 
-- Que el ataque 1 muestre que `Profile_ID` no identifica personas de forma
-  estable: toda la métrica descansa en eso.
-- Que la brecha desaparezca al emparejar el tamaño de las redes (ataque 3), lo
-  que convertiría el hallazgo en un artefacto de alcance.
-- Que CMS publique un refresh que reexprese algún año de la ventana.
+- **Un test limpio del efecto lanzamiento**, que C2 no logró ser. Si al excluir
+  sólo el año de lanzamiento de cada producto la brecha desapareciera, el
+  hallazgo sería sobre lanzamientos y no sobre estrategia sostenida.
 - Que aparezca concentración institucional que el `Profile_ID` no capta: varios
-  profesionales de un mismo centro cuentan hoy como independientes.
+  profesionales de un mismo centro cuentan hoy como independientes, y una red
+  aparentemente dispersa podría ser un puñado de instituciones.
+- Que CMS publique un refresh que reexprese algún año de la ventana (los checks
+  cortan solos si cambian los sha256).
+- Ya **no** me haría cambiar de opinión que `Profile_ID` sea inestable: quedó
+  descartado con NPI (0 colisiones en ambas direcciones). Ni el tamaño de red:
+  la brecha aguanta emparejando las redes a cuatro tamaños distintos.
 
 ## Fuentes
 

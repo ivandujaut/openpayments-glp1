@@ -437,7 +437,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 78.0,
-      "pct_usd": 99.3384
+      "pct_usd": 99.3383
     },
     {
       "grupo": "lilly",
@@ -452,12 +452,12 @@
     {
       "grupo": "lilly",
       "pct_hcp": 81.0,
-      "pct_usd": 99.4632
+      "pct_usd": 99.463
     },
     {
       "grupo": "lilly",
       "pct_hcp": 82.0,
-      "pct_usd": 99.5034
+      "pct_usd": 99.5024
     },
     {
       "grupo": "lilly",
@@ -472,7 +472,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 85.0,
-      "pct_usd": 99.6147
+      "pct_usd": 99.615
     },
     {
       "grupo": "lilly",
@@ -487,7 +487,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 88.0,
-      "pct_usd": 99.7187
+      "pct_usd": 99.7196
     },
     {
       "grupo": "lilly",
@@ -502,7 +502,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 91.0,
-      "pct_usd": 99.8154
+      "pct_usd": 99.815
     },
     {
       "grupo": "lilly",
@@ -517,7 +517,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 94.0,
-      "pct_usd": 99.9026
+      "pct_usd": 99.9025
     },
     {
       "grupo": "lilly",
@@ -527,7 +527,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 96.0,
-      "pct_usd": 99.9476
+      "pct_usd": 99.9477
     },
     {
       "grupo": "lilly",
@@ -537,7 +537,7 @@
     {
       "grupo": "lilly",
       "pct_hcp": 98.0,
-      "pct_usd": 99.981
+      "pct_usd": 99.9812
     },
     {
       "grupo": "lilly",
@@ -747,7 +747,7 @@
     {
       "grupo": "novo",
       "pct_hcp": 39.0,
-      "pct_usd": 94.2585
+      "pct_usd": 94.2586
     },
     {
       "grupo": "novo",
@@ -897,7 +897,7 @@
     {
       "grupo": "novo",
       "pct_hcp": 69.0,
-      "pct_usd": 98.7283
+      "pct_usd": 98.7282
     },
     {
       "grupo": "novo",
@@ -907,7 +907,7 @@
     {
       "grupo": "novo",
       "pct_hcp": 71.0,
-      "pct_usd": 98.8692
+      "pct_usd": 98.8696
     },
     {
       "grupo": "novo",
@@ -917,12 +917,12 @@
     {
       "grupo": "novo",
       "pct_hcp": 73.0,
-      "pct_usd": 98.9981
+      "pct_usd": 98.9982
     },
     {
       "grupo": "novo",
       "pct_hcp": 74.0,
-      "pct_usd": 99.0587
+      "pct_usd": 99.0588
     },
     {
       "grupo": "novo",
@@ -937,12 +937,12 @@
     {
       "grupo": "novo",
       "pct_hcp": 77.0,
-      "pct_usd": 99.2229
+      "pct_usd": 99.2228
     },
     {
       "grupo": "novo",
       "pct_hcp": 78.0,
-      "pct_usd": 99.2711
+      "pct_usd": 99.2708
     },
     {
       "grupo": "novo",
@@ -972,12 +972,12 @@
     {
       "grupo": "novo",
       "pct_hcp": 84.0,
-      "pct_usd": 99.5247
+      "pct_usd": 99.5248
     },
     {
       "grupo": "novo",
       "pct_hcp": 85.0,
-      "pct_usd": 99.5623
+      "pct_usd": 99.5624
     },
     {
       "grupo": "novo",
@@ -1002,7 +1002,7 @@
     {
       "grupo": "novo",
       "pct_hcp": 90.0,
-      "pct_usd": 99.7354
+      "pct_usd": 99.7358
     },
     {
       "grupo": "novo",
@@ -1069,6 +1069,40 @@
       "usd_minimo": 172768.0,
       "pagos_promedio": 246.4,
       "pct_voz": 87.2
+    }
+  ],
+  "por_naturaleza": [
+    {
+      "grupo_naturaleza": "campo",
+      "grupo": "lilly",
+      "red_hcps": 152430,
+      "usd": 20711668.55,
+      "usd_por_hcp": 136.0,
+      "top100": 4.77
+    },
+    {
+      "grupo_naturaleza": "campo",
+      "grupo": "novo",
+      "red_hcps": 209369,
+      "usd": 49248629.69,
+      "usd_por_hcp": 235.0,
+      "top100": 6.72
+    },
+    {
+      "grupo_naturaleza": "voz",
+      "grupo": "lilly",
+      "red_hcps": 657,
+      "usd": 48420818.75,
+      "usd_por_hcp": 73700.0,
+      "top100": 49.06
+    },
+    {
+      "grupo_naturaleza": "voz",
+      "grupo": "novo",
+      "red_hcps": 1139,
+      "usd": 61726342.6,
+      "usd_por_hcp": 54193.0,
+      "top100": 32.11
     }
   ]
 }

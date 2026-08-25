@@ -16,8 +16,8 @@
   "serie": [
     {
       "anio": 2021,
-      "novo_usd": 24606069.896666635,
-      "lilly_usd": 5954236.7721666675,
+      "novo_usd": 24606069.89666667,
+      "lilly_usd": 5954236.772166666,
       "novo_pagos": 441569,
       "lilly_pagos": 153190,
       "novo_hcp": 76863,
@@ -25,8 +25,8 @@
     },
     {
       "anio": 2022,
-      "novo_usd": 28849047.208333522,
-      "lilly_usd": 12029719.623166632,
+      "novo_usd": 28849047.20833361,
+      "lilly_usd": 12029719.623166634,
       "novo_pagos": 473244,
       "lilly_pagos": 199543,
       "novo_hcp": 86116,
@@ -34,7 +34,7 @@
     },
     {
       "anio": 2023,
-      "novo_usd": 13119217.86166658,
+      "novo_usd": 13119217.861666601,
       "lilly_usd": 13959405.957166625,
       "novo_pagos": 425129,
       "lilly_pagos": 268289,
@@ -43,8 +43,8 @@
     },
     {
       "anio": 2024,
-      "novo_usd": 15578369.573333343,
-      "lilly_usd": 17885676.09083327,
+      "novo_usd": 15578369.573333358,
+      "lilly_usd": 17885676.090833295,
       "novo_pagos": 426795,
       "lilly_pagos": 312032,
       "novo_hcp": 99425,
@@ -52,8 +52,8 @@
     },
     {
       "anio": 2025,
-      "novo_usd": 28897540.753333498,
-      "lilly_usd": 19303448.857499953,
+      "novo_usd": 28897540.75333351,
+      "lilly_usd": 19303448.857499987,
       "novo_pagos": 445766,
       "lilly_pagos": 232225,
       "novo_hcp": 114861,
@@ -102,15 +102,15 @@
     },
     {
       "naturaleza": "Food and Beverage",
-      "novo_usd": 42947644.97333409,
-      "lilly_usd": 19673817.470833242,
+      "novo_usd": 42947644.973334186,
+      "lilly_usd": 19673817.470833234,
       "novo_pagos": 2160488,
       "lilly_pagos": 1106270
     },
     {
       "naturaleza": "Travel and Lodging",
-      "novo_usd": 6050074.649999999,
-      "lilly_usd": 1030251.87,
+      "novo_usd": 6050074.6499999985,
+      "lilly_usd": 1030251.8700000002,
       "novo_pagos": 17142,
       "lilly_pagos": 12042
     },
@@ -124,7 +124,7 @@
     {
       "naturaleza": "Education",
       "novo_usd": 250910.07000000167,
-      "lilly_usd": 7599.209999999999,
+      "lilly_usd": 7599.210000000001,
       "novo_pagos": 7227,
       "lilly_pagos": 299
     },
@@ -139,10 +139,10 @@
   "voz_vs_campo": [
     {
       "anio": 2021,
-      "novo_voz": 15191908.260000002,
+      "novo_voz": 15191908.26,
       "lilly_voz": 4569962.5,
-      "novo_campo": 9414161.636666674,
-      "lilly_campo": 1384274.2721666666,
+      "novo_campo": 9414161.63666665,
+      "lilly_campo": 1384274.2721666673,
       "novo_voz_n": 7361,
       "lilly_voz_n": 6521
     },
@@ -150,17 +150,17 @@
       "anio": 2022,
       "novo_voz": 17685921.65,
       "lilly_voz": 8660187.5,
-      "novo_campo": 11163125.558333231,
-      "lilly_campo": 3369532.123166671,
+      "novo_campo": 11163125.558333267,
+      "lilly_campo": 3369532.1231666724,
       "novo_voz_n": 6493,
       "lilly_voz_n": 8144
     },
     {
       "anio": 2023,
-      "novo_voz": 5477957.45,
+      "novo_voz": 5477957.449999999,
       "lilly_voz": 8787268.75,
-      "novo_campo": 7641260.411666619,
-      "lilly_campo": 5172137.20716666,
+      "novo_campo": 7641260.411666633,
+      "lilly_campo": 5172137.207166666,
       "novo_voz_n": 4234,
       "lilly_voz_n": 8245
     },
@@ -168,8 +168,8 @@
       "anio": 2024,
       "novo_voz": 6864890.22,
       "lilly_voz": 11981068.75,
-      "novo_campo": 8713479.353333324,
-      "lilly_campo": 5904607.340833308,
+      "novo_campo": 8713479.353333337,
+      "lilly_campo": 5904607.340833312,
       "novo_voz_n": 4314,
       "lilly_voz_n": 11154
     },
@@ -177,8 +177,8 @@
       "anio": 2025,
       "novo_voz": 16505665.02,
       "lilly_voz": 14422331.25,
-      "novo_campo": 12391875.733333271,
-      "lilly_campo": 4881117.607500012,
+      "novo_campo": 12391875.733333273,
+      "lilly_campo": 4881117.607500006,
       "novo_voz_n": 5201,
       "lilly_voz_n": 12604
     }
@@ -188,98 +188,98 @@
       "producto": "MOUNJARO",
       "grupo": "lilly",
       "anio": 2022,
-      "usd": 10110679.142833328,
+      "usd": 10110679.142833322,
       "pagos": 139760
     },
     {
       "producto": "MOUNJARO",
       "grupo": "lilly",
       "anio": 2023,
-      "usd": 13527250.963166628,
+      "usd": 13527250.963166635,
       "pagos": 260422
     },
     {
       "producto": "MOUNJARO",
       "grupo": "lilly",
       "anio": 2024,
-      "usd": 11891844.494999988,
+      "usd": 11891844.495000001,
       "pagos": 235326
     },
     {
       "producto": "MOUNJARO",
       "grupo": "lilly",
       "anio": 2025,
-      "usd": 8052282.3408333305,
+      "usd": 8052282.340833332,
       "pagos": 187419
     },
     {
       "producto": "OZEMPIC",
       "grupo": "novo",
       "anio": 2021,
-      "usd": 7324622.034999986,
+      "usd": 7324622.035000002,
       "pagos": 338661
     },
     {
       "producto": "OZEMPIC",
       "grupo": "novo",
       "anio": 2022,
-      "usd": 10670393.098333307,
+      "usd": 10670393.09833329,
       "pagos": 371458
     },
     {
       "producto": "OZEMPIC",
       "grupo": "novo",
       "anio": 2023,
-      "usd": 4452664.584999987,
+      "usd": 4452664.584999985,
       "pagos": 298024
     },
     {
       "producto": "OZEMPIC",
       "grupo": "novo",
       "anio": 2024,
-      "usd": 4792362.8066666685,
+      "usd": 4792362.806666673,
       "pagos": 286875
     },
     {
       "producto": "OZEMPIC",
       "grupo": "novo",
       "anio": 2025,
-      "usd": 14979737.836666659,
+      "usd": 14979737.836666653,
       "pagos": 262039
     },
     {
       "producto": "RYBELSUS",
       "grupo": "novo",
       "anio": 2021,
-      "usd": 13451710.925000008,
+      "usd": 13451710.925,
       "pagos": 350316
     },
     {
       "producto": "RYBELSUS",
       "grupo": "novo",
       "anio": 2022,
-      "usd": 13315017.193333285,
+      "usd": 13315017.19333336,
       "pagos": 366746
     },
     {
       "producto": "RYBELSUS",
       "grupo": "novo",
       "anio": 2023,
-      "usd": 4007231.664999991,
+      "usd": 4007231.6649999917,
       "pagos": 287059
     },
     {
       "producto": "RYBELSUS",
       "grupo": "novo",
       "anio": 2024,
-      "usd": 3415447.7966666673,
+      "usd": 3415447.796666669,
       "pagos": 268916
     },
     {
       "producto": "RYBELSUS",
       "grupo": "novo",
       "anio": 2025,
-      "usd": 1586832.916666668,
+      "usd": 1586832.9166666665,
       "pagos": 161521
     },
     {
@@ -293,7 +293,7 @@
       "producto": "SAXENDA",
       "grupo": "novo",
       "anio": 2022,
-      "usd": 4416613.164999997,
+      "usd": 4416613.165,
       "pagos": 64711
     },
     {
@@ -307,35 +307,35 @@
       "producto": "SAXENDA",
       "grupo": "novo",
       "anio": 2024,
-      "usd": 112049.18500000003,
+      "usd": 112049.18500000001,
       "pagos": 3441
     },
     {
       "producto": "SAXENDA",
       "grupo": "novo",
       "anio": 2025,
-      "usd": 172188.79500000004,
+      "usd": 172188.795,
       "pagos": 2536
     },
     {
       "producto": "TRULICITY",
       "grupo": "lilly",
       "anio": 2021,
-      "usd": 5954236.772166671,
+      "usd": 5954236.772166666,
       "pagos": 153190
     },
     {
       "producto": "TRULICITY",
       "grupo": "lilly",
       "anio": 2022,
-      "usd": 1919040.480333334,
+      "usd": 1919040.4803333362,
       "pagos": 98721
     },
     {
       "producto": "TRULICITY",
       "grupo": "lilly",
       "anio": 2023,
-      "usd": 350023.80816666665,
+      "usd": 350023.8081666669,
       "pagos": 40430
     },
     {
@@ -349,28 +349,28 @@
       "producto": "TRULICITY",
       "grupo": "lilly",
       "anio": 2025,
-      "usd": 6024.776666666667,
+      "usd": 6024.776666666666,
       "pagos": 74
     },
     {
       "producto": "VICTOZA",
       "grupo": "novo",
       "anio": 2021,
-      "usd": 58448.171666666676,
+      "usd": 58448.17166666667,
       "pagos": 340
     },
     {
       "producto": "VICTOZA",
       "grupo": "novo",
       "anio": 2022,
-      "usd": 149795.73666666663,
+      "usd": 149795.7366666667,
       "pagos": 320
     },
     {
       "producto": "VICTOZA",
       "grupo": "novo",
       "anio": 2023,
-      "usd": 465.6566666666667,
+      "usd": 465.65666666666675,
       "pagos": 15
     },
     {
@@ -384,49 +384,49 @@
       "producto": "VICTOZA",
       "grupo": "novo",
       "anio": 2025,
-      "usd": 51354.46000000001,
+      "usd": 51354.45999999999,
       "pagos": 22
     },
     {
       "producto": "WEGOVY",
       "grupo": "novo",
       "anio": 2021,
-      "usd": 1949119.6500000027,
+      "usd": 1949119.650000002,
       "pagos": 35904
     },
     {
       "producto": "WEGOVY",
       "grupo": "novo",
       "anio": 2022,
-      "usd": 293218.2000000001,
+      "usd": 293218.2,
       "pagos": 11145
     },
     {
       "producto": "WEGOVY",
       "grupo": "novo",
       "anio": 2023,
-      "usd": 4581638.049999997,
+      "usd": 4581638.049999999,
       "pagos": 114372
     },
     {
       "producto": "WEGOVY",
       "grupo": "novo",
       "anio": 2024,
-      "usd": 6880944.155000014,
+      "usd": 6880944.155000003,
       "pagos": 130946
     },
     {
       "producto": "WEGOVY",
       "grupo": "novo",
       "anio": 2025,
-      "usd": 12107426.744999975,
+      "usd": 12107426.744999992,
       "pagos": 183294
     },
     {
       "producto": "XULTOPHY 100/3.6",
       "grupo": "novo",
       "anio": 2021,
-      "usd": 5035.955000000001,
+      "usd": 5035.955,
       "pagos": 24
     },
     {
@@ -454,27 +454,27 @@
       "producto": "ZEPBOUND",
       "grupo": "lilly",
       "anio": 2023,
-      "usd": 82131.18583333334,
+      "usd": 82131.18583333332,
       "pagos": 6867
     },
     {
       "producto": "ZEPBOUND",
       "grupo": "lilly",
       "anio": 2024,
-      "usd": 5954547.68416666,
+      "usd": 5954547.684166659,
       "pagos": 166883
     },
     {
       "producto": "ZEPBOUND",
       "grupo": "lilly",
       "anio": 2025,
-      "usd": 11245141.74,
+      "usd": 11245141.739999995,
       "pagos": 186426
     }
   ],
   "totales": {
-    "novo_usd": 111050245.29333358,
-    "lilly_usd": 69132487.30083315,
+    "novo_usd": 111050245.29333374,
+    "lilly_usd": 69132487.30083321,
     "novo_pagos": 2212503,
     "lilly_pagos": 1165279
   }

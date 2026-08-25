@@ -101,6 +101,28 @@ def main() -> None:
         """
     ).df()
 
+    # Concentración DENTRO de cada grupo de naturaleza. La agrega el ataque 06
+    # (C3): la concentración de Lilly no es general, vive en su programa de voz,
+    # y ahí los dos círculos tienen tamaños muy distintos.
+    por_naturaleza = con.sql(
+        """
+        WITH x AS (SELECT grupo, grupo_naturaleza, receptor_id, sum(usd) AS usd
+                   FROM glp1 WHERE receptor_id IS NOT NULL GROUP BY 1, 2, 3),
+             r AS (SELECT *,
+                          row_number() OVER (PARTITION BY grupo, grupo_naturaleza
+                                             ORDER BY usd DESC) rn,
+                          count(*) OVER (PARTITION BY grupo, grupo_naturaleza) n,
+                          sum(usd) OVER (PARTITION BY grupo, grupo_naturaleza) total
+                   FROM x)
+        SELECT grupo_naturaleza, grupo,
+               any_value(n) AS red_hcps,
+               round(any_value(total), 2) AS usd,
+               round(any_value(total)/any_value(n), 0) AS usd_por_hcp,
+               round(100.0*sum(usd) FILTER (rn <= 100)/any_value(total), 2) AS top100
+        FROM r GROUP BY grupo_naturaleza, grupo ORDER BY grupo_naturaleza, grupo
+        """
+    ).df()
+
     salida = {
         "corte": "02_concentracion",
         "ventana": [ANIO_DESDE, ANIO_HASTA],
@@ -109,6 +131,7 @@ def main() -> None:
         "concentracion": concentracion.to_dict("records"),
         "lorenz": lorenz.to_dict("records"),
         "perfil_top100": perfil_top.to_dict("records"),
+        "por_naturaleza": por_naturaleza.to_dict("records"),
     }
     CACHE.mkdir(parents=True, exist_ok=True)
     DESTINO.write_text(json.dumps(salida, indent=2, ensure_ascii=False, default=float))
@@ -118,6 +141,8 @@ def main() -> None:
     print(concentracion.to_string(index=False))
     print("\nPerfil del top 100 de cada compañía:")
     print(perfil_top.to_string(index=False))
+    print("\nConcentración dentro de cada grupo de naturaleza (D-006):")
+    print(por_naturaleza.to_string(index=False))
 
     l, n = (concentracion.set_index("grupo").top100.get(g) for g in ("lilly", "novo"))
     print(f"\nEl top 100 de Lilly recibe {l:.1f}% de su gasto; el de Novo, {n:.1f}%. "
