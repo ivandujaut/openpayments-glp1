@@ -16,8 +16,9 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
    cada finding declara su líder. En el corte 01 el hallazgo es la divergencia).
 6. **Agrupación de especialidades**: qué taxonomías caen en "endocrinología",
    "atención primaria", "NP/PA" y "resto".
-   *(La agrupación de naturalezas de pago, que no estaba en esta cola, se
-   resolvió en **D-006** tras el red-team del corte 01.)*
+   *(Fuera de esta cola original se resolvieron: **D-006**, agrupación de
+   naturalezas de pago, tras el red-team del corte 01; y **D-007**, métrica de
+   concentración por receptor, al abrir el corte 02.)*
 7. **Dólares nominales vs. deflactados.**
 8. **Filas con `Date_of_Payment` corrupta**: 75 filas de PY2024 traen
    `11/30/0002` en el CSV de CMS (USD 307.571,82; fabricantes de dispositivos,
@@ -378,4 +379,58 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 - **Scripts afectados:** `src/vistas.py` (la columna `grupo_naturaleza` vive
   acá), `analysis/corte-01_carrera.py`, `analysis/ataque-03_explicaciones-negocio.py`,
   `charts/g2_disertantes.py`, `findings/corte-01_carrera.md`.
+- **Estado:** vigente
+
+## D-007 — Concentración del gasto: top 100 como métrica, Gini como control  (2026-08-25)
+- **Decisión:** la concentración del gasto entre profesionales receptores se mide
+  con el **porcentaje que recibe el top 100 de cada compañía**, y se controla con
+  el **índice de Gini** sobre la distribución completa. El receptor es
+  `Covered_Recipient_Profile_ID`; los pagos sin ese ID quedan afuera.
+
+  ```
+             red HCPs   top 100   Gini
+  Lilly       152.493     35,6%   0,8846
+  Novo        209.450     20,4%   0,8549
+  ```
+
+- **Por qué el top 100 y no el top 1%:** las redes tienen tamaños muy distintos.
+  El 1% de Lilly son 1.525 profesionales y el de Novo 2.095, así que esa métrica
+  **mezcla concentración con alcance**: parte de la brecha sería sólo que Novo
+  reparte entre más gente. El top 100 compara a las mismas cien personas en las
+  dos compañías, que es la comparación honesta.
+
+- **El N es arbitrario, y por eso se verificó antes de elegirlo.** Porcentaje del
+  gasto al top N:
+
+  ```
+          top 10  top 50  top 100  top 500  top 1000
+  Lilly      5,2    21,1     35,6     72,2      73,6
+  Novo       2,8    11,8     20,4     54,2      62,8
+  ```
+
+  Lilly concentra más en los cinco cortes. El hallazgo no depende de N; se
+  publica el top 100 por legibilidad, no porque sea el único que funciona.
+
+- **Exclusión documentada:** los hospitales docentes no tienen
+  `Covered_Recipient_Profile_ID` y quedan fuera de toda métrica de concentración.
+  En GLP-1 son **43 pagos y USD 75.300** (0,04% del total): la exclusión es
+  inocua, pero se declara para que no se confunda con un filtro deliberado.
+
+- **Alternativas rechazadas:**
+  - *Cuota del top 1% de cada red* (Lilly 74,3% vs. Novo 64,9%). Es la métrica
+    más citada en la literatura, pero acá confunde dos cosas distintas. Se
+    reporta en el finding como dato secundario, nunca como titular.
+  - *Sólo Gini.* Sin umbrales arbitrarios y sensible a toda la curva, pero una
+    brecha de 0,8846 contra 0,8549 no comunica nada a un lector general. Queda
+    como control de robustez, que es donde rinde.
+
+- **Qué la invalidaría:**
+  - Que las redes se emparejen en tamaño: ahí el top 1% dejaría de estar sesgado
+    y sería preferible por comparabilidad con la literatura.
+  - Que aparezca concentración a nivel entidad y no persona (por ejemplo, muchos
+    profesionales de una misma institución), que el `Profile_ID` no captura.
+  - Que los hospitales docentes pasen a pesar en GLP-1: hoy son 0,04%.
+
+- **Scripts afectados:** `analysis/corte-02_concentracion.py`,
+  `charts/g3_concentracion.py`, `findings/corte-02_concentracion.md`.
 - **Estado:** vigente

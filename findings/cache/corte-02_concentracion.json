@@ -1,0 +1,1074 @@
+{
+  "corte": "02_concentracion",
+  "ventana": [
+    2021,
+    2025
+  ],
+  "decisiones": [
+    "D-001",
+    "D-002",
+    "D-003",
+    "D-004",
+    "D-006",
+    "D-007"
+  ],
+  "metrica_lider": "% del gasto al top 100 de profesionales (D-007)",
+  "concentracion": [
+    {
+      "grupo": "lilly",
+      "red_hcps": 152493,
+      "musd": 69.13,
+      "top10": 5.24,
+      "top50": 21.14,
+      "top100": 35.64,
+      "top500": 72.17,
+      "top1000": 73.6,
+      "top1pct": 74.3,
+      "gini": 0.8846,
+      "mediana_hcp": 60.55,
+      "mayor_hcp": 403511.38
+    },
+    {
+      "grupo": "novo",
+      "red_hcps": 209450,
+      "musd": 110.97,
+      "top10": 2.83,
+      "top50": 11.79,
+      "top100": 20.44,
+      "top500": 54.23,
+      "top1000": 62.79,
+      "top1pct": 64.92,
+      "gini": 0.8549,
+      "mediana_hcp": 94.37,
+      "mayor_hcp": 358682.84
+    }
+  ],
+  "lorenz": [
+    {
+      "grupo": "lilly",
+      "pct_hcp": 0.0,
+      "pct_usd": 73.2266
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 1.0,
+      "pct_usd": 75.1655
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 2.0,
+      "pct_usd": 76.6459
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 3.0,
+      "pct_usd": 77.9261
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 4.0,
+      "pct_usd": 79.0677
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 5.0,
+      "pct_usd": 80.1076
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 6.0,
+      "pct_usd": 81.0617
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 7.0,
+      "pct_usd": 81.9466
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 8.0,
+      "pct_usd": 82.7725
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 9.0,
+      "pct_usd": 83.547
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 10.0,
+      "pct_usd": 84.2755
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 11.0,
+      "pct_usd": 84.9604
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 12.0,
+      "pct_usd": 85.6053
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 13.0,
+      "pct_usd": 86.2141
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 14.0,
+      "pct_usd": 86.7901
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 15.0,
+      "pct_usd": 87.338
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 16.0,
+      "pct_usd": 87.8611
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 17.0,
+      "pct_usd": 88.3598
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 18.0,
+      "pct_usd": 88.8345
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 19.0,
+      "pct_usd": 89.2866
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 20.0,
+      "pct_usd": 89.7177
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 21.0,
+      "pct_usd": 90.1289
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 22.0,
+      "pct_usd": 90.5216
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 23.0,
+      "pct_usd": 90.8962
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 24.0,
+      "pct_usd": 91.2542
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 25.0,
+      "pct_usd": 91.5969
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 26.0,
+      "pct_usd": 91.9258
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 27.0,
+      "pct_usd": 92.2417
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 28.0,
+      "pct_usd": 92.5452
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 29.0,
+      "pct_usd": 92.8368
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 30.0,
+      "pct_usd": 93.1167
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 31.0,
+      "pct_usd": 93.3911
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 32.0,
+      "pct_usd": 93.6597
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 33.0,
+      "pct_usd": 93.9221
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 34.0,
+      "pct_usd": 94.1765
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 35.0,
+      "pct_usd": 94.422
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 36.0,
+      "pct_usd": 94.6587
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 37.0,
+      "pct_usd": 94.8868
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 38.0,
+      "pct_usd": 95.106
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 39.0,
+      "pct_usd": 95.3175
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 40.0,
+      "pct_usd": 95.5211
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 41.0,
+      "pct_usd": 95.7167
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 42.0,
+      "pct_usd": 95.9044
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 43.0,
+      "pct_usd": 96.0843
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 44.0,
+      "pct_usd": 96.2568
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 45.0,
+      "pct_usd": 96.4224
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 46.0,
+      "pct_usd": 96.581
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 47.0,
+      "pct_usd": 96.7331
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 48.0,
+      "pct_usd": 96.8788
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 49.0,
+      "pct_usd": 97.0182
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 50.0,
+      "pct_usd": 97.1517
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 51.0,
+      "pct_usd": 97.2798
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 52.0,
+      "pct_usd": 97.4028
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 53.0,
+      "pct_usd": 97.5206
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 54.0,
+      "pct_usd": 97.6338
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 55.0,
+      "pct_usd": 97.7424
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 56.0,
+      "pct_usd": 97.8467
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 57.0,
+      "pct_usd": 97.947
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 58.0,
+      "pct_usd": 98.0432
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 59.0,
+      "pct_usd": 98.1354
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 60.0,
+      "pct_usd": 98.2236
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 61.0,
+      "pct_usd": 98.3081
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 62.0,
+      "pct_usd": 98.3891
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 63.0,
+      "pct_usd": 98.467
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 64.0,
+      "pct_usd": 98.5421
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 65.0,
+      "pct_usd": 98.6147
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 66.0,
+      "pct_usd": 98.6848
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 67.0,
+      "pct_usd": 98.7524
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 68.0,
+      "pct_usd": 98.8176
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 69.0,
+      "pct_usd": 98.8799
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 70.0,
+      "pct_usd": 98.9396
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 71.0,
+      "pct_usd": 98.9966
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 72.0,
+      "pct_usd": 99.0512
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 73.0,
+      "pct_usd": 99.1035
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 74.0,
+      "pct_usd": 99.1537
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 75.0,
+      "pct_usd": 99.2021
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 76.0,
+      "pct_usd": 99.249
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 77.0,
+      "pct_usd": 99.2943
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 78.0,
+      "pct_usd": 99.3384
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 79.0,
+      "pct_usd": 99.3815
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 80.0,
+      "pct_usd": 99.423
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 81.0,
+      "pct_usd": 99.4632
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 82.0,
+      "pct_usd": 99.5034
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 83.0,
+      "pct_usd": 99.5408
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 84.0,
+      "pct_usd": 99.5782
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 85.0,
+      "pct_usd": 99.6147
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 86.0,
+      "pct_usd": 99.6502
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 87.0,
+      "pct_usd": 99.6849
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 88.0,
+      "pct_usd": 99.7187
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 89.0,
+      "pct_usd": 99.7516
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 90.0,
+      "pct_usd": 99.7838
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 91.0,
+      "pct_usd": 99.8154
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 92.0,
+      "pct_usd": 99.8458
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 93.0,
+      "pct_usd": 99.8749
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 94.0,
+      "pct_usd": 99.9026
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 95.0,
+      "pct_usd": 99.9272
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 96.0,
+      "pct_usd": 99.9476
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 97.0,
+      "pct_usd": 99.9653
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 98.0,
+      "pct_usd": 99.981
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 99.0,
+      "pct_usd": 99.9947
+    },
+    {
+      "grupo": "lilly",
+      "pct_hcp": 100.0,
+      "pct_usd": 100.0
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 0.0,
+      "pct_usd": 62.9234
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 1.0,
+      "pct_usd": 66.396
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 2.0,
+      "pct_usd": 68.8099
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 3.0,
+      "pct_usd": 70.8072
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 4.0,
+      "pct_usd": 72.5499
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 5.0,
+      "pct_usd": 74.1043
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 6.0,
+      "pct_usd": 75.5129
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 7.0,
+      "pct_usd": 76.8009
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 8.0,
+      "pct_usd": 77.9844
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 9.0,
+      "pct_usd": 79.0785
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 10.0,
+      "pct_usd": 80.0932
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 11.0,
+      "pct_usd": 81.0375
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 12.0,
+      "pct_usd": 81.9202
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 13.0,
+      "pct_usd": 82.7464
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 14.0,
+      "pct_usd": 83.5215
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 15.0,
+      "pct_usd": 84.2499
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 16.0,
+      "pct_usd": 84.9393
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 17.0,
+      "pct_usd": 85.5913
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 18.0,
+      "pct_usd": 86.2091
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 19.0,
+      "pct_usd": 86.7941
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 20.0,
+      "pct_usd": 87.3489
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 21.0,
+      "pct_usd": 87.8748
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 22.0,
+      "pct_usd": 88.3746
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 23.0,
+      "pct_usd": 88.851
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 24.0,
+      "pct_usd": 89.3098
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 25.0,
+      "pct_usd": 89.7493
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 26.0,
+      "pct_usd": 90.1699
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 27.0,
+      "pct_usd": 90.5714
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 28.0,
+      "pct_usd": 90.9543
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 29.0,
+      "pct_usd": 91.3196
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 30.0,
+      "pct_usd": 91.668
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 31.0,
+      "pct_usd": 92.0
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 32.0,
+      "pct_usd": 92.3173
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 33.0,
+      "pct_usd": 92.621
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 34.0,
+      "pct_usd": 92.9119
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 35.0,
+      "pct_usd": 93.1907
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 36.0,
+      "pct_usd": 93.4589
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 37.0,
+      "pct_usd": 93.7167
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 38.0,
+      "pct_usd": 93.9635
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 39.0,
+      "pct_usd": 94.2585
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 40.0,
+      "pct_usd": 94.4362
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 41.0,
+      "pct_usd": 94.6693
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 42.0,
+      "pct_usd": 94.8987
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 43.0,
+      "pct_usd": 95.124
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 44.0,
+      "pct_usd": 95.3439
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 45.0,
+      "pct_usd": 95.5574
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 46.0,
+      "pct_usd": 95.764
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 47.0,
+      "pct_usd": 95.9632
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 48.0,
+      "pct_usd": 96.1552
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 49.0,
+      "pct_usd": 96.3402
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 50.0,
+      "pct_usd": 96.5184
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 51.0,
+      "pct_usd": 96.6889
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 52.0,
+      "pct_usd": 96.8524
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 53.0,
+      "pct_usd": 97.0088
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 54.0,
+      "pct_usd": 97.1583
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 55.0,
+      "pct_usd": 97.3006
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 56.0,
+      "pct_usd": 97.4362
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 57.0,
+      "pct_usd": 97.5653
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 58.0,
+      "pct_usd": 97.6884
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 59.0,
+      "pct_usd": 97.806
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 60.0,
+      "pct_usd": 97.9183
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 61.0,
+      "pct_usd": 98.0253
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 62.0,
+      "pct_usd": 98.1271
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 63.0,
+      "pct_usd": 98.2239
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 64.0,
+      "pct_usd": 98.3172
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 65.0,
+      "pct_usd": 98.4068
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 66.0,
+      "pct_usd": 98.4925
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 67.0,
+      "pct_usd": 98.5746
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 68.0,
+      "pct_usd": 98.6531
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 69.0,
+      "pct_usd": 98.7283
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 70.0,
+      "pct_usd": 98.8003
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 71.0,
+      "pct_usd": 98.8692
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 72.0,
+      "pct_usd": 98.9351
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 73.0,
+      "pct_usd": 98.9981
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 74.0,
+      "pct_usd": 99.0587
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 75.0,
+      "pct_usd": 99.1165
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 76.0,
+      "pct_usd": 99.1713
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 77.0,
+      "pct_usd": 99.2229
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 78.0,
+      "pct_usd": 99.2711
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 79.0,
+      "pct_usd": 99.3167
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 80.0,
+      "pct_usd": 99.3611
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 81.0,
+      "pct_usd": 99.404
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 82.0,
+      "pct_usd": 99.4456
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 83.0,
+      "pct_usd": 99.4858
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 84.0,
+      "pct_usd": 99.5247
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 85.0,
+      "pct_usd": 99.5623
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 86.0,
+      "pct_usd": 99.5996
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 87.0,
+      "pct_usd": 99.6346
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 88.0,
+      "pct_usd": 99.6697
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 89.0,
+      "pct_usd": 99.7031
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 90.0,
+      "pct_usd": 99.7354
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 91.0,
+      "pct_usd": 99.7672
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 92.0,
+      "pct_usd": 99.7983
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 93.0,
+      "pct_usd": 99.8286
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 94.0,
+      "pct_usd": 99.8574
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 95.0,
+      "pct_usd": 99.8858
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 96.0,
+      "pct_usd": 99.9134
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 97.0,
+      "pct_usd": 99.9398
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 98.0,
+      "pct_usd": 99.9655
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 99.0,
+      "pct_usd": 99.9894
+    },
+    {
+      "grupo": "novo",
+      "pct_hcp": 100.0,
+      "pct_usd": 100.0
+    }
+  ],
+  "perfil_top100": [
+    {
+      "grupo": "lilly",
+      "usd_promedio": 246402.0,
+      "usd_minimo": 172608.0,
+      "pagos_promedio": 431.3,
+      "pct_voz": 96.4
+    },
+    {
+      "grupo": "novo",
+      "usd_promedio": 226796.0,
+      "usd_minimo": 172768.0,
+      "pagos_promedio": 246.4,
+      "pct_voz": 87.2
+    }
+  ]
+}

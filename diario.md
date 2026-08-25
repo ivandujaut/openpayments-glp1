@@ -202,3 +202,47 @@ Formato por entrada (una por sesión, al cierre):
 - **Próximo paso concreto:** el corte 02 sobre la cola de pagos grandes, que es
   donde C1 dejó la pregunta abierta: si el liderazgo de Novo en 2025 vive en un
   puñado de pagos, ¿cuántos son y a quién van?
+
+---
+
+## 2026-08-25 — corte 02: la concentración que dejó abierta C1
+
+- **Se decidió:** **D-007 · métrica de concentración.** El titular usa el % del
+  gasto que recibe el **top 100** de profesionales de cada compañía; el **Gini**
+  queda como control. Se frenó antes de implementar: definir "pago grande" o
+  "concentración" es un umbral, y los umbrales pasan por `/decidir`.
+- **Por qué no el top 1%, que era lo natural:** las redes tienen tamaños muy
+  distintos (Novo 209.450 profesionales, Lilly 152.493), así que el 1% compara
+  2.095 personas contra 1.525. Esa métrica **mezcla concentración con alcance**.
+  El top 100 compara a las mismas cien personas. Verificado antes de elegir que
+  el orden no depende de N: Lilly concentra más en top 10, 50, 100, 500 y 1.000.
+- **Se produjo:** `analysis/corte-02_concentracion.py`,
+  `charts/g3_concentracion.py`, `figures/g3_concentracion[.en].png`,
+  `findings/corte-02_concentracion.md`.
+- **El hallazgo:** el gasto está extremadamente concentrado en ambas, pero
+  **Lilly concentra 1,74x más**: sus cien profesionales mejor pagos reciben el
+  **35,6%** de todo su gasto GLP-1, contra **20,4%** en Novo. Gini 0,885 vs
+  0,855.
+- **Lo más interesante no es el dinero sino el ritmo.** Entrar al top 100 cuesta
+  casi lo mismo en las dos (USD 172.608 en Lilly, USD 172.768 en Novo), pero los
+  cien de Lilly acumulan **431 pagos promedio contra 246 de Novo**. Cifras
+  parecidas, casi el doble de contactos. Encaja con lo que ya había mostrado
+  D-006: Novo paga menos veces y más caro; Lilly, más veces y más barato. La
+  misma estrategia aparece ahora en la cabeza de la distribución.
+- **Cierra el hilo de C1:** el ataque del corte 01 mostró que al recortar el 1%
+  de pagos más caros Lilly superaba a Novo también en 2025, o sea que el
+  liderazgo de Novo vivía en su cola. La cola existe en las dos; la de Lilly es
+  más pesada.
+- **Quedó abierto:**
+  - **El corte 02 no tiene red-team todavía.** Cinco ataques ya listados en el
+    finding; el más peligroso es si `Profile_ID` identifica personas de forma
+    estable, porque toda la métrica descansa en eso. Contrastarlo contra
+    `Covered_Recipient_NPI`.
+  - Todos los números del corte 02 son del acumulado 2021–2025: falta ver si la
+    brecha se sostiene año a año.
+  - Cola: D-008 (especialidades), D-009 (deflactar), D-010 (75 filas con fecha
+    corrupta de PY2024).
+  - La hipótesis de escasez de semaglutida sigue sin testear.
+  - Cinco commits locales sin pushear.
+- **Próximo paso concreto:** `/atacar corte-02`, empezando por el test de
+  `Profile_ID` contra `NPI`. Sin eso, la cifra de concentración no se publica.
