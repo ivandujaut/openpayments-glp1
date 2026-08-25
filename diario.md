@@ -347,3 +347,55 @@ Formato por entrada (una por sesión, al cierre):
   - Ocho commits locales sin pushear.
 - **Próximo paso concreto:** `/atacar corte-03`, empezando por la estabilidad de
   la especialidad autodeclarada.
+- **Cerrado en la misma sesión:** ver la entrada siguiente.
+
+---
+
+## 2026-08-25 — red-team del corte 03: el ataque encontró una convergencia
+
+- **Se decidió:** nada. Los ataques usaron decisiones ya registradas y sus
+  alternativas rechazadas.
+- **Se produjo:** `analysis/ataque-07_estabilidad-especialidad.py`,
+  `ataque-08_robustez-especialidades.py`, y `charts/g5_convergencia.py` con
+  `figures/g5_convergencia[.en].png`, que nació del hallazgo del ataque.
+- **Resultado: 15 ataques con test corrido. H1 sobrevivió 12/12, H2 11/12.**
+- **El ataque crítico pasó, y de una forma que no esperaba.** La especialidad es
+  autodeclarada por el reportante, así que podía ser puro ruido de reporte. Hay
+  inestabilidad, pero baja: 3,64% de los profesionales cambian de especialidad
+  entre años y 4,21% son declarados distinto por cada compañía. Lo decisivo fue
+  **la dirección**: entre los discrepantes hay 179 casos donde Novo declara
+  endocrinología y Lilly no, contra 118 al revés. **El sesgo de reporte que
+  existe juega en contra del hallazgo, no a favor.** Y excluir a los 5.417
+  ambiguos (11,4% del gasto) refuerza H2: la brecha pasa de 12,1 a 14,0 puntos.
+- **El hallazgo nuevo, y es el más importante del día: la brecha se está
+  cerrando.** El acumulado del corte 03 esconde una trayectoria. El peso de
+  endocrinología en el gasto de cada compañía:
+  Lilly 51,1 → 58,2 → 51,6 → 41,9 → **27,8**;
+  Novo 43,1 → 39,3 → 21,6 → 20,2 → **24,5**.
+  La brecha va de 8 puntos (2021) a 30 (2023, el año del lanzamiento de
+  Zepbound) y baja a **3,3 en 2025**. Si sigue, "Lilly apuesta al especialista"
+  describe 2021–2024 y no el presente. Quedó en el TL;DR y con figura propia.
+- **B1 desactivó la preocupación central de D-008.** La regla de prioridad que
+  tanto discutí —un NP de Family cuenta como NP/PA— mueve USD 18,21M pero **da
+  el resultado idéntico**: 43,6% vs 31,5% con las dos reglas. Endocrinología no
+  participa del solapamiento. La decisión importa para leer NP/PA y primaria, no
+  para el hallazgo del corte.
+- **C2 cerró un pendiente del corte 02.** El efecto lanzamiento, que allá quedó
+  sin testear limpiamente por muestra degenerada, acá sí se pudo: mirando sólo
+  los seis productos previos a la ventana, H2 se mantiene (46,6% vs 37,9%). La
+  apuesta de Lilly no es un artefacto de haber lanzado Mounjaro y Zepbound.
+- **Un fallo, el mismo patrón que en el corte 02:** C1 muestra que la diferencia
+  entre compañías vive en los pagos de "voz"; en contacto de campo Novo destina
+  levemente más a endocrinología (11,1% contra 9,4%). H1 sobrevive en las dos
+  mitades, aunque el factor cae de 41x a 6x.
+- **Quedó abierto:**
+  - **Sigue sin testear si los endocrinólogos reciben más porque son menos.**
+    Exige el universo de endocrinólogos de EEUU, fuera de Open Payments.
+  - La convergencia de 2025 pide seguimiento en PY2026.
+  - Cola: D-009 (deflactar), D-010 (75 filas con fecha corrupta de PY2024).
+  - La hipótesis de escasez de semaglutida sigue sin testear.
+  - Nueve commits locales sin pushear.
+- **Próximo paso concreto:** los tres cortes tienen checks verdes y red-team
+  corrido, así que `/derivar` está habilitado sobre cualquiera. Si en cambio se
+  sigue analizando, el hilo más vivo es la convergencia: qué hizo Lilly con el
+  dinero que sacó de endocrinología entre 2023 y 2025.

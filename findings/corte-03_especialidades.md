@@ -1,6 +1,6 @@
 # 5.367 endocrinólogos reciben casi el doble que 120.145 enfermeros y asistentes
 
-**Corte 03 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Unidad líder: dólares (D-005) · Red-team: pendiente**
+**Corte 03 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Unidad líder: dólares (D-005) · Red-team: 15 ataques, H1 sobrevivió 12/12 · H2 11/12**
 
 ## TL;DR
 
@@ -19,17 +19,27 @@ que la ventaja de Lilly vive en pagos que compran la voz del profesional; el
 corte 02, que su círculo de "voz" es la mitad de grande que el de Novo. Este
 corte nombra a ese círculo: **son endocrinólogos**.
 
+**Pero el red-team encontró que la brecha se está cerrando.** El acumulado
+esconde una convergencia fuerte: la diferencia entre ambas compañías en el peso
+de endocrinología pasó de 30 puntos en 2023 a **3,3 puntos en 2025**. Lilly bajó
+de 51,6% a 27,8% mientras Novo subió de 21,6% a 24,5%. Si la tendencia sigue, el
+hallazgo de este corte describe un período que se está terminando.
+
 **Lo que NO dice:** nada sobre prescripciones ni sobre si el dinero cambia
 conductas. Tampoco dice que los endocrinólogos "cuesten más" — dice que reciben
 más, que es un hecho sobre la estrategia de las compañías, no sobre las personas.
 
-## El gráfico
+## Los gráficos
 
-`figures/g4_especialidades.png` · `figures/g4_especialidades.en.png`
+`figures/g4_especialidades.png` · `.en.png` — barras horizontales por perfil, con
+el tamaño de cada población y el dinero por cabeza en la columna derecha. Ese
+contraste —cuánta gente hay contra cuánto recibe cada uno— es el hallazgo; la
+barra sola no lo muestra.
 
-Barras horizontales por perfil, con el tamaño de cada población y el dinero por
-cabeza en la columna derecha. Ese contraste —cuánta gente hay contra cuánto
-recibe cada uno— es el hallazgo; la barra sola no lo muestra.
+`figures/g5_convergencia.png` · `.en.png` — **nacida del red-team.** La
+trayectoria anual del peso de endocrinología en cada compañía, con la brecha
+sombreada: se abre hasta 30 puntos en 2023 y se cierra a 3,2 en 2025. Es la
+figura que impide leer el acumulado como si fuera el presente.
 
 ## Qué es dato y qué es elección mía
 
@@ -62,33 +72,105 @@ alcanzados y el 36% del dinero.
 por cabeza, el segundo valor más alto de la tabla. Es una especialidad joven y
 el dato no permite decir si crece; ese es un corte aparte.
 
+**La convergencia, año por año** (% del gasto de cada compañía que va a
+endocrinología, de `analysis/ataque-08_robustez-especialidades.py`):
+
+| Año | Lilly | Novo | Brecha |
+|---|---|---|---|
+| 2021 | 51,1% | 43,1% | 8,0 |
+| 2022 | 58,2% | 39,3% | 18,9 |
+| 2023 | 51,6% | 21,6% | **30,0** |
+| 2024 | 41,9% | 20,2% | 21,7 |
+| 2025 | 27,8% | 24,5% | **3,3** |
+
+El pico de divergencia es 2023, el año en que Lilly lanzó Zepbound. Para 2025 las
+dos compañías destinan proporciones casi iguales a endocrinología.
+
 ## Intenté matarlo
 
-*(Pendiente: falta correr `/atacar`.)* Los ataques que ya se ven necesarios:
+**15 ataques con test corrido: 3 estructurales sobre la estabilidad de la
+especialidad y 12 sobre las hipótesis. H1 sobrevivió 12/12 · H2 sobrevivió
+11/12.** Scripts: `analysis/ataque-07_estabilidad-especialidad.py` ·
+`ataque-08_robustez-especialidades.py`.
 
-1. **¿La brecha 43,6% vs 31,5% sobrevive año a año?** Todo el corte es
-   acumulado. Si aparece sólo en los años de lanzamiento de Mounjaro y Zepbound,
-   el hallazgo es sobre lanzamientos.
-2. **¿Es un efecto de "voz"?** Si el reparto por perfil se calcula sólo sobre
-   contacto de campo, ¿se mantiene la diferencia entre compañías? Podría ser que
-   toda la brecha viva en los honorarios, como pasó en el corte 01.
-3. **¿La regla de prioridad de D-008 fabrica el resultado?** Mandar los NP/PA de
-   primaria a NP/PA mueve USD 18,21M. Test: recalcular con la regla inversa.
-4. **¿La especialidad declarada es confiable?** Es autodeclarada por el
-   reportante. Test: ver si un mismo `Profile_ID` cambia de especialidad entre
-   años o entre compañías.
-5. **¿Los endocrinólogos reciben más porque son menos?** Test de composición:
-   comparar contra el universo de endocrinólogos de EEUU, que está fuera de Open
-   Payments.
+- **H1**: endocrinología recibe mucho más por cabeza que NP/PA.
+- **H2**: Lilly destina más de su gasto a endocrinología que Novo.
+
+### El ataque crítico: la especialidad es autodeclarada por el reportante
+
+| Test | Resultado |
+|---|---|
+| A1 mismo profesional, distinta especialidad entre años | 5.005 de 137.669 · **3,64%** |
+| A2 mismo profesional, declarado distinto por cada compañía | 4.796 de 113.817 · **4,21%** |
+| A3 taxonomía comparable entre años | 257 a 304 valores NUCC según el año, **pero siempre 5 categorías D-008** |
+
+La inestabilidad existe y es baja. Lo decisivo es **la dirección**: entre los
+profesionales que las dos compañías declaran distinto, hay **179 casos donde Novo
+declara endocrinología y Lilly no**, contra **118 al revés**. Si hubiera un sesgo
+de reporte inflando H2, iría en el otro sentido. El sesgo que existe juega **en
+contra** del hallazgo.
+
+Confirmado por A4: los 5.417 profesionales con especialidad ambigua concentran
+USD 20,58M (11,4% del gasto), y **excluirlos refuerza H2** — la brecha pasa de
+12,1 a 14,0 puntos (43,8% vs 29,8%).
+
+### Familia A — artefactos del dato
+
+| Ataque | Resultado |
+|---|---|
+| A4 excluyendo profesionales con especialidad ambigua | ✓ H1 ✓ H2 (43x · 43,8 vs 29,8) |
+| A5 año por año | ✓ H1 ✓ H2 en los cinco — pero revela la **convergencia** de arriba |
+
+### Familia B — sensibilidad a mis decisiones (3/3 sobrevive)
+
+| Ataque | Resultado |
+|---|---|
+| B1 D-008 alt: la especialidad clínica manda sobre el tipo | ✓ H1 ✓ H2 — **idéntico** (43,6 vs 31,5) |
+| B2 D-004 alt: fila entera, sin prorratear | ✓ H1 ✓ H2 (32x · 40,1 vs 27,5) |
+| B3 D-002 alt: sólo entidad operativa US | ✓ H1 ✓ H2 (41x · 43,7 vs 31,5) |
+
+**B1 merece un párrafo porque desactiva la preocupación central de D-008.** La
+regla de prioridad —que un NP de Family cuente como NP/PA y no como primaria—
+mueve USD 18,21M, pero **no cambia el resultado en absoluto**: endocrinología da
+43,6% vs 31,5% con las dos reglas. El motivo es que la regla sólo redistribuye
+entre NP/PA y primaria, y endocrinología no participa de ese solapamiento. La
+decisión importa para leer esas dos categorías, no para el hallazgo del corte.
+
+### Familia C — explicaciones alternativas
+
+| Ataque | Resultado |
+|---|---|
+| C1 sólo contacto de campo | ✓ H1 — **✗ H2**, se invierte (Lilly 9,4% vs Novo 11,1%) |
+| C1b sólo el grupo "voz" | ✓ H1 ✓ H2 (58,2% vs 47,8%) |
+| C2 sólo productos previos a la ventana | ✓ H1 ✓ H2 (36x · 46,6 vs 37,9) |
+
+**C1 acota el alcance de H2, igual que pasó en el corte 02.** La diferencia entre
+compañías vive en los pagos que compran la voz del profesional; en contacto de
+campo, Novo destina levemente **más** a endocrinología que Lilly. H1 —la pirámide
+de dinero por cabeza— sobrevive en las dos mitades, aunque el factor cae de 41x
+a 6x en campo.
+
+**C2 descarta el efecto lanzamiento**, que en el corte 02 había quedado sin
+testear limpiamente. Mirando sólo los seis productos que existían antes de la
+ventana, H2 se mantiene (46,6% vs 37,9%): la apuesta de Lilly a endocrinología no
+es un artefacto de haber lanzado Mounjaro y Zepbound dentro del período.
 
 ## Qué me haría cambiar de opinión
 
-- Que el ataque 4 muestre que la especialidad declarada es inestable: todo el
-  corte descansa en un campo autodeclarado.
-- Que la brecha entre compañías desaparezca al mirar sólo contacto de campo, lo
-  que la volvería un subproducto del corte 01 y no un hallazgo propio.
-- Que la regla de prioridad de D-008 resulte determinante (ataque 3).
-- Que CMS publique un refresh que reexprese algún año de la ventana.
+- **Que la convergencia siga.** Es lo más probable que invalide la lectura de
+  este corte: en 2025 la brecha es de 3,3 puntos contra 30 en 2023. Si PY2026 la
+  cierra del todo, "Lilly apuesta al especialista" pasa a ser una descripción de
+  2021–2024, no del presente.
+- Que aparezca un sesgo sistemático de reporte que hoy no se ve: la dirección de
+  las discrepancias juega en contra de H2, no a favor.
+- Que CMS publique un refresh que reexprese algún año de la ventana (los checks
+  cortan solos si cambian los sha256).
+- Ya **no** me haría cambiar de opinión la regla de prioridad de D-008: da el
+  mismo resultado con la regla inversa. Ni el efecto lanzamiento: H2 se sostiene
+  mirando sólo productos previos a la ventana.
+- **Sigue sin testear** si los endocrinólogos reciben más *porque son menos*.
+  Eso exige el universo de endocrinólogos de EEUU, que está fuera de Open
+  Payments.
 
 ## Fuentes
 
