@@ -12,8 +12,8 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
    productos, nombre normalizado como clave, NDC como check).
 4. ~~**Regla de asignación en pagos multi-producto**~~ → resuelta en **D-004**
    (prorrateo en partes iguales entre todos los productos declarados).
-5. **Unidad primaria por corte**: dólares y counts se calculan siempre; cuál
-   lidera la narrativa de cada corte.
+5. ~~**Unidad primaria por corte**~~ → resuelta en **D-005** (ambas siempre;
+   cada finding declara su líder. En el corte 01 el hallazgo es la divergencia).
 6. **Agrupación de especialidades**: qué taxonomías caen en "endocrinología",
    "atención primaria", "NP/PA" y "resto".
 7. **Dólares nominales vs. deflactados.**
@@ -251,4 +251,71 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 
 - **Scripts afectados:** `src/vistas.py` (la vista GLP-1 aplica el prorrateo),
   todo `analysis/corte-NN_*.py`, toda figura desagregada por producto.
+- **Estado:** vigente
+
+## D-005 — Unidad primaria: la divergencia no se resuelve, se muestra  (2026-08-25)
+- **Decisión:** dólares y cantidad de pagos se calculan **siempre**, y ningún
+  corte subordina una a la otra por defecto. Cada finding **declara en su
+  encabezado** cuál lidera su narrativa y por qué. Para el corte 01 (la carrera)
+  la unidad líder es **ninguna de las dos por separado: el hallazgo es que se
+  contradicen**, y la figura muestra ambas series en paralelo.
+
+- **El dato que fuerza la decisión** — ratio Novo/Lilly por año y unidad:
+
+  ```
+  año    en USD              en cantidad de pagos
+  2021   4,13x               2,88x
+  2022   2,40x               2,37x
+  2023   0,94x  ← Lilly      1,58x  ← Novo
+  2024   0,87x  ← Lilly      1,37x  ← Novo
+  2025   1,50x               1,92x
+  ```
+
+  En dólares Lilly pasa al frente en 2023 y 2024. En cantidad de pagos Novo
+  lidera los cinco años sin excepción. Elegir una unidad en silencio fabrica un
+  titular; son dos preguntas distintas, no dos formas de la misma.
+
+- **Por qué divergen (la razón es estructural, no un artefacto):** el dato tiene
+  dos poblaciones con órdenes de magnitud distintos.
+
+  ```
+  honorarios de disertante   59% de los dólares ·  2,1% de los pagos
+                             Novo USD 2.243/pago · Lilly USD 1.026/pago
+  comidas                    35% de los dólares · 96,7% de los pagos
+                             ~USD 20/pago en ambas compañías
+  ```
+
+  Contar **dólares** mide inversión y lo domina el programa de disertantes, unos
+  pocos miles de profesionales de alto perfil. Contar **pagos** mide alcance en
+  terreno y lo dominan millones de comidas. La divergencia 2023–2024 aparece
+  porque el monto promedio por pago de Novo cae de USD 60,96 a USD 30,86
+  mientras Lilly se sostiene entre 52 y 57: Novo mantuvo el volumen de contactos
+  y recortó lo caro.
+
+- **Alternativas rechazadas:**
+  - *Dólares lidera siempre.* Es la unidad de la prensa y de "gasto
+    promocional", pero da el titular "Lilly superó a Novo en 2023-2024"
+    ocultando que Novo nunca perdió alcance. El 59% del peso lo ponen 72.563
+    pagos sobre 3.377.782.
+  - *Cantidad de pagos lidera siempre.* Da el titular "Novo lideró los cinco
+    años" y esconde que Lilly invirtió más en 2023-2024. Además hace pesar igual
+    una comida de USD 12 y un honorario de USD 50.000.
+
+- **Qué la invalidaría:**
+  - Que las dos unidades dejen de contradecirse en toda la ventana: ahí el corte
+    01 pierde su hallazgo y la unidad líder pasa a ser una elección de
+    conveniencia.
+  - Que se demuestre que los honorarios de disertante y las comidas no son
+    poblaciones separables, lo que quitaría la explicación estructural.
+  - Un corte cuya pregunta sea inequívocamente de una sola unidad (por ejemplo
+    "cuántos profesionales alcanzó cada compañía"), donde forzar las dos series
+    sería ruido.
+
+- **Consecuencia operativa:** el encabezado de todo finding lleva la unidad
+  líder declarada, junto a la fecha de datos y el estado de checks. Un finding
+  sin unidad declarada está incompleto.
+
+- **Scripts afectados:** `analysis/corte-01_carrera.py` y todo corte posterior,
+  `charts/g1_carrera.py`, `findings/corte-00-plantilla.md` (el encabezado suma
+  la unidad líder).
 - **Estado:** vigente

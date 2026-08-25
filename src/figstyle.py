@@ -33,11 +33,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
 
 
-def nueva_figura(titulo: str, subtitulo: str | None = None):
-    """Figura estándar del caso: 1495x886, DejaVu Sans, fondo BG.
-
-    El título es un message title: dice el hallazgo, no describe los ejes.
-    """
+def _aplicar_rc() -> None:
+    """rcParams compartidos por todas las figuras del caso."""
     mpl.rcParams.update(
         {
             "font.family": "DejaVu Sans",
@@ -50,6 +47,14 @@ def nueva_figura(titulo: str, subtitulo: str | None = None):
             "axes.spines.right": False,
         }
     )
+
+
+def nueva_figura(titulo: str, subtitulo: str | None = None):
+    """Figura estándar del caso: 1495x886, DejaVu Sans, fondo BG.
+
+    El título es un message title: dice el hallazgo, no describe los ejes.
+    """
+    _aplicar_rc()
     fig, ax = plt.subplots(figsize=(W / DPI, H / DPI), dpi=DPI)
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
@@ -58,6 +63,30 @@ def nueva_figura(titulo: str, subtitulo: str | None = None):
         fig.text(0.06, 0.915, subtitulo, fontsize=11.5, color=GRAY, ha="left")
     fig.subplots_adjust(top=0.84, left=0.08, right=0.96, bottom=0.11)
     return fig, ax
+
+
+def nueva_figura_apilada(titulo: str, subtitulo: str | None = None, n: int = 2):
+    """Como `nueva_figura`, pero con n paneles apilados que comparten eje x.
+
+    Existe para los cortes cuyo hallazgo es que dos unidades se contradicen
+    (D-005): poner una arriba de la otra deja la contradicción a la vista sin
+    obligar a un eje secundario, que siempre miente sobre las magnitudes.
+
+    Mismo formato fijo W x H que `nueva_figura`: la identidad visual no cambia
+    por tener más paneles.
+    """
+    _aplicar_rc()
+    fig, axes = plt.subplots(
+        n, 1, figsize=(W / DPI, H / DPI), dpi=DPI, sharex=True
+    )
+    fig.patch.set_facecolor(BG)
+    for ax in axes:
+        ax.set_facecolor(BG)
+    fig.text(0.06, 0.955, titulo, fontsize=17, fontweight="bold", color=FG, ha="left")
+    if subtitulo:
+        fig.text(0.06, 0.915, subtitulo, fontsize=11.5, color=GRAY, ha="left")
+    fig.subplots_adjust(top=0.84, left=0.08, right=0.96, bottom=0.11, hspace=0.28)
+    return fig, axes
 
 
 def guardar(fig, nombre: str) -> Path:
