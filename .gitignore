@@ -1,0 +1,16 @@
+# Datos crudos y derivados pesados: la reproducibilidad vive en scripts/
+# Se ignora el contenido, no la carpeta: un clone trae la estructura vacía.
+data/*
+!data/.gitkeep
+
+# Borradores de marketing: el repo público es evidencia, no marketing
+contenido/
+
+# Espejo de exportación al sitio: derivado, regenerable con /exportar-caso
+export/
+
+# Entorno
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
