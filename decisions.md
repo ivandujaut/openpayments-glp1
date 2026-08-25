@@ -16,6 +16,8 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
    cada finding declara su líder. En el corte 01 el hallazgo es la divergencia).
 6. **Agrupación de especialidades**: qué taxonomías caen en "endocrinología",
    "atención primaria", "NP/PA" y "resto".
+   *(La agrupación de naturalezas de pago, que no estaba en esta cola, se
+   resolvió en **D-006** tras el red-team del corte 01.)*
 7. **Dólares nominales vs. deflactados.**
 8. **Filas con `Date_of_Payment` corrupta**: 75 filas de PY2024 traen
    `11/30/0002` en el CSV de CMS (USD 307.571,82; fabricantes de dispositivos,
@@ -318,4 +320,62 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 - **Scripts afectados:** `analysis/corte-01_carrera.py` y todo corte posterior,
   `charts/g1_carrera.py`, `findings/corte-00-plantilla.md` (el encabezado suma
   la unidad líder).
+- **Estado:** vigente
+
+## D-006 — Naturalezas de pago: voz del profesional vs. contacto de campo  (2026-08-25)
+- **Decisión:** las seis naturalezas que aparecen en GLP-1 se agrupan en dos,
+  según **qué compra el pago**:
+
+  ```
+  voz    Compensation for services other than consulting (disertante)
+         Consulting Fee
+         → USD 110,15M en 74.271 pagos · USD 1.483 por pago
+  campo  Food and Beverage · Travel and Lodging · Education
+         Space rental or facility fees (teaching hospital only)
+         → USD 70,04M en 3.303.511 pagos · USD 21 por pago
+  ```
+
+  "Voz" compra tiempo y palabra del profesional; "campo" es contacto y logística.
+  La partición separa dos poblaciones que difieren en dos órdenes de magnitud
+  por pago, no dos etiquetas administrativas de CMS.
+
+- **Origen, que es lo que la vuelve necesaria:** esta separación se implementó
+  ANTES de registrarse, en el ataque 03 (C2) del corte 01, con una partición
+  distinta y peor: sólo disertante contra todo lo demás. Eso es un bug de
+  proceso — la regla dura del caso es que toda decisión analítica pasa por
+  `/decidir` antes. Esta entrada lo cierra y corrige la partición.
+
+- **Por qué la partición del ataque estaba mal:** dejaba `Consulting Fee` del
+  lado de las comidas. Consultoría cuesta **USD 2.212 por pago**, más que los
+  honorarios de disertante (USD 1.466) y 116 veces más que una comida (USD 19).
+  Agruparla con las comidas sólo pasaba desapercibido porque es chica (2,1% de
+  los dólares); conceptualmente compra exactamente lo mismo que un honorario.
+
+- **El hallazgo del corte 01 NO depende de esta decisión.** Excluyendo el grupo
+  "voz", los ratios Novo/Lilly por año son 6,80 · 3,31 · 1,48 · 1,48 · 2,54;
+  excluyendo sólo disertante, 7,24 · 3,45 · 1,51 · 1,46 · 2,56; mirando sólo
+  comidas, 5,93 · 2,78 · 1,47 · 1,43 · 2,31. **Novo gana los cinco años en las
+  tres particiones.** Se eligió la defendible porque no costaba nada.
+
+- **Alternativas rechazadas:**
+  - *Disertante vs. resto* (la del ataque). Rechazada por arbitraria: separa por
+    etiqueta y no por naturaleza económica del pago, y esconde consultoría entre
+    las comidas.
+  - *Sin agrupar, las seis por separado.* Máxima transparencia y cero
+    interpretación, pero traslada al lector el trabajo de ver que dos poblaciones
+    distintas conviven en el agregado, que es justamente el hallazgo del corte 01.
+    Las seis siguen reportándose en `findings/cache/corte-01_carrera.json`: la
+    agrupación no borra el detalle, lo resume.
+
+- **Qué la invalidaría:**
+  - Que aparezca una naturaleza nueva en la ventana y no caiga limpio en ninguno
+    de los dos grupos (hoy son exactamente seis).
+  - Que `Consulting Fee` deje de comportarse como los honorarios — por ejemplo,
+    si su monto típico cayera al orden de las comidas.
+  - Que el caso pase a preguntar por las categorías regulatorias de CMS y no por
+    la función comercial del pago.
+
+- **Scripts afectados:** `src/vistas.py` (la columna `grupo_naturaleza` vive
+  acá), `analysis/corte-01_carrera.py`, `analysis/ataque-03_explicaciones-negocio.py`,
+  `charts/g2_disertantes.py`, `findings/corte-01_carrera.md`.
 - **Estado:** vigente

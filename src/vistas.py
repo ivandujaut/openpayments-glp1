@@ -66,6 +66,18 @@ GLP1: dict[str, dict[str, str]] = {
     "TRULICITY": {"ndc": "0002-1433-80", "grupo": "lilly", "molecula": "dulaglutida", "area": "Diabetes"},
 }
 
+# D-006: las seis naturalezas que aparecen en GLP-1, agrupadas por QUÉ COMPRA
+# el pago. "voz" compra tiempo y palabra del profesional (USD 1.483 por pago);
+# "campo" es contacto y logística (USD 21 por pago). Dos órdenes de magnitud de
+# diferencia: son poblaciones distintas, no dos etiquetas administrativas.
+# Consultoría va con los honorarios, no con las comidas: cuesta USD 2.212 por
+# pago, más que un honorario de disertante.
+NATURALEZA_VOZ = (
+    "Compensation for services other than consulting, including serving as "
+    "faculty or as a speaker at a venue other than a continuing education program",
+    "Consulting Fee",
+)
+
 N_SLOTS = 5  # el dataset declara hasta 5 productos por fila
 
 _COL_NOMBRE = "Name_of_Drug_or_Biological_or_Device_or_Medical_Supply_{i}"
@@ -123,6 +135,7 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
     casos_mol = " ".join(
         f"WHEN {_sql_lista([p])[1:-1]} THEN '{d['molecula']}'" for p, d in GLP1.items()
     )
+    voz = _sql_lista(NATURALEZA_VOZ)
 
     con.sql(
         f"""
@@ -159,7 +172,10 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
             b.usd_fila / b.n_productos          AS usd,
             b.usd_fila, b.n_productos,
             len(b.productos_glp1)               AS n_glp1_en_fila,
-            b.entidad_id, b.entidad, b.naturaleza, b.tipo_receptor,
+            b.entidad_id, b.entidad, b.naturaleza,
+            CASE WHEN b.naturaleza IN {voz} THEN 'voz' ELSE 'campo' END
+                                                AS grupo_naturaleza,
+            b.tipo_receptor,
             b.especialidad_cruda, b.receptor_id, b.estado, b.n_pagos_agregados
         FROM base b, UNNEST(b.productos_glp1) AS p(producto)
         """

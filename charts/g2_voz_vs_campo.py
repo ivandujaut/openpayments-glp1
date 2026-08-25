@@ -1,13 +1,13 @@
 """g2 — de dónde sale la ventaja de Lilly en dólares.
 
-Nace del ataque 03 (C2): al excluir los honorarios de disertante, Lilly no
-supera a Novo en ningún año. Toda su ventaja en dólares vive en esa naturaleza
-de pago. La figura pone los dos paneles uno sobre otro para que se vea que el
-cruce desaparece.
+Nace del ataque 03 (C2) y se formaliza en D-006: al excluir el grupo "voz"
+(honorarios de disertante + consultoría), Lilly no supera a Novo en ningún año.
+La figura pone los dos paneles uno sobre otro para que se vea que el cruce
+desaparece.
 
-Lee SOLO findings/cache/corte-01_carrera.json (bloque disertante_vs_resto).
+Lee SOLO findings/cache/corte-01_carrera.json (bloque voz_vs_campo).
 
-Uso:  uv run charts/g2_disertantes.py
+Uso:  uv run charts/g2_voz_vs_campo.py
 """
 
 import json
@@ -23,44 +23,44 @@ CACHE = ROOT / "findings" / "cache" / "corte-01_carrera.json"
 
 TEXTOS = {
     "es": {
-        "titulo": "Toda la ventaja de Lilly en dólares es su programa de disertantes",
-        "subtitulo": ("Pagos por productos GLP-1, 2021–2025. Al excluir los honorarios de disertante, "
-                      "Novo supera a Lilly los cinco años · CMS Open Payments"),
-        "panel_a": "Solo honorarios\nde disertante",
-        "panel_b": "Todo el resto\n(comidas, viajes, consultoría)",
+        "titulo": "Toda la ventaja de Lilly en dólares está en los pagos que compran la voz del profesional",
+        "subtitulo": ("Pagos por productos GLP-1, 2021–2025. Al excluir honorarios de disertante y consultoría, "
+                      "Novo supera a Lilly los cinco años · CMS Open Payments (D-006)"),
+        "panel_a": "Pagos que compran\nla voz del profesional",
+        "panel_b": "Contacto de campo\n(comidas, viajes, educación)",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
         "nota": "Millones de USD. Banda gris: años en que Lilly supera a Novo.",
-        "archivo": "g2_disertantes",
+        "archivo": "g2_voz_campo",
     },
     "en": {
-        "titulo": "Lilly's entire dollar lead is its speaker program",
-        "subtitulo": ("GLP-1 product payments, 2021–2025. Excluding speaker fees, Novo outspends Lilly "
-                      "in all five years · CMS Open Payments"),
-        "panel_a": "Speaker fees only",
-        "panel_b": "Everything else\n(meals, travel, consulting)",
+        "titulo": "Lilly's entire dollar lead sits in payments that buy the professional's voice",
+        "subtitulo": ("GLP-1 product payments, 2021–2025. Excluding speaker and consulting fees, Novo outspends "
+                      "Lilly in all five years · CMS Open Payments (D-006)"),
+        "panel_a": "Payments buying\nthe professional's voice",
+        "panel_b": "Field contact\n(meals, travel, education)",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
         "nota": "USD millions. Shaded band: years where Lilly outspends Novo.",
-        "archivo": "g2_disertantes.en",
+        "archivo": "g2_voz_campo.en",
     },
 }
 
 
 def dibujar(datos: dict, locale: str) -> Path:
     t = TEXTOS[locale]
-    filas = datos["disertante_vs_resto"]
+    filas = datos["voz_vs_campo"]
     anios = [int(f["anio"]) for f in filas]
 
     fig, (ax_a, ax_b) = nueva_figura_apilada(t["titulo"], t["subtitulo"], n=2)
 
     paneles = (
         (ax_a, t["panel_a"],
-         [f["novo_disertante"] / 1e6 for f in filas],
-         [f["lilly_disertante"] / 1e6 for f in filas]),
+         [f["novo_voz"] / 1e6 for f in filas],
+         [f["lilly_voz"] / 1e6 for f in filas]),
         (ax_b, t["panel_b"],
-         [f["novo_resto"] / 1e6 for f in filas],
-         [f["lilly_resto"] / 1e6 for f in filas]),
+         [f["novo_campo"] / 1e6 for f in filas],
+         [f["lilly_campo"] / 1e6 for f in filas]),
     )
     for ax, etiqueta, novo, lilly in paneles:
         # Banda donde Lilly supera a Novo: en el panel de abajo no hay ninguna,
@@ -91,9 +91,9 @@ def main() -> None:
             "Correr primero: uv run analysis/corte-01_carrera.py"
         )
     datos = json.loads(CACHE.read_text())
-    if "disertante_vs_resto" not in datos:
+    if "voz_vs_campo" not in datos:
         raise SystemExit(
-            "El cache no tiene el bloque 'disertante_vs_resto'. "
+            "El cache no tiene el bloque 'voz_vs_campo'. "
             "Regenerar: uv run analysis/corte-01_carrera.py"
         )
     for locale in TEXTOS:

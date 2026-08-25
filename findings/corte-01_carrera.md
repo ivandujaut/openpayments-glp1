@@ -1,4 +1,4 @@
-# Lilly nunca gastó más que Novo en GLP-1 — salvo en una cosa: su programa de disertantes
+# Lilly nunca gastó más que Novo en GLP-1 — salvo en los pagos que compran la voz del profesional
 
 **Corte 01 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Unidad líder: ninguna, el hallazgo es la divergencia (D-005) · Red-team: 10 ataques, sobrevivió 8 (ver más abajo)**
 
@@ -6,14 +6,16 @@
 
 Entre 2021 y 2025, Novo Nordisk pagó USD 111,05 millones a profesionales de la
 salud por sus productos GLP-1 y Eli Lilly USD 69,13 millones. En el agregado
-anual Lilly parece pasar al frente en 2023 y 2024 — pero **esa ventaja es
-enteramente su programa de disertantes**: al excluir esa única naturaleza de
-pago, Novo supera a Lilly **los cinco años**, con ratios de 1,46x a 7,24x.
+anual Lilly parece pasar al frente en 2023 y 2024 — pero **esa ventaja vive
+entera en los pagos que compran la voz del profesional** (honorarios de
+disertante y consultoría, D-006): al excluir ese grupo, Novo supera a Lilly
+**los cinco años**, con ratios de 1,48x a 6,80x.
 
-Lo que Lilly hizo fue construir un programa de disertantes que casi duplicó su
-tamaño (de 6.517 a 12.485 pagos entre 2021 y 2025) mientras Novo achicaba el
-suyo (de 6.809 a 4.898). En todo lo demás — comidas, viajes, consultoría — y en
-cantidad de pagos y profesionales alcanzados, Novo lideró siempre.
+Lo que Lilly hizo fue construir un programa de disertantes y consultoría que
+casi duplicó su tamaño (de 6.521 a 12.604 pagos entre 2021 y 2025) mientras Novo
+achicaba el suyo (de 7.361 a 5.201). En el contacto de campo — comidas, viajes,
+material educativo — y en cantidad total de pagos y profesionales alcanzados,
+Novo lideró siempre.
 
 **Lo que NO dice:** nada sobre prescripciones, ventas ni cuota de mercado. Open
 Payments registra pagos de la industria a profesionales, no conducta clínica ni
@@ -25,9 +27,10 @@ con la escasez de semaglutida es una hipótesis sin testear.
 `figures/g1_carrera.png` · `.en.png` — la carrera en las dos unidades, con los
 años en que dan ganadores distintos sombreados.
 
-`figures/g2_disertantes.png` · `.en.png` — **el gráfico principal tras el
-red-team.** Arriba, sólo honorarios de disertante: las líneas se cruzan. Abajo,
-todo el resto: nunca se tocan. Ese vacío en el panel de abajo es el hallazgo.
+`figures/g2_voz_campo.png` · `.en.png` — **el gráfico principal tras el
+red-team.** Arriba, los pagos que compran la voz del profesional: las líneas se
+cruzan. Abajo, el contacto de campo: nunca se tocan. Ese vacío en el panel de
+abajo es el hallazgo.
 
 ## Qué es dato y qué es elección mía
 
@@ -40,7 +43,7 @@ todo el resto: nunca se tocan. Ese vacío en el panel de abajo es el hallazgo.
 | Qué productos son GLP-1 | elección | **D-003** — nueve; incluye tirzepatida, que es dual GIP/GLP-1 |
 | Reparto en pagos multi-producto | elección | **D-004** — prorrateo |
 | Mostrar ambas unidades sin subordinar una | elección | **D-005** |
-| Separar "disertante" del resto | elección | del ataque 03 (C2), no de una decisión previa |
+| Agrupar naturalezas en "voz" y "campo" | elección | **D-006** — por qué compra el pago, no por etiqueta de CMS |
 
 ## Números
 
@@ -60,9 +63,9 @@ Las figuras leen sólo ese JSON.
 Totales: **Novo USD 111.050.245,29 en 2.212.503 pagos · Lilly USD 69.132.487,30
 en 1.165.279 pagos.**
 
-**Lo que el agregado escondía** (USD millones, `analysis/ataque-03_explicaciones-negocio.py`)
+**Lo que el agregado escondía** (USD millones, `analysis/corte-01_carrera.py`, bloque `voz_vs_campo`)
 
-| Año | Disertantes: Novo | Lilly | Todo el resto: Novo | Lilly |
+| Año | Voz: Novo | Lilly | Campo: Novo | Lilly |
 |---|---|---|---|---|
 | 2021 | 14,42 | 4,55 | 10,18 | 1,41 |
 | 2022 | 17,22 | 8,66 | 11,63 | 3,37 |
@@ -70,9 +73,11 @@ en 1.165.279 pagos.**
 | 2024 | 6,35 | **11,56** | 9,23 | 6,33 |
 | 2025 | 15,58 | 14,11 | 13,31 | 5,19 |
 
-**El mecanismo, en cantidad de pagos de disertante:** Lilly 6.517 → 8.142 →
-8.220 → 10.988 → **12.485**. Novo 6.809 → 6.223 → 4.122 → 4.159 → **4.898**.
-Lilly casi duplicó su programa; Novo lo redujo a dos tercios.
+**El mecanismo, en cantidad de pagos del grupo "voz":** Lilly 6.521 → 8.144 →
+8.245 → 11.154 → **12.604**. Novo 7.361 → 6.493 → 4.234 → 4.314 → **5.201**.
+Lilly casi duplicó su programa; Novo lo redujo a dos tercios y nunca lo recuperó,
+pese a que su gasto total en "voz" rebotó a 15,58M en 2025 — es decir, Novo paga
+menos veces y más caro; Lilly, más veces y más barato.
 
 **Alcance** (profesionales distintos, 2025): Novo 114.861 · Lilly 79.526.
 
@@ -109,23 +114,30 @@ Ninguna de las alternativas que las decisiones rechazaron cambia el resultado.
 | Ataque | Resultado |
 |---|---|
 | C1 sin el 1% de pagos más caros de cada compañía/año | **✗ H1** ✓ H2 |
-| C2 **sin honorarios de disertante** | **✗ H1** ✓ H2 |
-| C2b sólo honorarios de disertante | ✓ H1 **✗ H2** |
+| C2 **sin el grupo "voz"** (disertante + consultoría) | **✗ H1** ✓ H2 |
+| C2b sólo el grupo "voz" | ✓ H1 **✗ H2** |
 
-**C2 mató H1 y reescribió el finding.** Sin honorarios de disertante, Lilly no
-supera a Novo **en ningún año**. La ventaja de Lilly en el agregado no es "Lilly
-invirtió más": es "Lilly invirtió más en un programa". El título original de este
-finding decía *"En dólares Lilly pasó al frente en 2023 y 2024"* — cierto como
-aritmética, engañoso como afirmación sobre la carrera. Cambiado.
+**C2 mató H1 y reescribió el finding.** Sin el grupo "voz", Lilly no supera a
+Novo **en ningún año**. La ventaja de Lilly en el agregado no es "Lilly invirtió
+más": es "Lilly invirtió más en un tipo de pago". El título original decía *"En
+dólares Lilly pasó al frente en 2023 y 2024"* — cierto como aritmética, engañoso
+como afirmación sobre la carrera. Cambiado.
+
+El ataque corrió primero con una partición improvisada (sólo disertante). **Esa
+improvisación era una decisión analítica sin registrar**, y se cerró en D-006 con
+la partición correcta, que suma consultoría al grupo "voz" porque cuesta USD
+2.212 por pago y compra lo mismo. El resultado es idéntico con las tres
+particiones probadas (sólo disertante, voz completa, sólo comidas): Novo gana los
+cinco años en todas.
 
 **C1 mostró algo que no buscaba:** al recortar el 1% de pagos más caros, Lilly
 supera a Novo también en **2025**. El liderazgo de Novo en 2025 depende de su
 cola de pagos grandes; en el cuerpo de la distribución, Lilly ya estaba arriba.
 Es un hallazgo colateral que merece su propio corte.
 
-**C2b es la contracara y confirma el mecanismo:** en el universo de honorarios de
-disertante, Novo gana en cantidad de pagos sólo 1 de 5 años. Ahí Lilly domina en
-volumen *y* en dinero.
+**C2b es la contracara y confirma el mecanismo:** dentro del grupo "voz", Novo
+gana en cantidad de pagos sólo 1 de 5 años (2021). Ahí Lilly domina en volumen, y
+en dinero en 2023-2024.
 
 **C3 (descriptivo, sin veredicto):** el gasto de Lilly en 2023-2024 se concentra
 en Mounjaro (13,53M y 11,89M), con Zepbound sumando desde 2024 (5,95M) y
@@ -135,10 +147,9 @@ lanzamiento del lado de Lilly, pero no lo prueba.
 
 ## Qué me haría cambiar de opinión
 
-- Que aparezca una razón por la cual los honorarios de disertante **no** deban
-  separarse del resto: hoy la separación es una elección mía, nacida del ataque,
-  no una decisión registrada previa. Merece su propia D-NNN si el corte se
-  publica.
+- Que la partición de D-006 deje de sostenerse: si `Consulting Fee` pasara a
+  comportarse como las comidas, o si apareciera una naturaleza nueva que no cae
+  limpio en ninguno de los dos grupos.
 - Que CMS publique un refresh que reexprese 2023 o 2024 (los checks cortan solos
   si cambian los sha256 de `scripts/checksums.txt`).
 - Que aparezca una filial de Novo o Lilly pagando GLP-1 fuera de la lista de

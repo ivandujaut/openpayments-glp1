@@ -8,7 +8,8 @@ dólares Lilly pasa al frente en 2023 y 2024; en cantidad de pagos Novo lidera
 los cinco años. El corte calcula ambas y no subordina ninguna.
 
 Decisiones aplicadas: D-001 (ventana 2021–2025) · D-002 (entidades por ID) ·
-D-003 (nueve productos) · D-004 (prorrateo) · D-005 (ambas unidades).
+D-003 (nueve productos) · D-004 (prorrateo) · D-005 (ambas unidades) ·
+D-006 (naturalezas agrupadas en voz / campo).
 
 Cachea agregados chicos en findings/cache/corte-01_carrera.json. El chart lee
 SOLO ese JSON, nunca el parquet.
@@ -60,21 +61,19 @@ def main() -> None:
         """
     ).df()
 
-    # Descomposición disertante / resto. La agrega el ataque 03 (C2): la ventaja
-    # de Lilly en dólares vive entera en esa naturaleza, y la figura tiene que
-    # poder mostrarlo sin volver al parquet.
-    disertante = con.sql(
+    # Descomposición voz / campo (D-006). Nació del ataque 03 (C2): la ventaja
+    # de Lilly en dólares vive entera en "voz", y la figura tiene que poder
+    # mostrarlo sin volver al parquet.
+    voz_campo = con.sql(
         """
         SELECT anio,
-               sum(usd) FILTER (grupo = 'novo'  AND es_disertante)  AS novo_disertante,
-               sum(usd) FILTER (grupo = 'lilly' AND es_disertante)  AS lilly_disertante,
-               sum(usd) FILTER (grupo = 'novo'  AND NOT es_disertante)  AS novo_resto,
-               sum(usd) FILTER (grupo = 'lilly' AND NOT es_disertante) AS lilly_resto,
-               count(DISTINCT record_id) FILTER (grupo = 'novo'  AND es_disertante) AS novo_disertante_n,
-               count(DISTINCT record_id) FILTER (grupo = 'lilly' AND es_disertante) AS lilly_disertante_n
-        FROM (SELECT *, naturaleza LIKE 'Compensation for services other than%'
-                       AS es_disertante FROM glp1)
-        GROUP BY 1 ORDER BY 1
+               sum(usd) FILTER (grupo = 'novo'  AND grupo_naturaleza = 'voz')   AS novo_voz,
+               sum(usd) FILTER (grupo = 'lilly' AND grupo_naturaleza = 'voz')   AS lilly_voz,
+               sum(usd) FILTER (grupo = 'novo'  AND grupo_naturaleza = 'campo') AS novo_campo,
+               sum(usd) FILTER (grupo = 'lilly' AND grupo_naturaleza = 'campo') AS lilly_campo,
+               count(DISTINCT record_id) FILTER (grupo = 'novo'  AND grupo_naturaleza = 'voz') AS novo_voz_n,
+               count(DISTINCT record_id) FILTER (grupo = 'lilly' AND grupo_naturaleza = 'voz') AS lilly_voz_n
+        FROM glp1 GROUP BY 1 ORDER BY 1
         """
     ).df()
 
@@ -90,7 +89,7 @@ def main() -> None:
     salida = {
         "corte": "01_carrera",
         "ventana": [ANIO_DESDE, ANIO_HASTA],
-        "decisiones": ["D-001", "D-002", "D-003", "D-004", "D-005"],
+        "decisiones": ["D-001", "D-002", "D-003", "D-004", "D-005", "D-006"],
         "unidad_lider": "ninguna: el hallazgo es la divergencia (D-005)",
         "serie": serie.to_dict("records"),
         "ratios": [
@@ -103,7 +102,7 @@ def main() -> None:
             for f in serie.itertuples()
         ],
         "naturaleza": naturaleza.to_dict("records"),
-        "disertante_vs_resto": disertante.to_dict("records"),
+        "voz_vs_campo": voz_campo.to_dict("records"),
         "producto": producto.to_dict("records"),
         "totales": {
             "novo_usd": float(serie.novo_usd.sum()),

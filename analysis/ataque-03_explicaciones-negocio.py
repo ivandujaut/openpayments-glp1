@@ -7,9 +7,10 @@ Hallazgo bajo ataque:
   C1  Un puñado de pagos gigantes mueve el agregado. Si al sacar el 1% más caro
       de cada compañía la inversión desaparece, H1 habla de unos pocos contratos,
       no de una estrategia. Test: recortar el percentil 99 y recalcular.
-  C2  EL ATAQUE QUE MÁS DUELE. Si H1 desaparece al excluir los honorarios de
-      disertante, el hallazgo no es sobre "la carrera" sino sobre un programa
-      específico, y el título del finding miente por generalización.
+  C2  EL ATAQUE QUE MÁS DUELE. Si H1 desaparece al excluir el grupo "voz"
+      (honorarios de disertante + consultoría, D-006), el hallazgo no es sobre
+      "la carrera" sino sobre un tipo de pago, y el título miente por
+      generalización.
   C3  Mix de lanzamientos: Mounjaro sale en 2022 y Zepbound en noviembre de 2023.
       El gasto de Lilly en 2023-2024 podría ser sólo el pico de lanzamiento, un
       mecanismo distinto a "Lilly invirtió más". No mata H1, lo explica: test
@@ -25,9 +26,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src.vistas import conectar  # noqa: E402
 
-DISERTANTE = ("Compensation for services other than consulting, including "
-              "serving as faculty or as a speaker at a venue other than a "
-              "continuing education program")
+# C2 originalmente separaba sólo "disertante". D-006 formalizó la partición
+# correcta (voz = honorarios + consultoría), y el ataque pasa a usarla: el
+# resultado no cambia, pero deja de haber una regla improvisada acá.
 
 
 def evaluar(nombre: str, df) -> tuple[bool, bool]:
@@ -88,10 +89,10 @@ def main() -> None:
     r.append(evaluar("C1  sin el 1% de pagos más caros de cada compañía/año", df_c1))
 
     # C2: el ataque que más duele.
-    r.append(evaluar("C2  SIN honorarios de disertante",
-                     serie(con, f"naturaleza <> '{DISERTANTE}'")))
-    r.append(evaluar("C2b sólo honorarios de disertante",
-                     serie(con, f"naturaleza = '{DISERTANTE}'")))
+    r.append(evaluar("C2  SIN el grupo 'voz' (disertante + consultoría, D-006)",
+                     serie(con, "grupo_naturaleza = 'campo'")))
+    r.append(evaluar("C2b sólo el grupo 'voz'",
+                     serie(con, "grupo_naturaleza = 'voz'")))
 
     # C3: descriptivo, no binario — de dónde sale el gasto de Lilly.
     print("\n  C3  gasto de Lilly por producto y año (USD, para ver si 2023-24 "

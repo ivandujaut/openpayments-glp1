@@ -162,3 +162,43 @@ Formato por entrada (una por sesión, al cierre):
   honorarios de disertante del resto (es la que sostiene el titular actual), y
   recién después evaluar `/derivar` o el corte sobre la cola de pagos grandes
   que abrió C1.
+- **Cerrado en la misma sesión:** ver la entrada siguiente (D-006).
+
+---
+
+## 2026-08-25 — D-006: cerrar la decisión que el ataque había improvisado
+
+- **Se decidió:** **D-006 · naturalezas de pago agrupadas en "voz" y "campo".**
+  Voz = honorarios de disertante + consultoría (110,15M en 74.271 pagos, USD
+  1.483 por pago). Campo = comidas, viajes, educación, alquiler (70,04M en
+  3.303.511 pagos, USD 21 por pago). Se agrupa por **qué compra el pago**, no
+  por la etiqueta administrativa de CMS.
+- **Por qué existía la deuda:** el ataque 03 del corte 01 separó "disertante vs.
+  resto" sin pasar por `/decidir`. Eso es un bug de proceso según la regla dura
+  del caso, y quedó anotado como tal en la propia D-006.
+- **Y la improvisación además estaba mal.** Dejaba `Consulting Fee` del lado de
+  las comidas. Consultoría cuesta **USD 2.212 por pago** — más que un honorario
+  de disertante (1.466) y 116 veces más que una comida (19). Sólo pasaba
+  desapercibido porque es chica: 2,1% de los dólares.
+- **El hallazgo no dependía de la partición**, y eso se verificó antes de
+  elegir: ratios Novo/Lilly excluyendo cada grupo — sólo disertante
+  (7,24 · 3,45 · 1,51 · 1,46 · 2,56), voz completa
+  (6,80 · 3,31 · 1,48 · 1,48 · 2,54), sólo comidas
+  (5,93 · 2,78 · 1,47 · 1,43 · 2,31). Novo gana los cinco años en las tres. Se
+  eligió la defendible porque no costaba nada.
+- **Se produjo:** `grupo_naturaleza` en `src/vistas.py` (la regla vive en un
+  solo lugar); corte, ataque 03, figura y finding migrados a D-006;
+  `g2_disertantes` renombrada a `g2_voz_campo`; el cache pasa de
+  `disertante_vs_resto` a `voz_vs_campo`. Ataques recorridos: mismo resultado
+  (H1 8/10, H2 9/10).
+- **Dato nuevo que salió al migrar:** con el grupo completo, el contraste de
+  estrategias es más nítido. Novo pasó de 7.361 a 5.201 pagos de "voz" y Lilly
+  de 6.521 a 12.604. **Novo paga menos veces y más caro; Lilly, más veces y más
+  barato.**
+- **Quedó abierto:** lo mismo que la entrada anterior — el corte sobre la cola
+  de pagos grandes que abrió C1 (Lilly supera a Novo también en 2025 al recortar
+  el 1% más caro), la hipótesis de escasez sin testear, y la cola D-007
+  (especialidades), D-008 (deflactar), D-009 (75 filas con fecha corrupta).
+- **Próximo paso concreto:** el corte 02 sobre la cola de pagos grandes, que es
+  donde C1 dejó la pregunta abierta: si el liderazgo de Novo en 2025 vive en un
+  puñado de pagos, ¿cuántos son y a quién van?
