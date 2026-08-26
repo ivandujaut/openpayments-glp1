@@ -531,3 +531,49 @@ Formato por entrada (una por sesión, al cierre):
   - Doce commits locales sin pushear.
 - **Próximo paso concreto:** pushear, y después `/derivar` sobre el corte 03, que
   es el hallazgo más autocontenido.
+- **Cerrado en la misma sesión:** ver la entrada siguiente.
+
+---
+
+## 2026-08-25 — push y primera derivación de contenido
+
+- **Se decidió:** nada.
+- **Se produjo:**
+  - **Push a origin**: `6300afd..26ba1cf`, diez commits, 46 archivos. `data/`
+    quedó fuera, como siempre.
+  - `contenido/pieza-03/` con `video.md`, `carrusel.md`, `micropost.md` y
+    `PARA-IVAN.md`, en ES y EN. Desarrolla el esqueleto de
+    `pieza-03-el-crossover.md` con el dato real. No se commitea: `contenido/`
+    está gitignoreado por diseño.
+- **El dato no dio ninguna de las cuatro formas de titular que la pieza 3
+  preveía.** La serie esperaba una migración del especialista al generalista
+  (formas A a D). Lo que hay es una quinta: **las dos compañías se alejaron del
+  especialista al mismo tiempo, pero hacia destinos distintos** — Lilly al médico
+  de cabecera (25,9% → 37,7%), Novo a cardiología, nefrología y gastro
+  (6,5% → 25,6%). Quedó registrado en `carrusel.md` con las opciones y una
+  recomendación.
+- **Un titular descartado a propósito:** "un endocrinólogo vale 41 enfermeros
+  para la industria". Es el más filoso y el más citable, y está mal: el dato
+  habla de cómo gastan las compañías, no del valor de las personas. Publicado
+  así, el propio finding lo contradice. Anotado en `PARA-IVAN.md` como
+  "no usar sin reformular".
+- **El micro-post va por un ángulo distinto al video**, como pide la serie: no
+  el hallazgo sino **la categoría "resto" que casi lo esconde**, y el costo de
+  reabrir una decisión ya publicada. Es la pieza que vende el método.
+- **Verificación previa a escribir:** las 18 cifras usadas en las piezas se
+  contrastaron contra el cache una por una. Todas coinciden. Un solo
+  `[PLACEHOLDER]`: el "trimestre exacto" que la pieza 3 original prometía no
+  existe, porque el corte trabaja por año — para tenerlo hay que ampliar el corte
+  con `date_trunc('quarter', fecha)`.
+- **Privacidad:** ninguna pieza nombra a nadie. El dato del profesional que más
+  recibió (USD 403.511, corte 02) se dejó **deliberadamente afuera**: con ese
+  número y el dataset público, identificar a la persona es trivial. Queda
+  anotado en `PARA-IVAN.md`.
+- **Quedó abierto:**
+  - `[PLACEHOLDER: link al caso]` en el carrusel, pendiente de `/exportar-caso`.
+  - Las piezas 1, 2 y 4 de la serie siguen sin derivar.
+  - Cola: D-010 (deflactar), D-011 (75 filas con fecha corrupta de PY2024).
+  - El writeup en inglés sigue sin escribirse — es de Iván, Claude sólo ataca.
+- **Próximo paso concreto:** el writeup, o `/exportar-caso` para tener el link
+  que las piezas necesitan. Analíticamente el caso está cerrado: cuatro cortes
+  con red-team, dos verificadores en verde.
