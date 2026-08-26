@@ -5,8 +5,8 @@
 ## TL;DR
 
 El dinero de GLP-1 no sigue al volumen de prescriptores: sigue al especialista.
-**5.367 endocrinólogos recibieron USD 65,09 millones entre 2021 y 2025, mientras
-120.145 enfermeros y asistentes médicos recibieron 35,24 millones.** Son USD
+**5.367 endocrinólogos recibieron USD 65,10 millones entre 2021 y 2025, mientras
+120.145 enfermeros y asistentes médicos recibieron 35,25 millones.** Son USD
 12.129 por endocrinólogo contra 293 por NP/PA: un factor de **41**.
 
 Las dos compañías apuestan al mismo perfil, pero en dosis distintas.

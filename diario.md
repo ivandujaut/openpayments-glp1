@@ -494,3 +494,40 @@ Formato por entrada (una por sesión, al cierre):
 - **Próximo paso concreto:** los cuatro cortes tienen checks verdes y red-team
   corrido (59 ataques en total), así que `/derivar` está habilitado sobre
   cualquiera. Si se sigue analizando, la cola de decisiones está intacta.
+
+---
+
+## 2026-08-25 — verificación de findings: apareció un error real
+
+- **Se decidió:** nada.
+- **Se produjo:** `scripts/05_verificar_findings.py`. Fija las cifras que los
+  findings citan y las compara contra `findings/cache/*.json`, más dos checks de
+  coherencia (totales que deben cerrar entre cortes, y findings que citen
+  decisiones superadas sin aclararlo). **93 cifras cubiertas.**
+- **Encontró un error real, que es exactamente para lo que se escribió.** La
+  tabla voz/campo del corte 01 tenía **los cinco años desactualizados**: quedaron
+  de la partición previa a D-006, cuando consultoría todavía estaba del lado de
+  "campo". Publicado decía campo Novo 2025 = 13,31M; el valor real es 12,39M, una
+  diferencia de 918.124 dólares. Corregida la tabla entera.
+- **Y dos redondeos truncados en el corte 03**: 65,09 en vez de 65,10 millones y
+  35,24 en vez de 35,25. Triviales, pero eran números mal escritos.
+- **La observación que vale para el writeup:** las **figuras nunca tuvieron el
+  error**, porque la regla del proyecto las obliga a leer el cache y no el texto.
+  El pipeline protege los gráficos por diseño; el texto escrito a mano era el
+  único eslabón sin verificar. Por eso ahora hay dos verificadores —
+  `04_checks.py` cierra el dato propio contra CMS, `05_verificar_findings.py`
+  cierra el texto publicado contra el dato propio — y los dos tienen que estar
+  verdes antes de publicar.
+- **Dos falsos positivos que hubo que corregir en el propio verificador**, porque
+  un check que grita cuando no debe se vuelve ruido: comparar con tolerancia
+  porcentual marcaba en rojo cifras chicas bien redondeadas (un finding que dice
+  "0,45M" no afirma 450.000 exactos), y el regex de decisiones superadas cruzaba
+  bloques y señalaba D-001 en vez de D-008.
+- **Quedó abierto:**
+  - **Las cifras de la sección "Intenté matarlo" no están cubiertas**: salen de
+    los scripts de ataque, que imprimen pero no cachean. Cubrirlas exigiría que
+    los ataques escribieran su propio cache.
+  - Cola: D-010 (deflactar), D-011 (75 filas con fecha corrupta de PY2024).
+  - Doce commits locales sin pushear.
+- **Próximo paso concreto:** pushear, y después `/derivar` sobre el corte 03, que
+  es el hallazgo más autocontenido.

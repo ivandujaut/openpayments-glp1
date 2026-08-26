@@ -10,6 +10,21 @@ archiva ni se explica en prosa — se le cuelgan hipótesis ordenadas por
 probabilidad, cada una con su test concreto, y el análisis no sigue hasta que
 alguna cierre.
 
+## Los dos extremos de la cadena
+
+Hay dos verificadores y cubren cosas distintas. Los dos tienen que estar verdes
+antes de publicar:
+
+- `scripts/04_checks.py` — el **dato propio contra CMS**. 36 comparaciones.
+- `scripts/05_verificar_findings.py` — el **texto publicado contra el dato
+  propio**. 93 cifras, más coherencia entre cortes y decisiones citadas.
+
+El segundo nació de un error real: la tabla voz/campo del corte 01 quedó con los
+valores previos a D-006 cuando esa decisión movió consultoría de "campo" a "voz".
+Las figuras no se vieron afectadas —leen el cache, no el texto— pero el finding
+publicaba cuatro cifras viejas. La arquitectura del pipeline protege los
+gráficos; el texto escrito a mano es el eslabón que hay que verificar aparte.
+
 ## Vigencia — cuándo un check verde deja de servir
 
 Un check vale para **una versión de datos**, identificada por los sha256 de
@@ -45,6 +60,20 @@ Un finding solo puede citar números cuyo último check esté **verde y vigente*
 ```
 
 ## Reconciliaciones
+
+## 2026-08-25 (b) — 🟢 verde · alineación de findings
+- **Versión de datos:** PY2021–PY2025 · descarga 2026-08-25 · sin recarga
+- **Corrida:** `uv run scripts/05_verificar_findings.py` · **93 cifras, 0 discrepancias**
+- **Qué encontró:** la tabla voz/campo del corte 01 tenía los cuatro valores de
+  2025 desactualizados (campo Novo 13,31M publicado contra 12,39M real, campo
+  Lilly 5,19M contra 4,88M), y en realidad **los cinco años estaban viejos**:
+  quedaron de la partición previa a D-006. Corregidos. También dos redondeos
+  truncados en el corte 03 (65,09 → 65,10 y 35,24 → 35,25 millones).
+- **Qué NO encontró:** ninguna incoherencia entre cortes, y ningún finding
+  citando una decisión superada sin aclararlo.
+- **Cobertura:** las 93 cifras son las de TL;DR, tablas de Números y titulares de
+  los cuatro findings. Las cifras que aparecen sólo dentro de la sección "Intenté
+  matarlo" **no** están cubiertas: salen de los scripts de ataque, que no cachean.
 
 ## 2026-08-25 — 🟢 verde
 - **Versión de datos:** PY2021–PY2025 · descarga 2026-08-25 · sha256 en `scripts/checksums.txt`
