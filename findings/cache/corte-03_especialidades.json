@@ -15,83 +15,93 @@
   "reparto": [
     {
       "especialidad": "endocrinologia",
-      "novo_usd": 34982126.39500002,
-      "lilly_usd": 30113914.540000018,
-      "novo_pct": 31.522536723445956,
-      "lilly_pct": 43.559715143703535,
+      "novo_usd": 34982126.39500005,
+      "lilly_usd": 30113914.53999999,
+      "novo_pct": 31.522536723445974,
+      "lilly_pct": 43.55971514370352,
       "hcps": 5367,
       "pagos": 247070,
-      "usd_por_hcp": 12128.94371809204
+      "usd_por_hcp": 12128.943718092032
     },
     {
       "especialidad": "primaria",
-      "novo_usd": 32524922.806666728,
-      "lilly_usd": 20652486.480333354,
-      "novo_pct": 29.30834055150341,
-      "lilly_pct": 29.87377900995095,
-      "hcps": 82994,
-      "pagos": 1535163,
-      "usd_por_hcp": 640.7379965660227
+      "novo_usd": 32405464.406666722,
+      "lilly_usd": 20394188.062000006,
+      "novo_pct": 29.20069610020834,
+      "lilly_pct": 29.500150881674102,
+      "hcps": 82949,
+      "pagos": 1534381,
+      "usd_por_hcp": 636.5315129617854
     },
     {
       "especialidad": "NP/PA",
-      "novo_usd": 24203664.74333338,
-      "lilly_usd": 11043146.505499955,
-      "novo_pct": 21.810020983251334,
-      "lilly_pct": 15.973888596608962,
+      "novo_usd": 24203664.743333407,
+      "lilly_usd": 11043146.505499944,
+      "novo_pct": 21.81002098325135,
+      "lilly_pct": 15.973888596608958,
       "hcps": 120145,
       "pagos": 1391119,
-      "usd_por_hcp": 293.3689396049221
+      "usd_por_hcp": 293.36893960492125
     },
     {
       "especialidad": "emergentes",
-      "novo_usd": 14743376.588333337,
-      "lilly_usd": 1459325.2708333337,
+      "novo_usd": 14743376.58833334,
+      "lilly_usd": 1459325.2708333335,
       "novo_pct": 13.285316755351879,
-      "lilly_pct": 2.110910988176962,
+      "lilly_pct": 2.110910988176963,
       "hcps": 16714,
       "pagos": 87645,
       "usd_por_hcp": 969.4089900183479
     },
     {
       "especialidad": "resto",
-      "novo_usd": 3281659.213333334,
-      "lilly_usd": 4924313.172500003,
-      "novo_pct": 2.9571164970955084,
-      "lilly_pct": 7.123008826619558,
-      "hcps": 28227,
-      "pagos": 112019,
-      "usd_por_hcp": 290.7135857807536
+      "novo_usd": 3193059.0666666673,
+      "lilly_usd": 3642093.462500002,
+      "novo_pct": 2.8772785436941994,
+      "lilly_pct": 5.268280666152311,
+      "hcps": 26032,
+      "pagos": 102895,
+      "usd_por_hcp": 262.5673221099674
     },
     {
       "especialidad": "medicina de obesidad",
-      "novo_usd": 1239222.5466666666,
-      "lilly_usd": 939301.3316666665,
-      "novo_pct": 1.1166684893519092,
-      "lilly_pct": 1.3586974349400331,
+      "novo_usd": 1239222.5466666669,
+      "lilly_usd": 939301.331666667,
+      "novo_pct": 1.116668489351909,
+      "lilly_pct": 1.3586974349400347,
       "hcps": 242,
       "pagos": 4723,
-      "usd_por_hcp": 9002.164786501378
+      "usd_por_hcp": 9002.164786501377
+    },
+    {
+      "especialidad": "respiratorio y sueño",
+      "novo_usd": 208058.54666666663,
+      "lilly_usd": 1540518.1283333339,
+      "novo_pct": 0.18748240469636518,
+      "lilly_pct": 2.2283562887440986,
+      "hcps": 2280,
+      "pagos": 9906,
+      "usd_por_hcp": 766.9195942982459
     }
   ],
   "por_naturaleza": [
     {
       "especialidad": "NP/PA",
       "grupo_naturaleza": "campo",
-      "novo_usd": 19274386.85333332,
-      "lilly_usd": 8403584.005499978
+      "novo_usd": 19274386.853333376,
+      "lilly_usd": 8403584.005499953
     },
     {
       "especialidad": "NP/PA",
       "grupo_naturaleza": "voz",
-      "novo_usd": 4929277.8900000015,
+      "novo_usd": 4929277.89,
       "lilly_usd": 2639562.5
     },
     {
       "especialidad": "emergentes",
       "grupo_naturaleza": "campo",
-      "novo_usd": 2750547.628333334,
-      "lilly_usd": 239825.27083333328
+      "novo_usd": 2750547.6283333334,
+      "lilly_usd": 239825.2708333334
     },
     {
       "especialidad": "emergentes",
@@ -102,58 +112,70 @@
     {
       "especialidad": "endocrinologia",
       "grupo_naturaleza": "campo",
-      "novo_usd": 5464943.424999989,
-      "lilly_usd": 1940614.5399999982
+      "novo_usd": 5464943.424999992,
+      "lilly_usd": 1940614.539999998
     },
     {
       "especialidad": "endocrinologia",
       "grupo_naturaleza": "voz",
-      "novo_usd": 29517182.97,
+      "novo_usd": 29517182.96999999,
       "lilly_usd": 28173300.0
     },
     {
       "especialidad": "medicina de obesidad",
       "grupo_naturaleza": "campo",
-      "novo_usd": 209298.6766666667,
-      "lilly_usd": 45607.58166666667
+      "novo_usd": 209298.67666666667,
+      "lilly_usd": 45607.58166666666
     },
     {
       "especialidad": "medicina de obesidad",
       "grupo_naturaleza": "voz",
-      "novo_usd": 1029923.8700000001,
+      "novo_usd": 1029923.87,
       "lilly_usd": 893693.75
     },
     {
       "especialidad": "primaria",
       "grupo_naturaleza": "campo",
-      "novo_usd": 19724906.146666683,
-      "lilly_usd": 9146067.730333315
+      "novo_usd": 19702387.58666674,
+      "lilly_usd": 9128931.81199997
     },
     {
       "especialidad": "primaria",
       "grupo_naturaleza": "voz",
-      "novo_usd": 12800016.659999996,
-      "lilly_usd": 11506418.75
+      "novo_usd": 12703076.819999998,
+      "lilly_usd": 11265256.25
+    },
+    {
+      "especialidad": "respiratorio y sueño",
+      "grupo_naturaleza": "campo",
+      "novo_usd": 109078.70666666664,
+      "lilly_usd": 143605.62833333336
+    },
+    {
+      "especialidad": "respiratorio y sueño",
+      "grupo_naturaleza": "voz",
+      "novo_usd": 98979.84,
+      "lilly_usd": 1396912.5
     },
     {
       "especialidad": "resto",
       "grupo_naturaleza": "campo",
-      "novo_usd": 1824546.9633333355,
-      "lilly_usd": 935969.4225000002
+      "novo_usd": 1737986.8166666673,
+      "lilly_usd": 809499.7124999998
     },
     {
       "especialidad": "resto",
       "grupo_naturaleza": "voz",
-      "novo_usd": 1457112.25,
-      "lilly_usd": 3988343.75
+      "novo_usd": 1455072.2499999998,
+      "lilly_usd": 2832593.75
     }
   ],
   "serie": [
     {
       "anio": 2021,
       "especialidad": "NP/PA",
-      "novo_pct": 18.989401117273264,
-      "lilly_pct": 12.492338208825812
+      "novo_pct": 18.98940111727327,
+      "lilly_pct": 12.492338208825814
     },
     {
       "anio": 2021,
@@ -164,170 +186,200 @@
     {
       "anio": 2021,
       "especialidad": "endocrinologia",
-      "novo_pct": 43.09558739829344,
-      "lilly_pct": 51.06823960848619
+      "novo_pct": 43.095587398293425,
+      "lilly_pct": 51.068239608486195
     },
     {
       "anio": 2021,
       "especialidad": "medicina de obesidad",
-      "novo_pct": 0.3594705036269141,
+      "novo_pct": 0.35947050362691424,
       "lilly_pct": 0.00899997800734082
     },
     {
       "anio": 2021,
       "especialidad": "primaria",
-      "novo_pct": 28.57375601798262,
-      "lilly_pct": 25.917150860492157
+      "novo_pct": 28.421241381435074,
+      "lilly_pct": 25.915572068724227
+    },
+    {
+      "anio": 2021,
+      "especialidad": "respiratorio y sueño",
+      "novo_pct": 0.24942821431566606,
+      "lilly_pct": 0.04768303549172097
     },
     {
       "anio": 2021,
       "especialidad": "resto",
-      "novo_pct": 2.4967758389352777,
-      "lilly_pct": 1.4802484215161844
+      "novo_pct": 2.399862261167164,
+      "lilly_pct": 1.4341441777923603
     },
     {
       "anio": 2022,
       "especialidad": "NP/PA",
-      "novo_pct": 19.046156533408187,
+      "novo_pct": 19.046156533408176,
       "lilly_pct": 14.402133228692827
     },
     {
       "anio": 2022,
       "especialidad": "emergentes",
       "novo_pct": 10.50566891001227,
-      "lilly_pct": 0.7116927161665333
+      "lilly_pct": 0.7116927161665332
     },
     {
       "anio": 2022,
       "especialidad": "endocrinologia",
-      "novo_pct": 39.28943503586598,
-      "lilly_pct": 58.23895414410136
+      "novo_pct": 39.28943503586599,
+      "lilly_pct": 58.238954144101356
     },
     {
       "anio": 2022,
       "especialidad": "medicina de obesidad",
-      "novo_pct": 0.9397735434672863,
-      "lilly_pct": 0.014963524141771765
+      "novo_pct": 0.9397735434672866,
+      "lilly_pct": 0.014963524141771763
     },
     {
       "anio": 2022,
       "especialidad": "primaria",
-      "novo_pct": 28.12546979627835,
-      "lilly_pct": 23.120156729536976
+      "novo_pct": 28.022701123032068,
+      "lilly_pct": 23.118554655623083
+    },
+    {
+      "anio": 2022,
+      "especialidad": "respiratorio y sueño",
+      "novo_pct": 0.16807398133215956,
+      "lilly_pct": 0.0613464491651277
     },
     {
       "anio": 2022,
       "especialidad": "resto",
-      "novo_pct": 2.093496180967939,
-      "lilly_pct": 3.512099657360511
+      "novo_pct": 2.028190872882061,
+      "lilly_pct": 3.452355282109298
     },
     {
       "anio": 2023,
       "especialidad": "NP/PA",
-      "novo_pct": 29.149572985501564,
-      "lilly_pct": 18.446578296869873
+      "novo_pct": 29.149572985501557,
+      "lilly_pct": 18.446578296869856
     },
     {
       "anio": 2023,
       "especialidad": "emergentes",
-      "novo_pct": 7.3192060685571585,
-      "lilly_pct": 0.3736386669559953
+      "novo_pct": 7.319206068557163,
+      "lilly_pct": 0.3736386669559951
     },
     {
       "anio": 2023,
       "especialidad": "endocrinologia",
-      "novo_pct": 21.553657056862626,
-      "lilly_pct": 51.62992095638941
+      "novo_pct": 21.55365705686263,
+      "lilly_pct": 51.62992095638939
     },
     {
       "anio": 2023,
       "especialidad": "medicina de obesidad",
-      "novo_pct": 1.4686250404668109,
-      "lilly_pct": 0.02282149405050048
+      "novo_pct": 1.4686250404668115,
+      "lilly_pct": 0.022821494050500463
     },
     {
       "anio": 2023,
       "especialidad": "primaria",
-      "novo_pct": 36.94068401965862,
-      "lilly_pct": 26.428198727224366
+      "novo_pct": 36.787260266198764,
+      "lilly_pct": 26.398590877057394
+    },
+    {
+      "anio": 2023,
+      "especialidad": "respiratorio y sueño",
+      "novo_pct": 0.24622185442637276,
+      "lilly_pct": 0.09397501135496708
     },
     {
       "anio": 2023,
       "especialidad": "resto",
-      "novo_pct": 3.5682548289532225,
-      "lilly_pct": 3.098841858509862
+      "novo_pct": 3.4754567279867006,
+      "lilly_pct": 3.034474697321885
     },
     {
       "anio": 2024,
       "especialidad": "NP/PA",
-      "novo_pct": 27.679129500352676,
-      "lilly_pct": 18.37818144236292
+      "novo_pct": 27.679129500352683,
+      "lilly_pct": 18.378181442362937
     },
     {
       "anio": 2024,
       "especialidad": "emergentes",
-      "novo_pct": 11.354033195409343,
-      "lilly_pct": 1.8918202287401937
+      "novo_pct": 11.354033195409345,
+      "lilly_pct": 1.8918202287401942
     },
     {
       "anio": 2024,
       "especialidad": "endocrinologia",
-      "novo_pct": 20.20170936351988,
-      "lilly_pct": 41.944392113371485
+      "novo_pct": 20.20170936351989,
+      "lilly_pct": 41.94439211337147
     },
     {
       "anio": 2024,
       "especialidad": "medicina de obesidad",
-      "novo_pct": 1.8119656155843666,
+      "novo_pct": 1.8119656155843673,
       "lilly_pct": 2.5408077075687068
     },
     {
       "anio": 2024,
       "especialidad": "primaria",
-      "novo_pct": 34.33595761692085,
-      "lilly_pct": 29.982859483564194
+      "novo_pct": 34.25309054424598,
+      "lilly_pct": 29.801183721528073
+    },
+    {
+      "anio": 2024,
+      "especialidad": "respiratorio y sueño",
+      "novo_pct": 0.1734027323722216,
+      "lilly_pct": 0.7205155828544866
     },
     {
       "anio": 2024,
       "especialidad": "resto",
-      "novo_pct": 4.617204708212883,
-      "lilly_pct": 5.261939024392511
+      "novo_pct": 4.526669048515515,
+      "lilly_pct": 4.723099203574141
     },
     {
       "anio": 2025,
       "especialidad": "NP/PA",
-      "novo_pct": 20.47778575078118,
-      "lilly_pct": 14.011444945061246
+      "novo_pct": 20.477785750781184,
+      "lilly_pct": 14.011444945061255
     },
     {
       "anio": 2025,
       "especialidad": "emergentes",
-      "novo_pct": 25.611527825230496,
-      "lilly_pct": 2.3070513804081405
+      "novo_pct": 25.611527825230503,
+      "lilly_pct": 2.3070513804081414
     },
     {
       "anio": 2025,
       "especialidad": "endocrinologia",
-      "novo_pct": 24.528118787910547,
-      "lilly_pct": 27.756383895711302
+      "novo_pct": 24.52811878791053,
+      "lilly_pct": 27.756383895711313
     },
     {
       "anio": 2025,
       "especialidad": "medicina de obesidad",
-      "novo_pct": 1.4040685108599111,
-      "lilly_pct": 2.4831780244998107
+      "novo_pct": 1.404068510859911,
+      "lilly_pct": 2.4831780244998116
     },
     {
       "anio": 2025,
       "especialidad": "primaria",
-      "novo_pct": 24.938566068190784,
-      "lilly_pct": 37.69363339532449
+      "novo_pct": 24.871729200722132,
+      "lilly_pct": 36.54676750812327
+    },
+    {
+      "anio": 2025,
+      "especialidad": "respiratorio y sueño",
+      "novo_pct": 0.13499063954048887,
+      "lilly_pct": 7.1920398020512115
     },
     {
       "anio": 2025,
       "especialidad": "resto",
-      "novo_pct": 3.0399330570270835,
-      "lilly_pct": 15.748308358995006
+      "novo_pct": 2.971779284955245,
+      "lilly_pct": 9.703134444145018
     }
   ]
 }

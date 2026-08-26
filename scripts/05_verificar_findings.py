@@ -28,6 +28,7 @@ FINDINGS = ROOT / "findings"
 # cifras chicas. Cada aserción declara la PRECISIÓN con que el finding cita el
 # número, y se compara contra media unidad de ese último dígito.
 PREC_MILLON_2DEC = 5_000    # el finding cita "X,XXM"
+PREC_MILLON_3DEC = 500      # el finding cita "X,XXXM" (bloques chicos, D-011)
 PREC_CENTAVO = 0.005        # el finding cita el número completo
 PREC_ENTERO = 0.5           # el finding cita un entero exacto
 PREC_1DEC = 0.05            # el finding cita "XX,X%" o "XXX,X"
@@ -165,6 +166,7 @@ def aserciones() -> list[tuple[str, str, float, float, float]]:
     emer = buscar(c3["reparto"], especialidad="emergentes")
     prim = buscar(c3["reparto"], especialidad="primaria")
     rest = buscar(c3["reparto"], especialidad="resto")
+    resp = buscar(c3["reparto"], especialidad="respiratorio y sueño")
     a += [
         ("03", "endo HCPs", 5_367, endo["hcps"], PREC_ENTERO),
         ("03", "endo USD/HCP", 12_129, endo["usd_por_hcp"], PREC_ENTERO),
@@ -177,8 +179,20 @@ def aserciones() -> list[tuple[str, str, float, float, float]]:
         ("03", "emergentes Novo USD", 14.74e6, emer["novo_usd"], PREC_MILLON_2DEC),
         ("03", "emergentes Lilly USD", 1.46e6, emer["lilly_usd"], PREC_MILLON_2DEC),
         ("03", "emergentes HCPs", 16_714, emer["hcps"], PREC_ENTERO),
-        ("03", "primaria HCPs", 82_994, prim["hcps"], PREC_ENTERO),
-        ("03", "resto HCPs", 28_227, rest["hcps"], PREC_ENTERO),
+        ("03", "primaria Novo USD", 32.41e6, prim["novo_usd"], PREC_MILLON_2DEC),
+        ("03", "primaria Lilly USD", 20.39e6, prim["lilly_usd"], PREC_MILLON_2DEC),
+        ("03", "primaria HCPs", 82_949, prim["hcps"], PREC_ENTERO),
+        ("03", "primaria USD/HCP", 637, prim["usd_por_hcp"], PREC_ENTERO),
+        ("03", "resto Novo USD", 3.19e6, rest["novo_usd"], PREC_MILLON_2DEC),
+        ("03", "resto Lilly USD", 3.64e6, rest["lilly_usd"], PREC_MILLON_2DEC),
+        ("03", "resto HCPs", 26_032, rest["hcps"], PREC_ENTERO),
+        ("03", "resto USD/HCP", 263, rest["usd_por_hcp"], PREC_ENTERO),
+        # D-011: la categoría nueva del corte 03.
+        ("03", "respiratorio Novo USD", 0.21e6, resp["novo_usd"], PREC_MILLON_2DEC),
+        ("03", "respiratorio Lilly USD", 1.54e6, resp["lilly_usd"], PREC_MILLON_2DEC),
+        ("03", "respiratorio % Lilly", 2.2, resp["lilly_pct"], PREC_1DEC),
+        ("03", "respiratorio HCPs", 2_280, resp["hcps"], PREC_ENTERO),
+        ("03", "respiratorio USD/HCP", 767, resp["usd_por_hcp"], PREC_ENTERO),
     ]
     for anio, lilly_pct, novo_pct in ((2021, 51.1, 43.1), (2023, 51.6, 21.6), (2025, 27.8, 24.5)):
         f = buscar(c3["serie"], anio=anio, especialidad="endocrinologia")
@@ -193,11 +207,17 @@ def aserciones() -> list[tuple[str, str, float, float, float]]:
     a += [
         ("04", "Δ endo Lilly", -1.85e6, buscar(m, grupo="lilly", especialidad="endocrinologia")["delta"], PREC_MILLON_2DEC),
         ("04", "Δ endo Novo", 4.25e6, buscar(m, grupo="novo", especialidad="endocrinologia")["delta"], PREC_MILLON_2DEC),
-        ("04", "Δ primaria Lilly", 3.59e6, buscar(m, grupo="lilly", especialidad="primaria")["delta"], PREC_MILLON_2DEC),
+        ("04", "Δ primaria Lilly", 3.37e6, buscar(m, grupo="lilly", especialidad="primaria")["delta"], PREC_MILLON_2DEC),
         ("04", "Δ emergentes Novo", 6.43e6, buscar(m, grupo="novo", especialidad="emergentes")["delta"], PREC_MILLON_2DEC),
         ("04", "emergentes Novo 2025", 7.39e6, buscar(m, grupo="novo", especialidad="emergentes")["usd_final"], PREC_MILLON_2DEC),
         ("04", "emergentes Lilly 2025", 0.45e6, buscar(m, grupo="lilly", especialidad="emergentes")["usd_final"], PREC_MILLON_2DEC),
         ("04", "emergentes Novo 2023", 0.96e6, buscar(m, grupo="novo", especialidad="emergentes")["usd_pivote"], PREC_MILLON_2DEC),
+        # D-011: el frente de Lilly. El finding cita 0,013M → 1,388M, así que
+        # la precisión declarada es de tres decimales de millón.
+        ("04", "Δ respiratorio Lilly", 1.375e6, buscar(m, grupo="lilly", especialidad="respiratorio y sueño")["delta"], PREC_MILLON_3DEC),
+        ("04", "respiratorio Lilly 2023", 0.013e6, buscar(m, grupo="lilly", especialidad="respiratorio y sueño")["usd_pivote"], PREC_MILLON_3DEC),
+        ("04", "respiratorio Lilly 2025", 1.388e6, buscar(m, grupo="lilly", especialidad="respiratorio y sueño")["usd_final"], PREC_MILLON_3DEC),
+        ("04", "respiratorio Novo 2025", 0.039e6, buscar(m, grupo="novo", especialidad="respiratorio y sueño")["usd_final"], PREC_MILLON_3DEC),
     ]
     wegovy = buscar(c4["emergentes_por_producto"], producto="WEGOVY")
     ozempic = buscar(c4["emergentes_por_producto"], producto="OZEMPIC")

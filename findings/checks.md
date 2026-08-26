@@ -61,6 +61,28 @@ Un finding solo puede citar números cuyo último check esté **verde y vigente*
 
 ## Reconciliaciones
 
+## 2026-08-26 — 🟢 verde · recorrida completa por D-011
+- **Versión de datos:** PY2021–PY2025 · descarga 2026-08-25 · sin recarga
+- **Corridas:** `uv run scripts/04_checks.py` · **36 comparaciones, todas Δ = 0,00%**
+  y `uv run scripts/05_verificar_findings.py` · **112 cifras, 0 discrepancias**
+- **Por qué se corrió:** D-011 agregó la categoría "respiratorio y sueño" en
+  `src/vistas.py` y se recorrieron los cortes 03 y 04 con sus ataques. La
+  decisión **no toca el filtrado** (D-001/002/003/004 intactas), así que el
+  check contra CMS no podía cambiar, y no cambió; se corre igual porque cambió
+  el código de la vista.
+- **Qué encontró el verificador de findings (antes de corregir):** tres cifras
+  desalineadas por la categoría nueva — profesionales de primaria (82.994 →
+  82.949) y de resto (28.227 → 26.032) en el corte 03, y el Δ de primaria de
+  Lilly en el corte 04 (3,59M → 3,37M). Corregidas en los textos. Se agregaron
+  15 aserciones nuevas: las de la categoría D-011 y las columnas de primaria y
+  resto, que antes sólo se verificaban por cantidad de profesionales.
+- **Lo que el verificador NO cubre y quedó anotado:** el desglose por dirección
+  del ataque 07 (qué compañía declara endocrinología donde la otra no) usa
+  `any_value()` y **da números distintos en cada corrida**. Los totales de ese
+  ataque sí son estables. La afirmación quedó **suspendida** en el corte 03
+  hasta que el desempate sea una regla declarada.
+- **Findings habilitados:** los cuatro cortes.
+
 ## 2026-08-25 (b) — 🟢 verde · alineación de findings
 - **Versión de datos:** PY2021–PY2025 · descarga 2026-08-25 · sin recarga
 - **Corrida:** `uv run scripts/05_verificar_findings.py` · **93 cifras, 0 discrepancias**

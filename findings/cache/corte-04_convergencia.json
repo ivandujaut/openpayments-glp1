@@ -19,35 +19,35 @@
       "grupo": "lilly",
       "especialidad": "NP/PA",
       "anio": 2021,
-      "usd": 743823.3953333335,
+      "usd": 743823.3953333332,
       "hcps": 20656
     },
     {
       "grupo": "lilly",
       "especialidad": "NP/PA",
       "anio": 2022,
-      "usd": 1732536.2471666685,
+      "usd": 1732536.2471666671,
       "hcps": 27450
     },
     {
       "grupo": "lilly",
       "especialidad": "NP/PA",
       "anio": 2023,
-      "usd": 2575032.7496666657,
+      "usd": 2575032.7496666647,
       "hcps": 31612
     },
     {
       "grupo": "lilly",
       "especialidad": "NP/PA",
       "anio": 2024,
-      "usd": 3287062.0041666697,
+      "usd": 3287062.004166674,
       "hcps": 37974
     },
     {
       "grupo": "lilly",
       "especialidad": "NP/PA",
       "anio": 2025,
-      "usd": 2704692.109166668,
+      "usd": 2704692.109166667,
       "hcps": 35275
     },
     {
@@ -68,7 +68,7 @@
       "grupo": "lilly",
       "especialidad": "emergentes",
       "anio": 2023,
-      "usd": 52157.73833333334,
+      "usd": 52157.73833333333,
       "hcps": 879
     },
     {
@@ -82,42 +82,42 @@
       "grupo": "lilly",
       "especialidad": "emergentes",
       "anio": 2025,
-      "usd": 445340.4833333334,
+      "usd": 445340.48333333316,
       "hcps": 1688
     },
     {
       "grupo": "lilly",
       "especialidad": "endocrinologia",
       "anio": 2021,
-      "usd": 3040723.901666667,
+      "usd": 3040723.9016666664,
       "hcps": 1766
     },
     {
       "grupo": "lilly",
       "especialidad": "endocrinologia",
       "anio": 2022,
-      "usd": 7005982.895000002,
+      "usd": 7005982.895,
       "hcps": 2457
     },
     {
       "grupo": "lilly",
       "especialidad": "endocrinologia",
       "anio": 2023,
-      "usd": 7207230.261666662,
+      "usd": 7207230.261666663,
       "hcps": 2348
     },
     {
       "grupo": "lilly",
       "especialidad": "endocrinologia",
       "anio": 2024,
-      "usd": 7502038.111666662,
+      "usd": 7502038.111666666,
       "hcps": 2430
     },
     {
       "grupo": "lilly",
       "especialidad": "endocrinologia",
       "anio": 2025,
-      "usd": 5357939.37,
+      "usd": 5357939.369999998,
       "hcps": 1984
     },
     {
@@ -131,21 +131,21 @@
       "grupo": "lilly",
       "especialidad": "medicina de obesidad",
       "anio": 2022,
-      "usd": 1800.07,
+      "usd": 1800.0700000000002,
       "hcps": 22
     },
     {
       "grupo": "lilly",
       "especialidad": "medicina de obesidad",
       "anio": 2023,
-      "usd": 3185.745,
+      "usd": 3185.7449999999994,
       "hcps": 42
     },
     {
       "grupo": "lilly",
       "especialidad": "medicina de obesidad",
       "anio": 2024,
-      "usd": 454440.6366666666,
+      "usd": 454440.63666666666,
       "hcps": 77
     },
     {
@@ -159,71 +159,106 @@
       "grupo": "lilly",
       "especialidad": "primaria",
       "anio": 2021,
-      "usd": 1543168.5268333321,
-      "hcps": 22572
+      "usd": 1543074.5218333316,
+      "hcps": 22568
     },
     {
       "grupo": "lilly",
       "especialidad": "primaria",
       "anio": 2022,
-      "usd": 2781290.0309999995,
-      "hcps": 28368
+      "usd": 2781097.306,
+      "hcps": 28364
     },
     {
       "grupo": "lilly",
       "especialidad": "primaria",
       "anio": 2023,
-      "usd": 3689219.547500006,
-      "hcps": 31100
+      "usd": 3685086.4675000026,
+      "hcps": 31097
     },
     {
       "grupo": "lilly",
       "especialidad": "primaria",
       "anio": 2024,
-      "usd": 5362637.129999994,
-      "hcps": 33853
+      "usd": 5330143.19166666,
+      "hcps": 33844
     },
     {
       "grupo": "lilly",
       "especialidad": "primaria",
       "anio": 2025,
-      "usd": 7276171.245000017,
-      "hcps": 31635
+      "usd": 7054786.575000013,
+      "hcps": 31591
+    },
+    {
+      "grupo": "lilly",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2021,
+      "usd": 2839.1608333333334,
+      "hcps": 108
+    },
+    {
+      "grupo": "lilly",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2022,
+      "usd": 7379.805833333335,
+      "hcps": 158
+    },
+    {
+      "grupo": "lilly",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2023,
+      "usd": 13118.353333333333,
+      "hcps": 171
+    },
+    {
+      "grupo": "lilly",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2024,
+      "usd": 128869.08333333334,
+      "hcps": 196
+    },
+    {
+      "grupo": "lilly",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2025,
+      "usd": 1388311.7249999999,
+      "hcps": 1523
     },
     {
       "grupo": "lilly",
       "especialidad": "resto",
       "anio": 2021,
-      "usd": 88137.49583333333,
-      "hcps": 1298
+      "usd": 85392.34000000001,
+      "hcps": 1194
     },
     {
       "grupo": "lilly",
       "especialidad": "resto",
       "anio": 2022,
-      "usd": 422495.74166666664,
-      "hcps": 1760
+      "usd": 415308.6608333332,
+      "hcps": 1606
     },
     {
       "grupo": "lilly",
       "especialidad": "resto",
       "anio": 2023,
-      "usd": 432579.91499999986,
-      "hcps": 2102
+      "usd": 423594.6416666667,
+      "hcps": 1934
     },
     {
       "grupo": "lilly",
       "especialidad": "resto",
       "anio": 2024,
-      "usd": 941133.37,
-      "hcps": 4651
+      "usd": 844758.2249999999,
+      "hcps": 4464
     },
     {
       "grupo": "lilly",
       "especialidad": "resto",
       "anio": 2025,
-      "usd": 3039966.6500000013,
-      "hcps": 8864
+      "usd": 1873039.5949999997,
+      "hcps": 7385
     },
     {
       "grupo": "novo",
@@ -236,14 +271,14 @@
       "grupo": "novo",
       "especialidad": "NP/PA",
       "anio": 2022,
-      "usd": 5494063.3049999755,
+      "usd": 5494063.304999977,
       "hcps": 38599
     },
     {
       "grupo": "novo",
       "especialidad": "NP/PA",
       "anio": 2023,
-      "usd": 3821616.5399999893,
+      "usd": 3821616.539999991,
       "hcps": 41517
     },
     {
@@ -257,21 +292,21 @@
       "grupo": "novo",
       "especialidad": "NP/PA",
       "anio": 2025,
-      "usd": 5909754.173333342,
+      "usd": 5909754.173333332,
       "hcps": 52939
     },
     {
       "grupo": "novo",
       "especialidad": "emergentes",
       "anio": 2021,
-      "usd": 1595175.7283333342,
+      "usd": 1595175.7283333344,
       "hcps": 2733
     },
     {
       "grupo": "novo",
       "especialidad": "emergentes",
       "anio": 2022,
-      "usd": 3030470.213333332,
+      "usd": 3030470.2133333324,
       "hcps": 3379
     },
     {
@@ -285,49 +320,49 @@
       "grupo": "novo",
       "especialidad": "emergentes",
       "anio": 2024,
-      "usd": 1766837.39,
+      "usd": 1766837.3899999997,
       "hcps": 6549
     },
     {
       "grupo": "novo",
       "especialidad": "emergentes",
       "anio": 2025,
-      "usd": 7391318.343333333,
+      "usd": 7391318.343333326,
       "hcps": 10887
     },
     {
       "grupo": "novo",
       "especialidad": "endocrinologia",
       "anio": 2021,
-      "usd": 10600607.293333337,
+      "usd": 10600607.293333346,
       "hcps": 2578
     },
     {
       "grupo": "novo",
       "especialidad": "endocrinologia",
       "anio": 2022,
-      "usd": 11333448.978333347,
+      "usd": 11333448.978333345,
       "hcps": 2828
     },
     {
       "grupo": "novo",
       "especialidad": "endocrinologia",
       "anio": 2023,
-      "usd": 2825763.9433333334,
+      "usd": 2825763.9433333315,
       "hcps": 2849
     },
     {
       "grupo": "novo",
       "especialidad": "endocrinologia",
       "anio": 2024,
-      "usd": 3143652.5533333304,
+      "usd": 3143652.553333329,
       "hcps": 2881
     },
     {
       "grupo": "novo",
       "especialidad": "endocrinologia",
       "anio": 2025,
-      "usd": 7078653.626666667,
+      "usd": 7078653.626666668,
       "hcps": 3174
     },
     {
@@ -341,7 +376,7 @@
       "grupo": "novo",
       "especialidad": "medicina de obesidad",
       "anio": 2022,
-      "usd": 271087.52,
+      "usd": 271087.51999999996,
       "hcps": 54
     },
     {
@@ -362,208 +397,257 @@
       "grupo": "novo",
       "especialidad": "medicina de obesidad",
       "anio": 2025,
-      "usd": 405204.93000000005,
+      "usd": 405204.92999999993,
       "hcps": 92
     },
     {
       "grupo": "novo",
       "especialidad": "primaria",
       "anio": 2021,
-      "usd": 7028542.473333326,
-      "hcps": 33758
+      "usd": 6991027.083333323,
+      "hcps": 33752
     },
     {
       "grupo": "novo",
       "especialidad": "primaria",
       "anio": 2022,
-      "usd": 8113086.294999959,
-      "hcps": 36505
+      "usd": 8083441.594999961,
+      "hcps": 36494
     },
     {
       "grupo": "novo",
       "especialidad": "primaria",
       "anio": 2023,
-      "usd": 4843059.93499998,
-      "hcps": 37264
+      "usd": 4822945.514999988,
+      "hcps": 37257
     },
     {
       "grupo": "novo",
       "especialidad": "primaria",
       "anio": 2024,
-      "usd": 5343128.093333338,
-      "hcps": 38741
+      "usd": 5330232.883333328,
+      "hcps": 38731
     },
     {
       "grupo": "novo",
       "especialidad": "primaria",
       "anio": 2025,
-      "usd": 7197106.009999999,
-      "hcps": 41028
+      "usd": 7177817.329999998,
+      "hcps": 41010
+    },
+    {
+      "grupo": "novo",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2021,
+      "usd": 61354.09000000001,
+      "hcps": 267
+    },
+    {
+      "grupo": "novo",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2022,
+      "usd": 48482.70000000001,
+      "hcps": 249
+    },
+    {
+      "grupo": "novo",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2023,
+      "usd": 32280.593333333334,
+      "hcps": 249
+    },
+    {
+      "grupo": "novo",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2024,
+      "usd": 26983.753333333334,
+      "hcps": 283
+    },
+    {
+      "grupo": "novo",
+      "especialidad": "respiratorio y sueño",
+      "anio": 2025,
+      "usd": 38957.41,
+      "hcps": 326
     },
     {
       "grupo": "novo",
       "especialidad": "resto",
       "anio": 2021,
-      "usd": 614154.2966666672,
-      "hcps": 4883
+      "usd": 590315.5966666671,
+      "hcps": 4622
     },
     {
       "grupo": "novo",
       "especialidad": "resto",
       "anio": 2022,
-      "usd": 603890.8966666661,
-      "hcps": 4752
+      "usd": 585052.8966666661,
+      "hcps": 4514
     },
     {
       "grupo": "novo",
       "especialidad": "resto",
       "anio": 2023,
-      "usd": 467811.37,
-      "hcps": 5828
+      "usd": 455645.1966666667,
+      "hcps": 5586
     },
     {
       "grupo": "novo",
       "especialidad": "resto",
       "anio": 2024,
-      "usd": 718497.9800000002,
-      "hcps": 5820
+      "usd": 704409.4366666671,
+      "hcps": 5547
     },
     {
       "grupo": "novo",
       "especialidad": "resto",
       "anio": 2025,
-      "usd": 877304.6699999997,
-      "hcps": 6746
+      "usd": 857635.9399999998,
+      "hcps": 6438
     }
   ],
   "movimiento": [
     {
       "grupo": "lilly",
       "especialidad": "primaria",
-      "usd_pivote": 3689219.5475000013,
-      "usd_final": 7276171.245000019,
-      "delta": 3586951.6975000175
+      "usd_pivote": 3685086.467500005,
+      "usd_final": 7054786.5749999955,
+      "delta": 3369700.1074999906
     },
     {
       "grupo": "lilly",
       "especialidad": "resto",
-      "usd_pivote": 432579.9149999999,
-      "usd_final": 3039966.6500000004,
-      "delta": 2607386.7350000003
+      "usd_pivote": 423594.6416666667,
+      "usd_final": 1873039.595,
+      "delta": 1449444.9533333331
+    },
+    {
+      "grupo": "lilly",
+      "especialidad": "respiratorio y sueño",
+      "usd_pivote": 13118.353333333334,
+      "usd_final": 1388311.7249999994,
+      "delta": 1375193.3716666661
     },
     {
       "grupo": "lilly",
       "especialidad": "medicina de obesidad",
       "usd_pivote": 3185.745,
-      "usd_final": 479339.0,
-      "delta": 476153.255
+      "usd_final": 479338.99999999994,
+      "delta": 476153.25499999995
     },
     {
       "grupo": "lilly",
       "especialidad": "emergentes",
-      "usd_pivote": 52157.73833333333,
-      "usd_final": 445340.4833333333,
-      "delta": 393182.74499999994
+      "usd_pivote": 52157.738333333335,
+      "usd_final": 445340.4833333334,
+      "delta": 393182.74500000005
     },
     {
       "grupo": "lilly",
       "especialidad": "NP/PA",
-      "usd_pivote": 2575032.749666665,
-      "usd_final": 2704692.109166666,
-      "delta": 129659.35950000072
+      "usd_pivote": 2575032.7496666643,
+      "usd_final": 2704692.1091666683,
+      "delta": 129659.35950000398
     },
     {
       "grupo": "lilly",
       "especialidad": "endocrinologia",
-      "usd_pivote": 7207230.261666668,
-      "usd_final": 5357939.37,
-      "delta": -1849290.8916666675
+      "usd_pivote": 7207230.26166667,
+      "usd_final": 5357939.369999999,
+      "delta": -1849290.8916666713
     },
     {
       "grupo": "novo",
       "especialidad": "emergentes",
-      "usd_pivote": 959574.9133333338,
-      "usd_final": 7391318.343333333,
-      "delta": 6431743.429999999
+      "usd_pivote": 959574.9133333331,
+      "usd_final": 7391318.343333331,
+      "delta": 6431743.429999998
     },
     {
       "grupo": "novo",
       "especialidad": "endocrinologia",
-      "usd_pivote": 2825763.9433333334,
-      "usd_final": 7078653.626666666,
-      "delta": 4252889.683333333
+      "usd_pivote": 2825763.943333331,
+      "usd_final": 7078653.626666669,
+      "delta": 4252889.683333337
     },
     {
       "grupo": "novo",
       "especialidad": "primaria",
-      "usd_pivote": 4843059.934999988,
-      "usd_final": 7197106.0100000035,
-      "delta": 2354046.075000015
+      "usd_pivote": 4822945.514999993,
+      "usd_final": 7177817.330000002,
+      "delta": 2354871.815000009
     },
     {
       "grupo": "novo",
       "especialidad": "NP/PA",
-      "usd_pivote": 3821616.5399999935,
-      "usd_final": 5909754.173333342,
-      "delta": 2088137.6333333487
+      "usd_pivote": 3821616.539999991,
+      "usd_final": 5909754.173333336,
+      "delta": 2088137.6333333445
     },
     {
       "grupo": "novo",
       "especialidad": "resto",
-      "usd_pivote": 467811.37000000005,
-      "usd_final": 877304.6699999998,
-      "delta": 409493.29999999976
+      "usd_pivote": 455645.19666666666,
+      "usd_final": 857635.9399999995,
+      "delta": 401990.7433333328
     },
     {
       "grupo": "novo",
       "especialidad": "medicina de obesidad",
       "usd_pivote": 192542.16,
-      "usd_final": 405204.92999999993,
-      "delta": 212662.76999999993
+      "usd_final": 405204.93000000005,
+      "delta": 212662.77000000005
+    },
+    {
+      "grupo": "novo",
+      "especialidad": "respiratorio y sueño",
+      "usd_pivote": 32280.59333333333,
+      "usd_final": 38957.409999999996,
+      "delta": 6676.816666666666
     }
   ],
   "emergentes_por_producto": [
     {
       "producto": "WEGOVY",
       "grupo": "novo",
-      "usd_2023": 148117.565,
-      "usd_2025": 4354828.539999999,
-      "usd_total": 5329069.975000002
+      "usd_2023": 148117.56500000003,
+      "usd_2025": 4354828.54,
+      "usd_total": 5329069.975000001
     },
     {
       "producto": "OZEMPIC",
       "grupo": "novo",
-      "usd_2023": 747253.6866666663,
-      "usd_2025": 2872526.4266666677,
-      "usd_total": 7803433.534999993
+      "usd_2023": 747253.6866666664,
+      "usd_2025": 2872526.4266666668,
+      "usd_total": 7803433.535000002
     },
     {
       "producto": "ZEPBOUND",
       "grupo": "lilly",
       "usd_2023": 1093.6299999999999,
       "usd_2025": 411350.6433333334,
-      "usd_total": 639467.5166666667
+      "usd_total": 639467.5166666668
     },
     {
       "producto": "SAXENDA",
       "grupo": "novo",
-      "usd_2023": 923.0150000000001,
-      "usd_2025": 105643.25000000001,
-      "usd_total": 318587.225
+      "usd_2023": 923.0149999999998,
+      "usd_2025": 105643.25,
+      "usd_total": 318587.22500000003
     },
     {
       "producto": "RYBELSUS",
       "grupo": "novo",
-      "usd_2023": 63248.37666666665,
-      "usd_2025": 40740.12666666668,
+      "usd_2023": 63248.37666666667,
+      "usd_2025": 40740.12666666667,
       "usd_total": 1058707.4249999996
     },
     {
       "producto": "MOUNJARO",
       "grupo": "lilly",
       "usd_2023": 45613.17333333333,
-      "usd_2025": 33989.840000000004,
-      "usd_total": 269403.75666666665
+      "usd_2025": 33989.84,
+      "usd_total": 269403.7566666667
     },
     {
       "producto": "VICTOZA",
@@ -577,7 +661,7 @@
       "grupo": "lilly",
       "usd_2023": 5450.9349999999995,
       "usd_2025": NaN,
-      "usd_total": 550453.9975
+      "usd_total": 550453.9974999999
     }
   ]
 }
