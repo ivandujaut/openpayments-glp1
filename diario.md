@@ -399,3 +399,52 @@ Formato por entrada (una por sesión, al cierre):
   corrido, así que `/derivar` está habilitado sobre cualquiera. Si en cambio se
   sigue analizando, el hilo más vivo es la convergencia: qué hizo Lilly con el
   dinero que sacó de endocrinología entre 2023 y 2025.
+
+---
+
+## 2026-08-25 — corte 04: la convergencia esconde dos movimientos opuestos
+
+- **Se decidió:** **D-009 · reapertura de D-008.** Es la primera reapertura del
+  caso. D-008 queda **superada, con su texto intacto** — la historia no se edita,
+  se referencia. Lo único que cambia es que la categoría residual se parte: sale
+  un bloque "emergentes" (cardiología + nefrología + gastro/hepatología).
+- **Por qué hubo que reabrir:** al explorar la convergencia apareció que "resto"
+  había dejado de ser residual. Contenía tres especialidades que crecen juntas y
+  pasan de **3,7% del gasto en 2023 a 16,3% en 2025**. Publicar el corte 04 sin
+  reabrir habría significado un desglose sin decisión detrás — el mismo bug de
+  proceso que hubo que corregir en D-006.
+- **Verificado que la reapertura no rompe lo publicado:** el corte 03 y sus 12
+  ataques se recorrieron con la categoría nueva y dan idéntico (H1 12/12, H2
+  11/12). El hallazgo endocrinología-contra-NP/PA no se toca.
+- **Se produjo:** `analysis/corte-04_convergencia.py`, `charts/g6_movimiento.py`,
+  `figures/g6_movimiento[.en].png`, `findings/corte-04_convergencia.md`. Finding
+  del corte 03 actualizado con la categoría nueva.
+- **El hallazgo: convergieron en proporción y divergieron en estrategia.** Entre
+  2023 y 2025, **Lilly retiró USD 1,85M de endocrinología** —su única categoría
+  en baja— y puso 3,59M más en atención primaria. **Novo creció en todas**, y su
+  mayor salto fue **+6,43M en cardiología, nefrología y gastro/hepatología**, que
+  pasan de 0,96M a 7,39M. En el acumulado, Novo destina 14,74M a ese grupo contra
+  1,46M de Lilly: **10 a 1**.
+- **El frente lo pagan dos productos:** Wegovy (0,15 → 4,35M) y Ozempic (0,75 →
+  2,87M).
+- **La lección de método, que vale para el writeup:** el corte 03 midió en
+  porcentaje y vio convergencia; el 04 midió en dólares y vio divergencia. **Es
+  el mismo dato.** D-005 pedía declarar la unidad líder por corte justamente para
+  esto, pero recién acá se ve por qué importa tanto.
+- **Lo que el corte NO puede probar, y quedó escrito:** que el movimiento de Novo
+  sea *por* las nuevas indicaciones cardiovascular y renal de semaglutida. Encaja
+  en el tiempo y es la explicación obvia, pero **Open Payments no registra
+  indicaciones**. El nombre "emergentes" quedó declarado en D-009 como
+  interpretación, no como dato.
+- **Quedó abierto:**
+  - **El corte 04 no tiene red-team.** Cinco ataques listados; el más peligroso
+    es si los cardiólogos son realmente nuevos o son los mismos profesionales con
+    la etiqueta cambiada — el corte 03 ya encontró 3,64% de inestabilidad en la
+    especialidad declarada.
+  - El segundo: si el movimiento sobrevive al normalizar por escala, dado que el
+    gasto total de Novo creció más.
+  - Cola: D-010 (deflactar), D-011 (75 filas con fecha corrupta de PY2024).
+  - Sigue sin testear si los endocrinólogos reciben más porque son menos.
+  - Diez commits locales sin pushear.
+- **Próximo paso concreto:** `/atacar corte-04`, empezando por seguir los
+  `Profile_ID` de los cardiólogos en el tiempo.

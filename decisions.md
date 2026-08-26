@@ -495,4 +495,80 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 
 - **Scripts afectados:** `src/vistas.py` (la columna `especialidad` vive acá),
   `analysis/corte-03_especialidades.py`, `charts/g4_especialidades.py`.
+- **Estado:** **superada por D-009** (2026-08-25). El texto queda intacto: la
+  historia no se edita. Lo que cambia es que "resto" se parte para dejar ver las
+  especialidades emergentes; las otras cuatro categorías y la regla de prioridad
+  siguen exactamente igual.
+
+## D-009 — Reapertura de D-008: sacar las especialidades emergentes de "resto"  (2026-08-25)
+- **Reabre:** **D-008**, que queda superada. Las cuatro primeras categorías y la
+  regla de prioridad **no cambian**; lo único que cambia es que la categoría
+  residual se parte en dos.
+- **Decisión:** a las cinco categorías de D-008 se les agrega una sexta,
+  evaluada **después** de endocrinología y medicina de obesidad y **antes** de
+  NP/PA:
+
+  ```
+  1. endocrinología          especialidad contiene 'endocrin'
+  2. medicina de obesidad    especialidad contiene 'obesity medicine'
+  3. emergentes              contiene 'cardio' · 'nephro' · 'gastroenter' · 'hepatol'
+  4. NP/PA                   nivel 1 = 'Physician Assistants & Advanced Practice…'
+  5. primaria (médico)       Family Medicine · General Practice · Internal Medicine
+                             sin subespecialidad
+  6. resto                   todo lo demás
+  ```
+
+- **Por qué se reabre:** "resto" dejó de ser residual. Contiene tres
+  especialidades que crecen juntas y fuerte, y esconderlas impedía nombrar el
+  hallazgo del corte 04.
+
+  ```
+  bloque             2021   2023   2025   total   profesionales
+  cardiología        2,04   0,87   4,71   12,43M          9.806
+  gastro/hepatología 0,05   0,09   2,19    2,62M          3.815
+  nefrología         0,04   0,05   0,94    1,15M          3.093
+  ```
+
+  Juntas pasan de **3,7% del gasto en 2023 a 16,3% en 2025**. Con la partición,
+  "resto" cae de USD 24,41M a 8,21M y deja de mezclar una tendencia con un cajón.
+
+- **Por qué las tres juntas y no separadas:** crecen en los mismos años, con los
+  mismos dos productos y casi enteramente de una sola compañía — en 2025, Novo
+  7,39M contra Lilly 0,45M, pagados con Wegovy (4,35M) y Ozempic (2,87M). Es un
+  fenómeno único, no tres coincidencias. Separarlas lo fragmenta en tres cifras
+  chicas que ninguna sostiene el hallazgo sola.
+
+- **El nombre es una interpretación mía y hay que decirlo.** El dato dice que
+  crece el pago a cardiólogos, nefrólogos y gastroenterólogos. Que sea **por** las
+  nuevas indicaciones cardiovascular y renal de semaglutida es una hipótesis
+  plausible y **no testeada con este archivo**: Open Payments no registra
+  indicaciones. Todo finding que use la categoría debe llamarla por lo que es
+  —un grupo de especialidades— y presentar la causa como hipótesis.
+
+- **Alternativas rechazadas:**
+  - *Sólo cardiología como categoría propia.* Más conservador y sin
+    interpretación: cardiología es una especialidad reconocible y pesa 12,43M
+    contra 3,77M de las otras dos. Se rechaza porque deja invisibles a
+    nefrología (crece 20x) y gastro/hepatología (44x), que son la parte más
+    dinámica del fenómeno.
+  - *No reabrir, y describir el contenido de "resto" en el texto del corte 04.*
+    Evita tocar los cortes ya cerrados, pero publica un desglose sin decisión que
+    lo respalde: exactamente el bug de proceso que hubo que corregir en D-006.
+
+- **Qué la invalidaría:**
+  - Que aparezca una cuarta especialidad con el mismo patrón: la categoría se
+    volvería elástica y habría que decidir si se agrega o si el criterio cambia.
+  - Que se demuestre que el crecimiento en cardiología no tiene relación con las
+    nuevas indicaciones — no invalidaría la partición, pero sí el nombre.
+  - Que el caso pase a preguntar por especialidades individuales y no por
+    bloques.
+
+- **Impacto en lo ya publicado:** el corte 03 y su red-team se recorren con la
+  categoría nueva. El hallazgo central del corte 03 (endocrinología contra NP/PA)
+  no se toca: ninguna de las tres especialidades emergentes estaba en esas
+  categorías.
+
+- **Scripts afectados:** `src/vistas.py`, `analysis/corte-03_especialidades.py`,
+  `analysis/ataque-08_robustez-especialidades.py`, `charts/g4_especialidades.py`,
+  `analysis/corte-04_*`, `findings/corte-03_especialidades.md`.
 - **Estado:** vigente

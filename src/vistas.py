@@ -84,6 +84,11 @@ NATURALEZA_VOZ = (
 # NP de Family Medicine cae en NP/PA y no en primaria, y eso mueve USD 18,21M.
 # Endocrinología va primero pero no le quita nada a nadie: es prácticamente
 # exclusiva de médicos (247.067 pagos contra 3 de enfermería).
+# D-009 reabre D-008: "resto" escondía tres especialidades que crecen juntas
+# (cardiología, nefrología, gastro/hepatología), pasan de 3,7% del gasto en 2023
+# a 16,3% en 2025 y son casi enteramente de Novo, con Wegovy y Ozempic. Se
+# separan como bloque. OJO: el nombre "emergentes" es una interpretación — el
+# dato dice a qué especialidad se le paga, no por qué indicación.
 NUCC_NP_PA = "Physician Assistants & Advanced Practice Nursing Providers"
 
 N_SLOTS = 5  # el dataset declara hasta 5 productos por fila
@@ -189,6 +194,11 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
                 WHEN b.especialidad_cruda ILIKE '%endocrin%' THEN 'endocrinologia'
                 WHEN b.especialidad_cruda ILIKE '%obesity medicine%'
                     THEN 'medicina de obesidad'
+                WHEN b.especialidad_cruda ILIKE '%cardio%'
+                  OR b.especialidad_cruda ILIKE '%nephro%'
+                  OR b.especialidad_cruda ILIKE '%gastroenter%'
+                  OR b.especialidad_cruda ILIKE '%hepatol%'
+                    THEN 'emergentes'
                 WHEN b.especialidad_cruda LIKE '{np_pa}%' THEN 'NP/PA'
                 WHEN b.especialidad_cruda LIKE 'Allopathic%|Family Medicine%'
                   OR b.especialidad_cruda LIKE 'Allopathic%|General Practice%'

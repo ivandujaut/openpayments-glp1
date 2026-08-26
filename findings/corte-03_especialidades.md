@@ -11,8 +11,10 @@ El dinero de GLP-1 no sigue al volumen de prescriptores: sigue al especialista.
 
 Las dos compañías apuestan al mismo perfil, pero en dosis distintas.
 **Endocrinología es el 43,6% del gasto de Lilly y el 31,5% del de Novo.** Novo
-compensa repartiendo más al canal de volumen: 21,8% a NP/PA contra 16,0% de
-Lilly, y más al "resto" de especialidades (16,2% contra 9,2%).
+compensa repartiendo más al canal de volumen (21,8% a NP/PA contra 16,0%) y,
+sobre todo, a un grupo de especialidades que Lilly casi no toca: **13,3% de su
+gasto va a cardiología, nefrología y gastro/hepatología, contra 2,1% de Lilly**
+(ver D-009 y el corte 04).
 
 Esto encaja con lo que ya mostraron los cortes anteriores. El corte 01 encontró
 que la ventaja de Lilly vive en pagos que compran la voz del profesional; el
@@ -48,7 +50,7 @@ figura que impide leer el acumulado como si fuera el presente.
 | Especialidad declarada | dato | `Covered_Recipient_Specialty_1`, taxonomía NUCC de CMS |
 | Gasto y conteos por perfil | dato | `analysis/corte-03_especialidades.py` |
 | Ventana, entidades, productos, prorrateo | elección | **D-001** · **D-002** · **D-003** · **D-004** |
-| Las cinco categorías y su orden de prioridad | elección | **D-008** — un NP de Family cuenta como NP/PA, no como primaria |
+| Las categorías de especialidad y su orden | elección | **D-008**, reabierta por **D-009** — un NP de Family cuenta como NP/PA, no como primaria |
 | Agrupación "voz" / "campo" | elección | **D-006** |
 | Dólares como unidad líder | elección | **D-005** — declarada por corte |
 
@@ -62,8 +64,13 @@ Todos salen de `analysis/corte-03_especialidades.py` →
 | Endocrinología | 34,98M | 30,11M | 31,5% | **43,6%** | 5.367 | **12.129** |
 | Atención primaria (médico) | 32,52M | 20,65M | 29,3% | 29,9% | 82.994 | 641 |
 | Enfermería y asistentes | 24,20M | 11,04M | **21,8%** | 16,0% | 120.145 | 293 |
+| Emergentes (cardio, nefro, gastro) | 14,74M | 1,46M | **13,3%** | 2,1% | 16.714 | 969 |
 | Medicina de obesidad | 1,24M | 0,94M | 1,1% | 1,4% | 242 | 9.002 |
-| Resto | 18,03M | 6,38M | 16,2% | 9,2% | 44.860 | 544 |
+| Resto | 3,28M | 4,92M | 3,0% | 7,1% | 28.227 | 291 |
+
+*(Categorías de **D-009**, que reabrió D-008 para separar las especialidades
+emergentes de la categoría residual. El hallazgo del corte no cambió: se
+recorrieron el corte y sus 12 ataques con la categoría nueva y dan idéntico.)*
 
 **La pirámide, en una línea:** endocrinología es el 2,1% de los profesionales
 alcanzados y el 36% del dinero.
