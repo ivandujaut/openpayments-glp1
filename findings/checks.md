@@ -10,14 +10,21 @@ archiva ni se explica en prosa — se le cuelgan hipótesis ordenadas por
 probabilidad, cada una con su test concreto, y el análisis no sigue hasta que
 alguna cierre.
 
-## Los dos extremos de la cadena
+## Los tres eslabones de la cadena
 
-Hay dos verificadores y cubren cosas distintas. Los dos tienen que estar verdes
-antes de publicar:
+Hay tres verificadores y cubren cosas distintas. Los tres tienen que estar
+verdes antes de publicar:
 
 - `scripts/04_checks.py` — el **dato propio contra CMS**. 36 comparaciones.
-- `scripts/05_verificar_findings.py` — el **texto publicado contra el dato
-  propio**. 93 cifras, más coherencia entre cortes y decisiones citadas.
+- `scripts/05_verificar_findings.py` — el **texto de `findings/` contra el cache**.
+  112 cifras, más coherencia entre cortes y decisiones citadas.
+- `scripts/06_verificar_writeup.py` — el **texto que se publica afuera** (el MDX
+  del sitio o el espejo de `export/`) contra el dato del caso. Pregunta al revés
+  que los otros dos: en vez de comprobar una lista de cifras declaradas, extrae
+  TODAS las del texto y exige que cada una tenga fuente, esté exenta con motivo
+  escrito, o salga como SIN FUENTE. Una cifra nueva pegada a mano rompe el check
+  sola. Parsea castellano e inglés por separado, porque 5.367 y 5,367 son el
+  mismo número escrito distinto y confundirlos no da error, da otro número.
 
 El segundo nació de un error real: la tabla voz/campo del corte 01 quedó con los
 valores previos a D-006 cuando esa decisión movió consultoría de "campo" a "voz".
@@ -60,6 +67,29 @@ Un finding solo puede citar números cuyo último check esté **verde y vigente*
 ```
 
 ## Reconciliaciones
+
+## 2026-08-26 (b) — 🟢 verde · el texto publicado del caso, contra el dato
+- **Versión de datos:** PY2021–PY2025 · descarga 2026-08-25 · sin recarga
+- **Corrida:** `uv run scripts/06_verificar_writeup.py` sobre el caso en
+  castellano del sitio y sobre los dos MDX de `export/`
+- **Resultado:** el caso del sitio cierra con **141 cifras con fuente, 56 exentas
+  declaradas y 0 sin fuente**, contra 147 cifras de referencia (133 del cache y
+  14 recalculadas contra los Parquet, independientes de los scripts de ataque
+  que las produjeron).
+- **Qué encontró en la primera corrida:** 22 cifras sin respaldo. Ninguna era
+  falsa: eran cifras del dato para las que nunca se había escrito la referencia,
+  y **la mayoría vivía en los `alt` de las figuras**, que ningún verificador
+  miraba. También destapó que el andamiaje de `export/` seguía publicando "59
+  ataques" cuando después de D-011 son 70.
+- **Prueba de que el check sirve:** se corrió sobre copias con una cifra alterada
+  a propósito (35,6% → 38,6% y 114.861 → 114.999 en castellano; 5,367 → 5,999 en
+  inglés). Las detectó todas, incluidas las que estaban dentro de un `alt`, y el
+  script sale con código 1.
+- **Lo que el check NO puede hacer, y hay que saberlo:** no desambigua literales
+  idénticos. "30" es a la vez la brecha de 2023 y el umbral de descarte del
+  experimento propuesto; el script confirma que el número tiene alguna fuente
+  válida, no que esté en la oración correcta.
+- **Findings habilitados:** sin cambios.
 
 ## 2026-08-26 — 🟢 verde · recorrida completa por D-011
 - **Versión de datos:** PY2021–PY2025 · descarga 2026-08-25 · sin recarga

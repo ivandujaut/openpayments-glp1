@@ -715,3 +715,49 @@ Formato por entrada (una por sesión, al cierre):
 - **Próximo paso concreto:** el writeup en inglés, con `writeup/notas-revision.md`
   al lado — su segundo pase ya tiene el material por sección y los defectos D1 a
   D11 con su estado.
+
+---
+
+## 2026-08-26 (b) — el tercer verificador: el texto publicado contra el dato
+
+- **Se decidió:** nada. Es infraestructura de verificación, no una elección
+  analítica.
+- **Qué se construyó:** `scripts/06_verificar_writeup.py`. Cierra el eslabón que
+  faltaba: 04 mide el dato propio contra CMS, 05 mide `findings/` contra el
+  cache, y 06 mide **el texto que se publica afuera** contra el dato del caso.
+- **La diferencia de diseño con 05, que es lo que lo hace útil:** 05 comprueba una
+  lista de cifras declaradas. 06 pregunta al revés, extrae **todos** los números
+  del texto y exige que cada uno caiga en una de tres categorías: respaldado por
+  el cache, recalculado acá contra los Parquet, o exento con motivo escrito.
+  No hay cuarta. Una cifra pegada a mano rompe el check sola.
+- **Las 14 cifras recalculadas son una segunda implementación a propósito.** Los
+  scripts de ataque no cachean, así que 06 rehace por su cuenta las que el
+  writeup publica (81,5% de profesionales nuevos, 4,8% de reetiquetado, 98,9% de
+  Zepbound, la composición del crecimiento, los deflactores de D-010). Si las dos
+  implementaciones coinciden, la cifra está bien; si no, una de las dos tiene un
+  error.
+- **Qué encontró en la primera corrida sobre el caso del sitio:** 22 cifras sin
+  respaldo. Ninguna era falsa, pero **la mayoría vivía en los `alt` de las
+  figuras**, que ni el verificador viejo ni el lint del sitio miraban. Y destapó
+  que el andamiaje de `export/` seguía diciendo "59 ataques" cuando después de
+  D-011 son 70.
+- **Se probó con mutantes, no con lectura:** copias del caso con una cifra
+  cambiada a propósito (35,6% → 38,6%, 114.861 → 114.999 en castellano; 5,367 →
+  5,999 en inglés). Las detectó todas, incluidas las de adentro de un `alt`, y
+  sale con código 1.
+- **Un error propio que apareció haciéndolo:** el parser leía todo con formato
+  castellano, así que en el MDX inglés convertía 5,367 en cinco coma tres seis
+  siete. No daba error, daba otro número. Ahora el locale sale de la ruta y cada
+  idioma se parsea con sus reglas.
+- **Estado del caso del sitio:** 141 cifras con fuente, 56 exentas declaradas,
+  0 sin fuente. Verde.
+- **Límite conocido, escrito en `checks.md`:** no desambigua literales idénticos.
+  "30" es la brecha de 2023 y también el umbral de descarte del experimento
+  propuesto; el script confirma que el número tiene fuente, no que esté en la
+  oración correcta.
+- **Quedó abierto:**
+  - El writeup en inglés, que sigue siendo de Iván. Ahora tiene verificador.
+  - Regenerar `export/` cuando el writeup esté; su andamiaje ya quedó desfasado.
+  - El desempate del ataque 07 y la discrepancia de D-008, los dos de `/decidir`.
+- **Próximo paso concreto:** el writeup en inglés, y correr 06 sobre él.
+
