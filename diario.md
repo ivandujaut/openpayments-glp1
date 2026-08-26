@@ -577,3 +577,41 @@ Formato por entrada (una por sesión, al cierre):
 - **Próximo paso concreto:** el writeup, o `/exportar-caso` para tener el link
   que las piezas necesitan. Analíticamente el caso está cerrado: cuatro cortes
   con red-team, dos verificadores en verde.
+- **Cerrado en la misma sesión:** ver la entrada siguiente.
+
+---
+
+## 2026-08-25 — /exportar-caso: andamiaje, no caso terminado
+
+- **Se decidió:** nada.
+- **La precondición no se cumplía y el export quedó a propósito incompleto.**
+  `/exportar-caso` exige `writeup/` aprobado. `notas-revision.md` está vacío y
+  `outline-en.md` son 28 líneas de esquema: el writeup no está escrito. Por la
+  regla dura #4 —el writeup lo escribe Iván, Claude ataca y no redacta— el
+  cuerpo de los MDX **no se generó**. Escribirlo habría sido hacer el writeup con
+  otro nombre, y habría anulado el motivo declarado de esa regla, que es el
+  entrenamiento de inglés.
+- **Se produjo, en `export/` (gitignoreado, derivado, regenerable):**
+  - `site/content/projects/{es,en}/glp1-open-payments/index.mdx` — frontmatter
+    completo con los cuatro `metrics` verificados contra findings verdes, la
+    estructura de secciones según el outline, los seis `<Figure>` con ruta
+    correcta y caption, y `draft: true` en los dos locales. Cada bloque de prosa
+    marcado con `{/* OUTLINE §N */}` y con los datos a citar indicados.
+  - `site/public/projects/glp1-open-payments/` — las 12 PNG, 1495x886.
+  - `INSTRUCCIONES.md` — con una tabla explícita de qué está listo y qué falta,
+    el orden recomendado (writeup en inglés primero, después `/atacar` sobre el
+    texto, después `05_verificar_findings`, recién ahí volcar y regenerar), y los
+    pasos de importación desde el repo del sitio.
+- **Frontera verificada:** `git status` quedó vacío después de correr la skill.
+  Nada fuera de `export/` fue tocado.
+- **Quedó abierto:**
+  - **El writeup.** Es lo único que bloquea la publicación. Todo lo demás está.
+  - `cover.jpg` no existe.
+  - Los `alt` de las figuras y el `tagline`/`description` son texto editorial:
+    van con la prosa.
+  - `[PLACEHOLDER: link al caso]` en el carrusel de la pieza 3 sigue pendiente,
+    porque depende de que el caso esté publicado.
+  - Cola: D-010 (deflactar), D-011 (75 filas con fecha corrupta de PY2024).
+- **Próximo paso concreto:** escribir el writeup en inglés en `writeup/`. Después
+  pedir `/atacar` sobre el texto, correr `05_verificar_findings`, volcar la prosa
+  a los MDX y regenerar el export.
