@@ -448,3 +448,49 @@ Formato por entrada (una por sesión, al cierre):
   - Diez commits locales sin pushear.
 - **Próximo paso concreto:** `/atacar corte-04`, empezando por seguir los
   `Profile_ID` de los cardiólogos en el tiempo.
+- **Cerrado en la misma sesión:** ver la entrada siguiente.
+
+---
+
+## 2026-08-25 — red-team del corte 04: el frente aguanta, el repliegue depende del pivote
+
+- **Se decidió:** nada. Los ataques usaron decisiones ya registradas.
+- **Se produjo:** `analysis/ataque-09_frente-nuevo.py`,
+  `ataque-10_robustez-convergencia.py`. Nota de `g6` reescrita para declarar la
+  dependencia del pivote.
+- **Resultado: 14 ataques con test corrido. H2 sobrevivió 11/11, H1 9/11.**
+- **El ataque crítico pasó de forma contundente.** La preocupación era que los
+  "cardiólogos de 2025" fueran los mismos profesionales de antes con la etiqueta
+  cambiada — el corte 03 había encontrado 3,64% de inestabilidad. Clasificando
+  cada profesional del grupo emergente por su historia: **75,9% del gasto va a
+  gente que ya estaba declarada en esas especialidades**, 23,0% a nuevos en el
+  dataset y sólo **0,7% a reetiquetados**. Lo nuevo no es la etiqueta: es que
+  esos cardiólogos empezaron a recibir pagos por GLP-1.
+- **C1 descartó el efecto de escala y afiló el hallazgo.** Novo creció más en
+  total, así que "creció en todo" podía ser aritmética. Normalizando cada delta
+  por el crecimiento de su compañía: **el 40,8% del crecimiento de Novo fue al
+  frente emergente; el 67,1% del de Lilly fue a atención primaria**, financiado
+  en parte por el −34,6% de endocrinología. No es escala, es composición.
+- **C2 mató H1 en dos de tres pivotes, y eso reformuló el hallazgo.** Con 2021
+  como base el movimiento se invierte (Lilly +2,32M, Novo −3,52M); con 2022 ambas
+  bajan. La serie de Novo en endocrinología tiene forma de U (10,60M → 2,83M →
+  7,08M), así que el corte describe **una reversión desde el piso de 2023, no una
+  tendencia del período**. El pivote no es arbitrario —es el pico de divergencia
+  que encontró el ataque 08— pero determina el signo, y quedó declarado en el
+  TL;DR, en la tabla de ataques y en la nota de la figura.
+- **C3 es la primera vez en el caso que un hallazgo sobrevive en las dos
+  mitades.** Los cortes 02 y 03 tenían su diferencia entre compañías concentrada
+  en los pagos de "voz". Acá el frente emergente aparece también en contacto de
+  campo (Novo 1,36M contra Lilly 0,08M): es un movimiento comercial completo, no
+  un programa de disertantes.
+- **Quedó abierto:**
+  - Si PY2026 muestra a Novo bajando otra vez en endocrinología, la lectura
+    correcta pasa a ser "oscilación" y no "reversión".
+  - La causa del frente emergente sigue sin poder probarse con este archivo:
+    exige el calendario de aprobaciones de la FDA.
+  - Cola: D-010 (deflactar), D-011 (75 filas con fecha corrupta de PY2024).
+  - Sigue sin testear si los endocrinólogos reciben más porque son menos.
+  - Once commits locales sin pushear.
+- **Próximo paso concreto:** los cuatro cortes tienen checks verdes y red-team
+  corrido (59 ataques en total), así que `/derivar` está habilitado sobre
+  cualquiera. Si se sigue analizando, la cola de decisiones está intacta.

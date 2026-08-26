@@ -39,8 +39,9 @@ TEXTOS = {
         "xlabel": "Cambio en millones de USD, 2023 → 2025",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
-        "nota": ("2023 es el pico de divergencia entre ambas. El grupo emergente lo pagan Wegovy "
-                 "(0,15 → 4,35M) y Ozempic (0,75 → 2,87M); que sea por sus nuevas indicaciones es hipótesis, no dato."),
+        "nota": ("2023 es el pico de divergencia; con 2021 como base el signo de endocrinología se invierte. "
+                 "El frente emergente, en cambio, aguanta los 11 tests. Lo pagan Wegovy (0,15 → 4,35M) y Ozempic "
+                 "(0,75 → 2,87M); que sea por sus nuevas indicaciones es hipótesis, no dato."),
         "archivo": "g6_movimiento",
     },
     "en": {
@@ -58,8 +59,9 @@ TEXTOS = {
         "xlabel": "Change in USD millions, 2023 → 2025",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
-        "nota": ("2023 is the peak of divergence. The emerging group is paid by Wegovy (0.15 → 4.35M) "
-                 "and Ozempic (0.75 → 2.87M); attributing it to their new indications is a hypothesis, not data."),
+        "nota": ("2023 is the peak of divergence; with 2021 as the base, the sign on endocrinology flips. "
+                 "The emerging front, by contrast, survives all 11 tests. It is paid by Wegovy (0.15 → 4.35M) and "
+                 "Ozempic (0.75 → 2.87M); attributing it to their new indications is a hypothesis, not data."),
         "archivo": "g6_movimiento.en",
     },
 }

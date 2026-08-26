@@ -1,6 +1,6 @@
 # Convergieron en proporción y divergieron en estrategia: Novo abrió un frente que Lilly no tiene
 
-**Corte 04 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Unidad líder: dólares absolutos (D-005) · Red-team: pendiente**
+**Corte 04 — 2026-08-25 · Datos: PY2021–PY2025 (descarga 2026-08-25) · Checks: 🟢 (2026-08-25) · Unidad líder: dólares absolutos (D-005) · Red-team: 14 ataques, H2 sobrevivió 11/11 · H1 9/11 (depende del pivote)**
 
 ## TL;DR
 
@@ -13,6 +13,14 @@ esconde dos movimientos opuestos.
 USD 3,59M más en atención primaria. **Novo creció en todas**, y su mayor salto
 fue en un grupo que Lilly casi no toca: **+USD 6,43M en cardiología, nefrología
 y gastro/hepatología**, que pasan de 0,96M a 7,39M en dos años.
+
+**El red-team acotó una de las dos afirmaciones.** El repliegue de Lilly desde
+endocrinología es real desde 2023, pero **no es una tendencia del período
+completo**: con 2021 como año base el movimiento se invierte (Lilly +2,32M, Novo
+−3,52M). La trayectoria de Novo en endocrinología tiene forma de U —10,60M en
+2021, 2,83M en 2023, 7,08M en 2025— así que el corte describe **una reversión
+desde un pico, no una dirección sostenida**. La afirmación sobre el frente
+emergente, en cambio, sobrevivió los once tests.
 
 Ese grupo lo pagan dos productos: **Wegovy (0,15 → 4,35M) y Ozempic (0,75 →
 2,87M)**. En el acumulado del período, Novo destina USD 14,74M a esas
@@ -88,30 +96,98 @@ Acumulado del período en esas especialidades: **Novo USD 14,74M · Lilly USD
 
 ## Intenté matarlo
 
-*(Pendiente: falta correr `/atacar`.)* Los ataques que ya se ven necesarios:
+**14 ataques con test corrido: 3 estructurales sobre el origen de los
+profesionales y 11 sobre las hipótesis. H2 sobrevivió 11/11 · H1 sobrevivió
+9/11.** Scripts: `analysis/ataque-09_frente-nuevo.py` ·
+`ataque-10_robustez-convergencia.py`.
 
-1. **¿El pivote 2023 fabrica el resultado?** Es una elección del corte. Test:
-   repetir con 2021, 2022 y 2024 como año base.
-2. **¿Es un efecto de escala?** El gasto total de Novo creció más que el de
-   Lilly en el período, así que "creció en todo" podría ser aritmética. Test:
-   normalizar por el gasto total de cada compañía y ver si el orden se mantiene.
-3. **¿Sobrevive a D-009?** La categoría emergente es una elección reciente. Test:
-   repetir con cardiología sola, y con las tres separadas.
-4. **¿Es "voz" otra vez?** Los dos cortes anteriores encontraron que la
-   diferencia entre compañías vive en los pagos de disertante. Test: repetir
-   mirando sólo contacto de campo.
-5. **¿Los cardiólogos son nuevos o son los mismos de antes?** Si son los mismos
-   profesionales que ya recibían pagos y sólo cambió su etiqueta declarada, el
-   "frente nuevo" es un artefacto de reporte. Test: seguir `Profile_ID` en el
-   tiempo.
+- **H1**: entre el pivote y 2025, Lilly redujo su gasto en endocrinología y Novo
+  lo aumentó.
+- **H2**: Novo destina mucho más que Lilly al grupo emergente.
+
+### El ataque crítico: ¿el frente nuevo es nuevo, o es reetiquetado? (pasa)
+
+El corte 03 encontró que un 3,64% de los profesionales cambia de especialidad
+declarada entre años. Si los "cardiólogos de 2025" fueran los mismos de antes con
+otra etiqueta, el frente no existiría. Clasificando cada profesional del grupo
+emergente en 2025 por su historia previa:
+
+| Origen | Profesionales | USD 2025 | % del gasto |
+|---|---|---|---|
+| Ya estaba, **misma etiqueta** | 25.111 | 5,94M | **75,9%** |
+| **Nuevo** en el dataset | 10.679 | 1,81M | 23,0% |
+| Ya estaba, **reetiquetado** | 535 | 0,06M | **0,7%** |
+| Ya estaba, etiqueta mixta | 500 | 0,03M | 0,4% |
+
+**El reetiquetado es el 0,7% del gasto.** Y del crecimiento 2023→2025, USD 5,08M
+de ~6,4M vienen de profesionales que ya estaban declarados en esas
+especialidades. Lo nuevo no es la etiqueta: es que esos cardiólogos empezaron a
+recibir pagos por GLP-1. Los 535 reetiquetados venían de primaria (135), resto
+(27) y endocrinología (4) — cifras irrelevantes.
+
+### Familia B — sensibilidad a mis decisiones (6/6 sobrevive)
+
+| Ataque | Resultado |
+|---|---|
+| B1 D-009 alt: sólo cardiología como bloque | ✓ H1 ✓ H2 |
+| B1 D-009 alt: cardiología / nefrología / gastro por separado | ✓ H1 ✓ H2 en las tres |
+| B2 D-004 alt: fila entera, sin prorratear | ✓ H1 ✓ H2 (Novo 7,45M vs Lilly 0,47M) |
+| B3 D-002 alt: sólo entidad operativa US | ✓ H1 ✓ H2 (Novo 7,36M vs Lilly 0,44M) |
+
+La partición de D-009 no fabrica nada: cualquiera de las tres especialidades por
+separado da el mismo resultado.
+
+### Familia C — explicaciones alternativas
+
+| Ataque | Resultado |
+|---|---|
+| C1 normalizar por escala | ✓ — ver abajo |
+| C2 pivote 2021 | **✗ H1** — se invierte (Lilly +2,32M, Novo −3,52M) |
+| C2 pivote 2022 | **✗ H1** — ambas bajan (Lilly −1,65M, Novo −4,25M) |
+| C2 pivote 2024 | ✓ H1 ✓ H2 |
+| C3 sólo contacto de campo | ✓ H1 ✓ H2 (Novo 1,36M vs Lilly 0,08M) |
+| C3b sólo el grupo "voz" | ✓ H1 ✓ H2 (Novo 6,03M vs Lilly 0,37M) |
+
+**C1 descarta el efecto de escala y de paso afila el hallazgo.** El gasto total de
+Novo creció más que el de Lilly, así que "creció en todo" podía ser aritmética.
+Normalizando cada delta por el crecimiento total de su compañía:
+
+| Compañía | Categoría | % del crecimiento total |
+|---|---|---|
+| Novo | **Emergentes** | **+40,8%** |
+| Novo | Endocrinología | +27,0% |
+| Lilly | **Atención primaria** | **+67,1%** |
+| Lilly | Resto | +48,8% |
+| Lilly | **Endocrinología** | **−34,6%** |
+
+No es escala: la **composición** del crecimiento es distinta. Cuatro de cada diez
+dólares nuevos de Novo fueron al frente emergente; dos de cada tres dólares
+nuevos de Lilly fueron a atención primaria, financiados en parte por el recorte
+en endocrinología.
+
+**C2 mató H1 en dos de tres pivotes, y eso reformula el hallazgo.** Con 2021 como
+base, Novo *bajó* en endocrinología y Lilly *subió*. La serie de Novo tiene forma
+de U (10,60M → 2,83M → 7,08M), así que el corte describe una **reversión desde el
+piso de 2023**, no una tendencia del período. El pivote 2023 no es arbitrario —es
+el pico de divergencia que encontró el ataque 08— pero elegirlo determina el
+signo, y eso queda declarado.
+
+**C3 es la primera vez en el caso que un hallazgo sobrevive en las dos mitades.**
+Los cortes 02 y 03 tenían su diferencia entre compañías concentrada en los pagos
+de "voz". Acá no: el frente emergente aparece también en contacto de campo (Novo
+1,36M contra Lilly 0,08M). Es un movimiento comercial completo, no un programa de
+disertantes.
 
 ## Qué me haría cambiar de opinión
 
-- **Que el ataque 5 muestre que los cardiólogos no son nuevos.** Es el riesgo
-  más concreto: el corte 03 ya encontró que un 3,64% de los profesionales cambia
-  de especialidad declarada entre años.
-- Que el movimiento desaparezca al normalizar por escala (ataque 2), lo que
-  volvería el hallazgo una consecuencia de que Novo gastó más.
+- **Que el pivote deje de sostenerse.** Es la debilidad confirmada del corte:
+  H1 vale desde 2023 y se invierte con base 2021. Si PY2026 muestra a Novo
+  bajando de nuevo en endocrinología, la lectura correcta pasa a ser "oscilación"
+  y no "reversión".
+- Ya **no** me haría cambiar de opinión que los cardiólogos sean reetiquetados:
+  quedó descartado (0,7% del gasto). Ni la escala: normalizando por el
+  crecimiento de cada compañía, la composición sigue siendo distinta. Ni la
+  partición de D-009: las tres especialidades por separado dan lo mismo.
 - **Sobre la causa:** la coincidencia temporal con las nuevas indicaciones de
   semaglutida es fuerte, pero probarla exige una fuente externa — el calendario
   de aprobaciones de la FDA. Con Open Payments solo, "Novo paga más a
