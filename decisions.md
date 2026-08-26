@@ -19,7 +19,8 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
    *(Fuera de esta cola original se resolvieron: **D-006**, agrupación de
    naturalezas de pago, tras el red-team del corte 01; y **D-007**, métrica de
    concentración por receptor, al abrir el corte 02.)*
-7. **Dólares nominales vs. deflactados.**
+7. ~~**Dólares nominales vs. deflactados.**~~ → resuelta en **D-010**
+   (nominales, con el punto de quiebre publicado).
 8. **Filas con `Date_of_Payment` corrupta**: 75 filas de PY2024 traen
    `11/30/0002` en el CSV de CMS (USD 307.571,82; fabricantes de dispositivos,
    ninguno Novo ni Lilly). El error es de la fuente, no de la conversión.
@@ -571,4 +572,64 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 - **Scripts afectados:** `src/vistas.py`, `analysis/corte-03_especialidades.py`,
   `analysis/ataque-08_robustez-especialidades.py`, `charts/g4_especialidades.py`,
   `analysis/corte-04_*`, `findings/corte-03_especialidades.md`.
+- **Estado:** vigente
+
+## D-010 — Dólares nominales, con el punto de quiebre publicado  (2026-08-25)
+- **Decisión:** todas las cifras del caso van en **USD corrientes, sin
+  deflactar**, y la sección de límites lo declara con esas palabras. Donde el
+  deflactor puede cambiar el signo de una afirmación, el finding publica **el
+  deflactor que la anula** en vez de resolverla con una fuente externa.
+
+- **La sensibilidad, calculada antes de decidir** — deflactor que invertiría
+  cada afirmación temporal del caso:
+
+  ```
+  afirmación                              se anula con deflactor
+  Novo gastó más en 2025 que en 2021        1,174   ← plausible
+  Lilly creció 224% entre 2021 y 2025       3,242
+  Lilly redujo endocrinología 2023→2025     ya es negativo; deflactar lo refuerza
+  Novo aumentó endocrinología 2023→2025     2,505
+  Novo creció en el frente emergente        7,703
+  ```
+
+  **Una sola afirmación es frágil**, y es secundaria: el crecimiento nominal de
+  Novo (+17,4% entre 2021 y 2025) se anula con 17,4% de inflación acumulada en
+  cuatro años, que está dentro del rango del período. Las otras cuatro
+  necesitarían deflactores de 2,5x a 7,7x: imposibles.
+
+- **Consecuencia operativa:** el finding del corte 01 y la sección de límites del
+  writeup dicen que en términos reales el gasto de Novo entre 2021 y 2025 es
+  **aproximadamente plano, no creciente**. Con eso, la afirmación deja de ser
+  refutable: se declara su propia fragilidad.
+
+- **Por qué las comparaciones centrales no se ven afectadas:** el caso compara
+  Novo contra Lilly **dentro del mismo año**, donde el deflactor se cancela por
+  construcción. Las comparaciones temporales que sostienen hallazgos tienen
+  magnitudes que lo empequeñecen (el frente emergente crece 7,7x en dos años).
+
+- **Alternativas rechazadas:**
+  - *Nominal a secas, sin nota.* Más simple, pero deja en pie la afirmación
+    frágil sin señalarla — en un caso que publica 59 ataques, esconder la única
+    debilidad barata de encontrar sería incoherente.
+  - *Deflactar todo.* No cambia ninguna conclusión salvo la de Novo, y cuesta:
+    traer el CPI **a mano** (BLS bloquea automatización y FRED no sirve el CSV
+    por la vía de `/browse`), decidir qué índice usar — CPI-U general, PCE o un
+    índice de precios médicos, que son tres decisiones distintas con resultados
+    distintos — y rehacer los cuatro cortes con sus red-teams. Precio alto por un
+    cambio que se puede declarar en una línea.
+
+- **Qué la invalidaría:**
+  - Que el caso incorpore una serie más larga: en diez años el deflactor deja de
+    ser despreciable en todas las comparaciones, no sólo en una.
+  - Que aparezca una afirmación nueva con punto de quiebre menor a ~1,20.
+  - Que el caso pase a comparar contra magnitudes externas en dólares
+    (facturación, mercado), donde la unidad tiene que ser la misma que la fuente.
+
+- **Nota de sourcing:** si alguna vez se deflacta, el índice **no es obvio**.
+  CPI-U mide precios al consumidor; el gasto promocional farmacéutico no sigue
+  esa canasta. Elegir índice sería su propia decisión, no un detalle técnico.
+
+- **Scripts afectados:** ninguno — es una decisión sobre cómo se declaran las
+  cifras, no sobre cómo se calculan. Afecta `findings/corte-01_carrera.md` (nota
+  de sensibilidad) y la sección de límites del writeup.
 - **Estado:** vigente

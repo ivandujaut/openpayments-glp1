@@ -615,3 +615,45 @@ Formato por entrada (una por sesión, al cierre):
 - **Próximo paso concreto:** escribir el writeup en inglés en `writeup/`. Después
   pedir `/atacar` sobre el texto, correr `05_verificar_findings`, volcar la prosa
   a los MDX y regenerar el export.
+
+---
+
+## 2026-08-25 — D-010 y una corrección a mi propia recomendación
+
+- **Se decidió:** **D-010 · dólares nominales, con el punto de quiebre
+  publicado.** USD corrientes en todo el caso, declarado en límites; y donde el
+  deflactor puede cambiar el signo de una afirmación, se publica **el deflactor
+  que la anula** en vez de resolverla con una fuente externa.
+- **Corregí una recomendación que había dado mal.** Al responder las cuatro
+  preguntas del writeup dije que deflactar "no cambia ninguna conclusión". Era
+  incompleto: había mirado los deltas del corte 04 y no la serie total del corte
+  01. Calculando el deflactor de quiebre de cada afirmación temporal apareció una
+  frágil: **el crecimiento nominal de Novo entre 2021 y 2025 es +17,4% y se anula
+  con un deflactor de 1,174** — 17,4% de inflación acumulada en cuatro años, que
+  está dentro del rango del período. En términos reales el gasto de Novo es
+  aproximadamente plano, no creciente.
+- **Las otras cuatro afirmaciones son inmunes**, y por eso la decisión fue barata:
+  Lilly +224,2% necesitaría deflactor 3,242; el aumento de Novo en endocrinología,
+  2,505; el frente emergente, 7,703; y la caída de Lilly en endocrinología ya es
+  negativa, así que deflactar la refuerza.
+- **No pude traer el CPI, y eso pesó en la decisión.** BLS bloquea automatización
+  y FRED no sirve el CSV por la vía de `/browse`. Deflactar habría exigido traer
+  la serie a mano **y** decidir qué índice usar — CPI-U, PCE o un índice de
+  precios médicos son tres decisiones distintas con resultados distintos, porque
+  el gasto promocional farmacéutico no sigue la canasta del consumidor. Precio
+  alto para cambiar una sola afirmación que se puede declarar en una línea.
+- **Se produjo:** D-010 en `decisions.md`; nota de sensibilidad en
+  `findings/corte-01_carrera.md` con los cuatro deflactores de quiebre; y cuatro
+  aserciones nuevas en `05_verificar_findings.py` para que esas cifras queden
+  cubiertas. **97 cifras verificadas, 0 discrepancias.**
+- **Quedó abierto:**
+  - El writeup sigue siendo lo único que bloquea. La sección de límites ahora
+    tiene que decir "nominal USD, sin deflactar" y llevar la nota de Novo.
+  - Los defectos D3 y D4 de `writeup/notas-revision.md` son errores míos del
+    export y se corrigen al regenerarlo: el caption de g1 repite el claim que C2
+    mató, y `INSTRUCCIONES.md` dice "los 6 Figure" cuando los MDX usan 4 —
+    faltan g2 y g5, justo las dos que nacieron del red-team.
+  - D-011 (75 filas con fecha corrupta) sigue en cola; sólo hace falta si se
+    decide el corte trimestral.
+- **Próximo paso concreto:** el writeup. Cuando exista, `/atacar` sobre el texto
+  y extender el verificador con las cifras que cite (defecto D7).

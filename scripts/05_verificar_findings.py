@@ -99,6 +99,19 @@ def aserciones() -> list[tuple[str, str, float, float, float]]:
             ("01", f"campo Lilly {anio}", lc * 1e6, f["lilly_campo"], PREC_MILLON_2DEC),
         ]
 
+    # Nota de sensibilidad al deflactor (D-010): el punto de quiebre publicado
+    # tiene que seguir siendo el que sale del dato.
+    a += [
+        ("01", "crecimiento nominal Novo 21→25 (%)", 17.4,
+         100 * (s25["novo_usd"] / s21["novo_usd"] - 1), PREC_1DEC),
+        ("01", "deflactor de quiebre Novo", 1.174,
+         s25["novo_usd"] / s21["novo_usd"], 0.0005),
+        ("01", "crecimiento nominal Lilly 21→25 (%)", 224.2,
+         100 * (s25["lilly_usd"] / s21["lilly_usd"] - 1), PREC_1DEC),
+        ("01", "deflactor de quiebre Lilly", 3.242,
+         s25["lilly_usd"] / s21["lilly_usd"], 0.0005),
+    ]
+
     # ---------- corte 02 ----------
     c2 = cargar("corte-02_concentracion")
     cl = buscar(c2["concentracion"], grupo="lilly")

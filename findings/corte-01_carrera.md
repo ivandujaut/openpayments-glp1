@@ -43,6 +43,7 @@ abajo es el hallazgo.
 | Qué productos son GLP-1 | elección | **D-003** — nueve; incluye tirzepatida, que es dual GIP/GLP-1 |
 | Reparto en pagos multi-producto | elección | **D-004** — prorrateo |
 | Mostrar ambas unidades sin subordinar una | elección | **D-005** |
+| USD corrientes, sin deflactar | elección | **D-010** — con el punto de quiebre publicado (ver abajo) |
 | Agrupar naturalezas en "voz" y "campo" | elección | **D-006** — por qué compra el pago, no por etiqueta de CMS |
 
 ## Números
@@ -62,6 +63,17 @@ Las figuras leen sólo ese JSON.
 
 Totales: **Novo USD 111.050.245,29 en 2.212.503 pagos · Lilly USD 69.132.487,30
 en 1.165.279 pagos.**
+
+**Nota de sensibilidad al deflactor (D-010).** Las cifras son USD corrientes. El
+crecimiento nominal de Novo entre 2021 y 2025 es **+17,4%** (24,61M → 28,90M) y
+**se anula con un deflactor de 1,174**, es decir con 17,4% de inflación
+acumulada en cuatro años — dentro del rango del período. En términos reales, el
+gasto de Novo es **aproximadamente plano, no creciente**, y así debe presentarse.
+
+El resto de las afirmaciones temporales del caso es inmune: el crecimiento de
+Lilly (+224,2%) exigiría un deflactor de 3,242; el aumento de Novo en
+endocrinología, 2,505; el frente emergente del corte 04, 7,703. La caída de
+Lilly en endocrinología ya es negativa y deflactar la refuerza.
 
 **Lo que el agregado escondía** (USD millones, `analysis/corte-01_carrera.py`, bloque `voz_vs_campo`)
 
