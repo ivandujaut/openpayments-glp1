@@ -572,7 +572,9 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 - **Scripts afectados:** `src/vistas.py`, `analysis/corte-03_especialidades.py`,
   `analysis/ataque-08_robustez-especialidades.py`, `charts/g4_especialidades.py`,
   `analysis/corte-04_*`, `findings/corte-03_especialidades.md`.
-- **Estado:** vigente
+- **Estado:** **superada por D-011** (2026-08-26). El texto queda intacto: la
+  historia no se edita. Lo que cambia es que se agrega una séptima categoría y
+  un control permanente sobre `resto`; las seis anteriores siguen igual.
 
 ## D-010 — Dólares nominales, con el punto de quiebre publicado  (2026-08-25)
 - **Decisión:** todas las cifras del caso van en **USD corrientes, sin
@@ -632,4 +634,136 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 - **Scripts afectados:** ninguno — es una decisión sobre cómo se declaran las
   cifras, no sobre cómo se calculan. Afecta `findings/corte-01_carrera.md` (nota
   de sensibilidad) y la sección de límites del writeup.
+- **Estado:** vigente
+
+## D-011 — Reapertura de D-009: "resto" escondía un segundo frente, el de Lilly  (2026-08-26)
+- **Reabre:** **D-009**, que queda superada. Las seis categorías anteriores y su
+  orden **no cambian**; se agrega una séptima y se suma un control permanente
+  sobre la categoría residual.
+- **Disparador:** la propia cláusula "qué la invalidaría" de D-009 — *"que
+  aparezca una cuarta especialidad con el mismo patrón"*. Apareció.
+
+- **Decisión, en dos partes.**
+
+  **(a) Séptima categoría, evaluada DESPUÉS de NP/PA y antes de primaria:**
+
+  ```
+  1. endocrinología          contiene 'endocrin'
+  2. medicina de obesidad    contiene 'obesity medicine'
+  3. emergentes              contiene 'cardio' · 'nephro' · 'gastroenter' · 'hepatol'
+  4. NP/PA                   nivel 1 = 'Physician Assistants & Advanced Practice…'
+  5. respiratorio y sueño    contiene 'pulmonary' · 'sleep' · 'critical care'
+  6. primaria (médico)       Family Medicine · General Practice · Internal Medicine
+                             sin subespecialidad
+  7. resto                   todo lo demás
+  ```
+
+  **Después de NP/PA y no antes**, al revés que emergentes. El motivo es el de
+  D-008: en esta categoría el tipo de proveedor manda sobre la especialidad, así
+  que un nurse practitioner de cuidados críticos sigue contando como NP/PA. Son
+  USD 13.000 en la ventana; la cifra es irrelevante y la regla no. Emergentes se
+  evalúa antes de NP/PA y ésta después: **la asimetría es deliberada y hay que
+  declararla en todo finding que use las dos**, porque no es un descuido sino dos
+  respuestas distintas a la misma pregunta. Emergentes nombra un fenómeno que
+  cruza tipos de proveedor; respiratorio y sueño es hoy casi enteramente médico
+  (los NP/PA del bloque son el 0,6% de su gasto).
+
+  **(b) Control permanente de `resto`.** La categoría residual deja de ser un
+  cajón sin vigilancia: cada corte que use la agrupación publica el desglose de
+  `resto` por compañía y año, y **cualquier valor NUCC o bloque coherente que
+  supere el 5% del gasto anual de una compañía obliga a decidir** si sale de
+  `resto` o se declara por qué se queda. El control se implementa como script y
+  sus resultados entran al verificador.
+
+- **El nombre describe el dato y nada más.** "Respiratorio y sueño" son las
+  especialidades que reciben el pago. Que el crecimiento sea **por** la
+  indicación de apnea obstructiva del sueño de tirzepatida es una hipótesis
+  plausible, coherente en el tiempo y **no testeable con este archivo**: Open
+  Payments no registra indicaciones. Vale la misma disciplina que D-009 impuso
+  para cardio/renal: la categoría se llama por lo que es y la causa se presenta
+  como hipótesis. Ningún finding puede decir "apnea".
+
+- **Por qué se reabre (el dato, no la memoria).** En 2025 `resto` llega al
+  **15,7% del gasto de Lilly (USD 3,04M)** contra 5,3% en 2024 y 1,5% en 2021:
+  el valor más alto de una categoría residual en toda la ventana. Adentro hay un
+  bloque que se mueve junto (USD miles, prorrateado):
+
+  ```
+  sub-bloque        Lilly 2023  Lilly 2024  Lilly 2025   Novo 2025
+  sueño (4 NUCC)             5          70         726          21
+  cuidados críticos          2           1         343           7
+  neumonología               7          58         320          13
+  ```
+
+  Total del bloque en 2025: **Lilly USD 1,388M (7,2% de su gasto anual, 1.523
+  profesionales) contra Novo USD 0,039M**, y casi todo es **Zepbound: USD 1,373M,
+  el 98,9%** del bloque de Lilly ese año.
+
+  *Nota de corrección (misma fecha).* Las cifras exploratorias con que se tomó
+  esta decisión —1,389M, 1.539 profesionales, Novo 0,041M y "74% Zepbound"— no
+  correspondían a la regla que el registro elige: salían del predicado sin la
+  prioridad de NP/PA, y el 74% miraba sólo neumonología y sueño, sin cuidados
+  críticos. Con la regla registrada son las de arriba. La diferencia es de USD
+  1.000 y 16 profesionales; se corrige para que el número del registro sea el de
+  su propia regla, y se deja anotado que la corrección existió.
+
+  Con la partición, `resto` de Lilly 2025 baja de 15,7% a 8,5% y lo que queda es
+  un cajón genuino, sin tendencia: cirugía 1,80M, neurología 0,85M, emergencias
+  0,52M, ginecología 0,46M en la ventana completa.
+
+- **Por qué los tres sub-bloques juntos y no sólo sueño:** saltan **el mismo
+  año, en la misma compañía y con el mismo producto**. Es el criterio con el que
+  D-009 juntó cardiología, nefrología y gastro/hepatología. Aislar sueño (726
+  mil) deja afuera dos cifras que se mueven idénticas y fragmenta un fenómeno
+  único en tres números que ninguno lo sostiene solo.
+
+- **Dos controles corridos antes de decidir**, los dos a favor de que el bloque
+  es un programa y no un artefacto:
+  - **No son unos pocos pagos grandes**: el pago mayor del bloque es USD 5.600 y
+    los diez más grandes suman el 3,2% del total.
+  - **Es un programa de voz (D-006)**: USD 1,286M de los 1,389M son honorarios de
+    disertante y consultoría sobre **41 profesionales**, mientras el contacto de
+    campo alcanza 1.537 con 0,103M. Es la forma que el corte 02 ya le había
+    encontrado al programa de Lilly: círculo chico, muchos contactos.
+
+- **Alternativas rechazadas:**
+  - *Sólo la categoría, sin control de `resto` (opción A).* Corrige esta
+    instancia y no la causa. `resto` escondió un frente en el corte 04 y otro
+    acá; sin control registrado, la tercera vez tampoco se vería venir.
+  - *Sólo el control, sin categoría (opción B).* Más barato y sin interpretación
+    nueva, pero obliga a describir el frente de Lilly en prosa dentro de un
+    finding, que es exactamente el bug de proceso que D-009 rechazó: publicar un
+    desglose sin decisión que lo respalde.
+  - *Evaluar el bloque antes de NP/PA, por simetría con emergentes.* Rechazada:
+    la simetría formal costaría contradecir la regla de prioridad de D-008 para
+    ganar USD 13.000.
+
+- **Qué la invalidaría:**
+  - Que el bloque de 2025 sea un pico de lanzamiento y no un frente: si PY2026
+    lo muestra cayendo a los valores de 2023-2024, la categoría queda
+    describiendo un año. Es la hipótesis viva y hoy no se puede descartar con un
+    solo año de subida.
+  - Que el crecimiento venga de reetiquetado y no de profesionales nuevos —
+    mismo ataque que el corte 04 le corrió al frente emergente. **Pendiente de
+    correr**; hasta entonces ningún finding puede afirmar el frente.
+  - Que aparezca un tercer bloque con el mismo patrón: dos reaperturas por la
+    misma causa ya son un problema de criterio, no de lista, y habría que pasar
+    a una agrupación por dos dimensiones (la alternativa que D-008 rechazó).
+  - Que CMS cambie la taxonomía NUCC entre años.
+
+- **Impacto en lo ya publicado.** El titular del corte 04 —*"Novo abrió un
+  frente que Lilly no tiene"*— pasa a ser incorrecto: cada compañía abrió el
+  suyo, con dos años de diferencia y en especialidades distintas. El corte 03 y
+  el corte 04 se recorren con la categoría nueva, con sus ataques, y sus textos
+  se reescriben donde el número cambie. El hallazgo central del corte 03
+  (endocrinología contra NP/PA) no se toca: ninguna de las especialidades del
+  bloque estaba en esas categorías.
+
+- **Scripts afectados:** `src/vistas.py` (la columna `especialidad`),
+  `analysis/corte-03_especialidades.py`, `analysis/corte-04_convergencia.py`,
+  `analysis/ataque-08_robustez-especialidades.py`,
+  `analysis/ataque-10_robustez-convergencia.py`, `charts/g4_especialidades.py`,
+  `charts/g5_convergencia.py`, `charts/g6_movimiento.py`,
+  `scripts/05_verificar_findings.py`, `findings/corte-03_especialidades.md`,
+  `findings/corte-04_convergencia.md`. Más el script de control de `resto`, nuevo.
 - **Estado:** vigente

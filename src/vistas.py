@@ -89,6 +89,13 @@ NATURALEZA_VOZ = (
 # a 16,3% en 2025 y son casi enteramente de Novo, con Wegovy y Ozempic. Se
 # separan como bloque. OJO: el nombre "emergentes" es una interpretación — el
 # dato dice a qué especialidad se le paga, no por qué indicación.
+# D-011 reabre D-009: "resto" volvió a esconder un frente, ahora de Lilly
+# (neumonología, medicina del sueño y cuidados críticos: 0,014M en 2023 a 1,389M
+# en 2025, 74% Zepbound). Se separan como 'respiratorio y sueño'. Se evalúa
+# DESPUÉS de NP/PA — al revés que emergentes — porque acá manda el tipo de
+# proveedor (D-008): un NP de cuidados críticos sigue siendo NP/PA. La asimetría
+# es deliberada. El nombre describe la especialidad, no la indicación: decir
+# "apnea" sería interpretar, y Open Payments no registra indicaciones.
 NUCC_NP_PA = "Physician Assistants & Advanced Practice Nursing Providers"
 
 N_SLOTS = 5  # el dataset declara hasta 5 productos por fila
@@ -200,6 +207,10 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
                   OR b.especialidad_cruda ILIKE '%hepatol%'
                     THEN 'emergentes'
                 WHEN b.especialidad_cruda LIKE '{np_pa}%' THEN 'NP/PA'
+                WHEN b.especialidad_cruda ILIKE '%pulmonary%'
+                  OR b.especialidad_cruda ILIKE '%sleep%'
+                  OR b.especialidad_cruda ILIKE '%critical care%'
+                    THEN 'respiratorio y sueño'
                 WHEN b.especialidad_cruda LIKE 'Allopathic%|Family Medicine%'
                   OR b.especialidad_cruda LIKE 'Allopathic%|General Practice%'
                   OR b.especialidad_cruda
