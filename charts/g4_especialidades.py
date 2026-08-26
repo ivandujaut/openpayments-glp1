@@ -20,7 +20,11 @@ from src.figstyle import SERIE, GRAY, FG, guardar, nueva_figura  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "findings" / "cache" / "corte-03_especialidades.json"
 
-ORDEN = ["endocrinologia", "primaria", "NP/PA", "medicina de obesidad", "resto"]
+# D-009 agregó "emergentes" y D-011 "respiratorio y sueño"; ninguna de las dos
+# llegó a este chart en su momento y la figura publicada omitía una categoría de
+# USD 16,20M. La lista se ordena como la tabla del finding.
+ORDEN = ["endocrinologia", "primaria", "NP/PA", "emergentes",
+         "medicina de obesidad", "respiratorio y sueño", "resto"]
 
 TEXTOS = {
     "es": {
@@ -31,15 +35,17 @@ TEXTOS = {
             "endocrinologia": "Endocrinología",
             "primaria": "Atención primaria\n(médico)",
             "NP/PA": "Enfermería y\nasistentes médicos",
+            "emergentes": "Cardiología, nefrología,\ngastro/hepatología",
             "medicina de obesidad": "Medicina\nde obesidad",
+            "respiratorio y sueño": "Neumonología, sueño\ny cuidados críticos",
             "resto": "Resto",
         },
         "xlabel": "Millones de USD",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
         "cabecera": "profesionales · USD por cabeza",
-        "nota": ("Categorías de D-008, evaluadas en orden: un NP o PA cuenta como tal aunque su "
-                 "subespecialidad sea de atención primaria."),
+        "nota": ("Categorías de D-008, reabierta por D-009 y D-011, evaluadas en orden: un NP o PA "
+                 "cuenta como tal aunque su subespecialidad sea de neumonología o atención primaria."),
         "archivo": "g4_especialidades",
     },
     "en": {
@@ -50,15 +56,17 @@ TEXTOS = {
             "endocrinologia": "Endocrinology",
             "primaria": "Primary care\n(physician)",
             "NP/PA": "Nurse practitioners\nand physician assistants",
+            "emergentes": "Cardiology, nephrology,\ngastro/hepatology",
             "medicina de obesidad": "Obesity\nmedicine",
+            "respiratorio y sueño": "Pulmonology, sleep\nand critical care",
             "resto": "Other",
         },
         "xlabel": "USD millions",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
         "cabecera": "professionals · USD per head",
-        "nota": ("D-008 categories, evaluated in order: an NP or PA counts as such even when their "
-                 "subspecialty is primary care."),
+        "nota": ("D-008 categories, reopened by D-009 and D-011, evaluated in order: an NP or PA counts "
+                 "as such even when their subspecialty is pulmonology or primary care."),
         "archivo": "g4_especialidades.en",
     },
 }

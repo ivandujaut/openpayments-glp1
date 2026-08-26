@@ -20,16 +20,17 @@ from src.figstyle import SERIE, GRAY, FG, guardar, nueva_figura  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "findings" / "cache" / "corte-04_convergencia.json"
 
-ORDEN = ["emergentes", "endocrinologia", "primaria", "NP/PA",
-         "medicina de obesidad", "resto"]
+ORDEN = ["emergentes", "respiratorio y sueño", "endocrinologia", "primaria",
+         "NP/PA", "medicina de obesidad", "resto"]
 
 TEXTOS = {
     "es": {
-        "titulo": "Novo abrió un frente nuevo; Lilly se replegó al médico generalista",
+        "titulo": "Cada compañía abrió su propio frente: Novo en cardiología, Lilly en sueño",
         "subtitulo": ("Cambio en el gasto anual en GLP-1 entre 2023 y 2025, por perfil del profesional. "
                       "Endocrinología es lo único que cae, y sólo en Lilly · CMS Open Payments"),
         "etiquetas": {
             "emergentes": "Cardiología, nefrología,\ngastro/hepatología",
+            "respiratorio y sueño": "Neumonología, sueño\ny cuidados críticos",
             "endocrinologia": "Endocrinología",
             "primaria": "Atención primaria\n(médico)",
             "NP/PA": "Enfermería y\nasistentes médicos",
@@ -39,17 +40,17 @@ TEXTOS = {
         "xlabel": "Cambio en millones de USD, 2023 → 2025",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
-        "nota": ("2023 es el pico de divergencia; con 2021 como base el signo de endocrinología se invierte. "
-                 "El frente emergente, en cambio, aguanta los 11 tests. Lo pagan Wegovy (0,15 → 4,35M) y Ozempic "
-                 "(0,75 → 2,87M); que sea por sus nuevas indicaciones es hipótesis, no dato."),
+        "nota": ("2023 es el pico de divergencia: con 2021 como base, el signo de endocrinología se invierte. "
+                 "Los dos frentes aguantan su red-team."),
         "archivo": "g6_movimiento",
     },
     "en": {
-        "titulo": "Novo opened a new front; Lilly fell back on the generalist physician",
+        "titulo": "Each company opened its own front: Novo in cardiology, Lilly in sleep",
         "subtitulo": ("Change in annual GLP-1 spending between 2023 and 2025, by professional profile. "
                       "Endocrinology is the only category that falls, and only at Lilly · CMS Open Payments"),
         "etiquetas": {
             "emergentes": "Cardiology, nephrology,\ngastro/hepatology",
+            "respiratorio y sueño": "Pulmonology, sleep\nand critical care",
             "endocrinologia": "Endocrinology",
             "primaria": "Primary care\n(physician)",
             "NP/PA": "Nurse practitioners\nand physician assistants",
@@ -59,9 +60,8 @@ TEXTOS = {
         "xlabel": "Change in USD millions, 2023 → 2025",
         "novo": "Novo Nordisk",
         "lilly": "Eli Lilly",
-        "nota": ("2023 is the peak of divergence; with 2021 as the base, the sign on endocrinology flips. "
-                 "The emerging front, by contrast, survives all 11 tests. It is paid by Wegovy (0.15 → 4.35M) and "
-                 "Ozempic (0.75 → 2.87M); attributing it to their new indications is a hypothesis, not data."),
+        "nota": ("2023 is the peak of divergence: with 2021 as the base, the sign on endocrinology flips. "
+                 "Both fronts survive their red-team."),
         "archivo": "g6_movimiento.en",
     },
 }
