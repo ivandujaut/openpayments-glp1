@@ -657,3 +657,61 @@ Formato por entrada (una por sesión, al cierre):
     decide el corte trimestral.
 - **Próximo paso concreto:** el writeup. Cuando exista, `/atacar` sobre el texto
   y extender el verificador con las cifras que cite (defecto D7).
+
+---
+
+## 2026-08-26 — D-011: "resto" escondía un segundo frente, el de Lilly
+
+- **Se decidió: D-011**, que reabre D-009. Séptima categoría "respiratorio y
+  sueño" (neumonología · medicina del sueño · cuidados críticos), evaluada
+  **después de NP/PA** —al revés que emergentes, porque acá manda el tipo de
+  proveedor (D-008), y la asimetría queda declarada— más un **control permanente
+  de `resto`**: desglose por compañía y año, y umbral del 5% del gasto anual que
+  obliga a decidir. Opción C de las tres presentadas.
+- **Cómo apareció:** revisando el outline del writeup contra los findings. El
+  `resto` de Lilly en 2025 estaba en 15,7% de su gasto, el valor más alto de una
+  categoría residual en toda la ventana. Adentro había un bloque que salta junto:
+  sueño 5 → 726 mil, críticos 2 → 343 mil, neumo 7 → 320 mil entre 2023 y 2025.
+  La cláusula "qué la invalidaría" de D-009 había previsto exactamente este caso.
+- **Red-team del frente nuevo** (`analysis/ataque-11_frente-respiratorio.py`):
+  11 tests con veredicto, **H3 10/11 · H4 10/11**. El reetiquetado da **4,8%**
+  del gasto, y el 81,5% son profesionales **nuevos en el dataset** — al revés
+  que el frente emergente de Novo, que era 75,9% gente que ya estaba. La
+  taxonomía queda descartada: los cinco valores NUCC existen desde 2021. Único
+  fallo: **C2, sólo contacto de campo** (8x contra el umbral de 10, dominio 4,4x
+  contra 5). El frente de Lilly es, por ahora, un programa de voz: 1,286M de
+  1,388M sobre 41 profesionales.
+- **El pico de lanzamiento NO se pudo testear y se declaró así**, en vez de
+  contarlo como sobreviviente: con 2025 como último año, un frente y un pico son
+  indistinguibles. Es la hipótesis viva, a resolver con PY2026.
+- **Impacto en lo publicado:** el titular del corte 04 era falso. Pasa a **"Cada
+  compañía abrió su propio frente, con dos años de diferencia: Novo en
+  cardiología, Lilly en sueño"**. En 2025, Novo supera a Lilly 16 a 1 en
+  cardiología y afines; Lilly supera a Novo 36 a 1 en el bloque respiratorio.
+- **Dos defectos viejos que aparecieron al recorrer:**
+  - `charts/g4_especialidades.py` nunca recibió D-009: su lista de categorías
+    tenía cinco y descartaba lo que no estuviera en ella, así que **la figura
+    publicada omitía "emergentes"** (16,20M, 9% de la ventana) mientras la tabla
+    del finding la incluía. Corregido; ahora son siete.
+  - El desglose por dirección del ataque 07 usa `any_value()` y **no es
+    reproducible**: cada corrida da números distintos. Los totales sí son
+    estables. La afirmación del corte 03 sobre la dirección del sesgo de reporte
+    quedó **suspendida** en el texto hasta que el desempate sea una regla.
+- **Checks:** `04_checks.py` 36 comparaciones Δ = 0,00% · `05_verificar_findings.py`
+  **112 cifras, 0 discrepancias**, con 15 aserciones nuevas. Los dos verdes.
+- **Corrección en el propio D-011:** las cifras exploratorias con que se decidió
+  (1,389M, 1.539 profesionales, "74% Zepbound") no correspondían a la regla que
+  el registro elige. Con la regla: 1,388M, 1.523 y **98,9% Zepbound**. Corregido
+  en el registro, con la nota de que la corrección existió.
+- **Quedó abierto:**
+  - **El writeup**, que sigue siendo lo único que bloquea la publicación.
+  - El desempate del ataque 07: necesita `/decidir`, no lo decido solo.
+  - `export/` quedó desactualizado: sus captions citan el titular viejo del
+    corte 04. Se regenera con `/exportar-caso` cuando el writeup esté.
+  - La discrepancia entre el texto de D-008 (primaria "sin subespecialidad") y
+    su implementación (Family y General Practice sí admiten subespecialidad,
+    0,72M). No la toqué: es una decisión, no un bug de tipeo.
+  - Cola: fechas corruptas de PY2024 (pendiente 8).
+- **Próximo paso concreto:** el writeup en inglés, con `writeup/notas-revision.md`
+  al lado — su segundo pase ya tiene el material por sección y los defectos D1 a
+  D11 con su estado.
