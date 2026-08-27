@@ -9,4 +9,5 @@ dependencies = [
   "pyarrow>=17",
   "matplotlib>=3.9",
   "requests>=2.32",
+  "numpy>=2.5.2",
 ]
