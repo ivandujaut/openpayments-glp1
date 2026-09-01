@@ -28,8 +28,8 @@ TEXTOS = {
         "series": {"afuera": "afuera de la voz", "reasignados": "reasignado a otras drogas de la casa",
                    "fichados": "fichado por el rival"},
         "panel": {"novo": "Novo Nordisk", "lilly": "Eli Lilly"},
-        "nota": ("Barras en personas. El éxodo de Novo en 2021→22 y 2022→23 coincide con el "
-                 "recorte documentado de su gasto de voz; el fichaje nunca pasa de 15 personas."),
+        "nota": ("Barras en personas. El recorte del 69% del gasto de voz de Novo es el par 2022→23; "
+                 "el fichaje nunca pasa de 15 personas."),
         "archivo": "g9_salidas",
     },
     "en": {
@@ -39,8 +39,8 @@ TEXTOS = {
         "series": {"afuera": "out of voice work", "reasignados": "reassigned to other house drugs",
                    "fichados": "signed by the rival"},
         "panel": {"novo": "Novo Nordisk", "lilly": "Eli Lilly"},
-        "nota": ("Bars are people. Novo's exodus in 2021→22 and 2022→23 matches its documented "
-                 "voice-budget cut; rival signings never exceed 15 people."),
+        "nota": ("Bars are people. Novo's 69% voice-budget cut is the 2022→23 pair; "
+                 "rival signings never exceed 15 people."),
         "archivo": "g9_salidas.en",
     },
 }

@@ -15,7 +15,8 @@ el gasto anual por cabeza en las dos compañías y satura arriba de USD 25.000
 (alrededor del 96% para las dos, agrupando las bandas altas). A igual banda de gasto, Novo retiene igual o mejor en las
 bandas bajas (47,4% contra 16,9% debajo de USD 5.000; 85,3% contra 69,2% en
 5-25 mil). La ventaja agregada de Lilly está en dónde estaciona los dólares:
-casi todo su círculo vive en las bandas donde nadie se va.
+seis de cada diez de sus profesional-años viven en las bandas de 25 mil o más
+(596 de 966), contra 26,2% en Novo (625 de 2.383).
 
 Y las duraciones de la ventana subestiman la relación real: el **93,3%** de la
 cohorte 2021 de Lilly ya cobraba voz de la casa en 2017-2020 (cualquier
@@ -75,8 +76,10 @@ Entrantes de Lilly con historia previa: 93,3% (2021) → 76,5% → 50,0% → 41,
   80,6). Mitad mezcla, mitad resto.
 - **B2 · la plata compra la retención.** El resto no es gestión: a banda igual
   de gasto, Novo retiene igual o mejor abajo de USD 25.000. El gradiente
-  plata→retención es empinado en las dos casas (cuartiles propios: 42,6→95,9%
-  en Lilly, 49,8→95,5% en Novo) y satura arriba.
+  plata→retención es empinado en las dos casas (cuartiles propios, B2b:
+  42,6→95,9% en Lilly, 49,8→95,5% en Novo) y satura arriba. La condición de
+  muerte de D-016 se corrió (B2c): con los cortes a la mitad y al doble, el
+  orden de las bandas baja y media no se invierte en ninguna variante.
 - **B3 · el recorte de Novo.** Su rotación sigue al presupuesto de voz del año
   siguiente: 26,9% cuando el gasto cayó 69%; 9,7% cuando subió 140%.
 - **C1/C2 · censura a izquierda (D-014).** Corridos; ver Números. Matan

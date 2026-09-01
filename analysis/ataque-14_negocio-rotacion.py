@@ -76,6 +76,31 @@ def main() -> None:
         """
     ).fetchall())
 
+    print("\nB2b · cuartiles propios de cada compañía (gradiente interno)")
+    print(con.sql(
+        """
+        WITH q AS (SELECT grupo, retenido, usd,
+                          ntile(4) OVER (PARTITION BY grupo ORDER BY usd) AS cuartil
+                   FROM pares)
+        SELECT cuartil, grupo, count(*) AS pa, round(100.0*avg(retenido),1) AS ret,
+               round(median(usd)) AS usd_mediana
+        FROM q GROUP BY 1, 2 ORDER BY 1, 2
+        """
+    ).fetchall())
+
+    print("\nB2c · condición de muerte de D-016: cortes a la mitad y al doble")
+    for nombre, c1, c2, c3 in (("mitad", 2500, 12500, 37500),
+                               ("D-016", 5000, 25000, 75000),
+                               ("doble", 10000, 50000, 150000)):
+        print(f"  cortes {nombre}:", con.sql(
+            f"""
+            SELECT CASE WHEN usd < {c1} THEN 'baja' WHEN usd < {c2} THEN 'media'
+                        WHEN usd < {c3} THEN 'alta' ELSE 'tope' END AS banda,
+                   grupo, round(100.0*avg(retenido),1) AS ret
+            FROM pares GROUP BY 1, 2 ORDER BY 1, 2
+            """
+        ).fetchall())
+
     print("\nB3 · rotación vs cambio del presupuesto de voz del año siguiente")
     print(con.sql(
         f"""
