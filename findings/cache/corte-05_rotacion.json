@@ -11,7 +11,8 @@
     "D-006",
     "D-012",
     "D-013",
-    "D-015"
+    "D-015",
+    "D-016"
   ],
   "unidad_lider": "profesionales (membresía D-012); dólares para costo de reemplazo",
   "cohortes": [
@@ -75,7 +76,7 @@
       "grupo": "novo",
       "anio": 2024,
       "hcps": 548,
-      "usd": 6864890.22,
+      "usd": 6864890.220000001,
       "pagos": 4314
     },
     {
@@ -296,8 +297,8 @@
     {
       "grupo": "novo",
       "anio": 2022,
-      "usd_retenidos": 15307298.600000001,
-      "usd_nuevos": 2378623.0499999993
+      "usd_retenidos": 15307298.6,
+      "usd_nuevos": 2378623.05
     },
     {
       "grupo": "novo",
@@ -309,13 +310,63 @@
       "grupo": "novo",
       "anio": 2024,
       "usd_retenidos": 5808796.77,
-      "usd_nuevos": 1056093.4500000002
+      "usd_nuevos": 1056093.45
     },
     {
       "grupo": "novo",
       "anio": 2025,
-      "usd_retenidos": 13044757.799999993,
+      "usd_retenidos": 13044757.799999995,
       "usd_nuevos": 3460907.2199999997
+    }
+  ],
+  "retencion_por_banda": [
+    {
+      "banda": "a <5k",
+      "grupo": "lilly",
+      "prof_anios": 71,
+      "retencion_pct": 16.9
+    },
+    {
+      "banda": "a <5k",
+      "grupo": "novo",
+      "prof_anios": 551,
+      "retencion_pct": 47.4
+    },
+    {
+      "banda": "b 5-25k",
+      "grupo": "lilly",
+      "prof_anios": 299,
+      "retencion_pct": 69.2
+    },
+    {
+      "banda": "b 5-25k",
+      "grupo": "novo",
+      "prof_anios": 1207,
+      "retencion_pct": 85.3
+    },
+    {
+      "banda": "c 25-75k",
+      "grupo": "lilly",
+      "prof_anios": 521,
+      "retencion_pct": 96.7
+    },
+    {
+      "banda": "c 25-75k",
+      "grupo": "novo",
+      "prof_anios": 594,
+      "retencion_pct": 96.1
+    },
+    {
+      "banda": "d 75k+",
+      "grupo": "lilly",
+      "prof_anios": 75,
+      "retencion_pct": 94.7
+    },
+    {
+      "banda": "d 75k+",
+      "grupo": "novo",
+      "prof_anios": 31,
+      "retencion_pct": 87.1
     }
   ]
 }

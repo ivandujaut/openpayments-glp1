@@ -152,10 +152,33 @@ def main() -> None:
         """
     ).df()
 
+    # D-016: las bandas fijas del hallazgo principal. Comparación a igual
+    # inversión; los cuartiles propios quedan en el ataque 14 como robustez.
+    bandas = con.sql(
+        f"""
+        WITH pa AS (
+            SELECT b.grupo, b.anio, b.receptor_id, sum(b.usd) AS usd,
+                   CASE WHEN EXISTS (SELECT 1 FROM miembros r WHERE r.grupo=b.grupo
+                        AND r.anio=b.anio+1 AND r.receptor_id=b.receptor_id)
+                   THEN 1 ELSE 0 END AS ret
+            FROM glp1 b
+            WHERE b.grupo_naturaleza='voz' AND b.receptor_id IS NOT NULL
+              AND b.anio < {ANIO_HASTA}
+            GROUP BY 1, 2, 3)
+        SELECT CASE WHEN usd < 5000 THEN 'a <5k'
+                    WHEN usd < 25000 THEN 'b 5-25k'
+                    WHEN usd < 75000 THEN 'c 25-75k'
+                    ELSE 'd 75k+' END AS banda,
+               grupo, count(*) AS prof_anios,
+               round(100.0*avg(ret), 1) AS retencion_pct
+        FROM pa GROUP BY 1, 2 ORDER BY 1, 2
+        """
+    ).df()
+
     salida = {
         "corte": "05_rotacion",
         "ventana": [ANIO_DESDE, ANIO_HASTA],
-        "decisiones": ["D-001", "D-002", "D-003", "D-006", "D-012", "D-013", "D-015"],
+        "decisiones": ["D-001", "D-002", "D-003", "D-006", "D-012", "D-013", "D-015", "D-016"],
         "unidad_lider": "profesionales (membresía D-012); dólares para costo de reemplazo",
         "cohortes": cohortes.to_dict("records"),
         "retencion": retencion.to_dict("records"),
@@ -163,6 +186,7 @@ def main() -> None:
         "permanencia": permanencia.to_dict("records"),
         "tres_anios": tres_anios.to_dict("records"),
         "gasto_nuevos_vs_retenidos": gasto.to_dict("records"),
+        "retencion_por_banda": bandas.to_dict("records"),
     }
     CACHE.mkdir(parents=True, exist_ok=True)
     DESTINO.write_text(json.dumps(salida, indent=2, ensure_ascii=False, default=float))

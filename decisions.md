@@ -852,3 +852,25 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
 - **Scripts afectados:** `src/vistas.py` (vista de voz sin filtro de producto,
   nueva), `analysis/corte-05_rotacion.py`.
 - **Estado:** vigente
+
+## D-016 — Bandas fijas de gasto para el hallazgo principal  (2026-09-01)
+- **Decisión:** el hallazgo "la retención se compra" se publica sobre **cuatro
+  bandas fijas de gasto anual por cabeza**: menos de USD 5.000, 5-25 mil,
+  25-75 mil, 75 mil o más. Fijas y en dólares porque la comparación es ENTRE
+  compañías a igual inversión: cuartiles propios de cada una comparan contra
+  la propia distribución, no contra la misma plata.
+- **Alternativas rechazadas:**
+  - *Cuartiles por compañía.* Sirven para el gradiente interno (y quedan como
+    ataque de robustez), pero la mediana del Q2 de Lilly (USD 24.488) triplica
+    la del Q2 de Novo (8.426): no comparan inversión igual.
+  - *Regresión continua.* Más fina y menos legible; el caso publica bandas y el
+    ataque documenta que el gradiente no depende del corte.
+- **Motivo (mirando el dato):** los cortes caen en zonas ralas de la
+  distribución y el patrón es monótono y saturante con las dos definiciones
+  (bandas fijas y cuartiles): 16,9→94,7 en Lilly, 47,4→87,1 en Novo por bandas;
+  42,6→95,9 y 49,8→95,5 por cuartiles.
+- **Qué la invalidaría:** que un desplazamiento razonable de los cortes (±50%)
+  invierta el orden de alguna banda baja; se corre como parte del ataque 14.
+- **Scripts afectados:** `analysis/ataque-14_negocio-rotacion.py`,
+  `charts/g7_bandas.py` (nuevo), `findings/corte-05_rotacion.md`.
+- **Estado:** vigente
