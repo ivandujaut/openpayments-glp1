@@ -12,7 +12,7 @@ cohorte 2021 de Lilly, el **62,9%** seguía activa tres años después; de la de
 
 Pero la retención no es gestión: **se compra**. La retención sube empinada con
 el gasto anual por cabeza en las dos compañías y satura arriba de USD 25.000
-(96%+ para las dos). A igual banda de gasto, Novo retiene igual o mejor en las
+(alrededor del 96% para las dos, agrupando las bandas altas). A igual banda de gasto, Novo retiene igual o mejor en las
 bandas bajas (47,4% contra 16,9% debajo de USD 5.000; 85,3% contra 69,2% en
 5-25 mil). La ventaja agregada de Lilly está en dónde estaciona los dólares:
 casi todo su círculo vive en las bandas donde nadie se va.

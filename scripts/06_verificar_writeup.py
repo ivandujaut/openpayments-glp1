@@ -63,6 +63,18 @@ P_MILLON_3DEC = 500
 # Números que no son dato del caso. Cada uno con su motivo: la lista es parte
 # de la evidencia, no una tapadera para lo que no cierra.
 EXENTOS = {
+    2016: "año de pre-historia retirado por CMS (D-014)",
+    2017: "año de pre-historia (D-014)",
+    2018: "año de pre-historia (D-014)",
+    2019: "año de pre-historia (D-014)",
+    2020: "año de pre-historia (D-014)",
+    2015: "mención del límite de la pre-historia",
+    30: "criterio de descarte publicado (30%)",
+    8: "cantidad de ataques del corte 05",
+    5000: "corte de banda (D-016)",
+    25000: "corte de banda (D-016)",
+    5: "corte de banda en miles (D-016)",
+    75: "corte de banda en miles (D-016)",
     2021: "año de la ventana",
     2022: "año de la ventana",
     2023: "año de la ventana",
@@ -285,6 +297,54 @@ def aserciones_cache() -> list[tuple[str, float, float]]:
     for f in mov:
         a.append((f"corte 04 · cambio 2023-2025 de {f['grupo']} en {f['especialidad']}, en millones",
                   f["delta"] / 1e6, P_2DEC))
+
+    # ---------- corte 05 (caso influencers-ozempic) ----------
+    c5 = cargar("corte-05_rotacion")
+    for f in c5["retencion"]:
+        g, anio = f["grupo"], int(f["anio"])
+        a += [
+            (f"corte 05 · miembros {g} {anio}", f["miembros"], P_ENTERO),
+            (f"corte 05 · rotación {g} {anio}→{anio+1} (%)", f["rotacion_pct"], P_1DEC),
+            (f"corte 05 · fichados {g} {anio}", f["fichados"], P_ENTERO),
+            (f"corte 05 · salidas {g} {anio}", f["miembros"] - f["retenidos"], P_ENTERO),
+        ]
+    for f in c5["tres_anios"]:
+        a.append((f"corte 05 · activos 3 años después, {f['grupo']} {int(f['anio'])} (%)",
+                  f["pct"], P_1DEC))
+    for f in c5["acumulada"]:
+        a += [
+            (f"corte 05 · círculo {f['grupo']}", f["circulo"], P_ENTERO),
+            (f"corte 05 · los cinco años {f['grupo']}", f["los_cinco"], P_ENTERO),
+        ]
+    a.append(("corte 05 · círculo total de los dos",
+              sum(f["circulo"] for f in c5["acumulada"]), P_ENTERO))
+    for g in ("lilly", "novo"):
+        a.append((f"corte 05 · salidas totales {g} en la ventana",
+                  sum(f["miembros"] - f["retenidos"] for f in c5["retencion"] if f["grupo"] == g),
+                  P_ENTERO))
+    for f in c5["retencion_por_banda"]:
+        a.append((f"corte 05 · retención banda {f['banda']} {f['grupo']} (%)",
+                  f["retencion_pct"], P_1DEC))
+    # Retención agrupando las dos bandas altas (25 mil o más), ponderada.
+    for g in ("lilly", "novo"):
+        altas = [f for f in c5["retencion_por_banda"]
+                 if f["grupo"] == g and f["banda"] in ("c 25-75k", "d 75k+")]
+        pool = sum(f["retencion_pct"] * f["prof_anios"] for f in altas) / sum(
+            f["prof_anios"] for f in altas)
+        a.append((f"corte 05 · retención de 25 mil o más, {g} (%, redondeada)", pool, P_ENTERO))
+    # Retención agregada (ponderada) y su complemento, derivadas de la tabla.
+    for g in ("lilly", "novo"):
+        filas = [f for f in c5["retencion"] if f["grupo"] == g]
+        ret = 100.0 * sum(f["retenidos"] for f in filas) / sum(f["miembros"] for f in filas)
+        a.append((f"corte 05 · retención agregada {g} (%)", ret, P_1DEC))
+    # El presupuesto de voz que explica el éxodo de Novo (de cohortes, en %).
+    usd = {(f["grupo"], int(f["anio"])): f["usd"] for f in c5["cohortes"]}
+    a += [
+        ("corte 05 · recorte de voz de Novo 2022→23 (%, valor absoluto)",
+         abs(100.0 * (usd[("novo", 2023)] - usd[("novo", 2022)]) / usd[("novo", 2022)]), P_ENTERO),
+        ("corte 05 · reconstrucción de voz de Novo 2024→25 (%)",
+         100.0 * (usd[("novo", 2025)] - usd[("novo", 2024)]) / usd[("novo", 2024)], P_ENTERO),
+    ]
     return a
 
 
@@ -312,6 +372,53 @@ def aserciones_recalculadas(con) -> list[tuple[str, float, float]]:
         ("ataque C2 · ventaja mínima de Novo sin el grupo voz", ratios.min(), P_1DEC),
         ("ataque C2 · ventaja máxima de Novo sin el grupo voz", ratios.max(), P_1DEC),
     ]
+
+    # Corte 05, ataques 12 y 13 (segunda implementación, aparte de los scripts).
+    hay_previa = q("SELECT count(DISTINCT anio) FROM voz_entidades WHERE anio BETWEEN 2017 AND 2020")[0]
+    if hay_previa == 4:
+        con.sql(
+            """
+            CREATE OR REPLACE TEMP VIEW miembros05 AS
+            SELECT DISTINCT grupo, anio, receptor_id FROM glp1
+            WHERE grupo_naturaleza = 'voz' AND receptor_id IS NOT NULL
+            """
+        )
+        for g in ("lilly", "novo"):
+            pct = q(f"""
+                SELECT 100.0*count(*) FILTER (EXISTS (SELECT 1 FROM voz_entidades v
+                     WHERE v.grupo=m.grupo AND v.anio BETWEEN 2017 AND 2020
+                       AND v.receptor_id=m.receptor_id))/count(*)
+                FROM miembros05 m WHERE m.anio=2021 AND m.grupo='{g}'""")[0]
+            a.append((f"ataque 12 · cohorte 2021 de {g} con voz previa (%)", pct, P_1DEC))
+        pct = q("""
+            WITH e AS (SELECT grupo, receptor_id, min(anio) AS entrada
+                       FROM miembros05 GROUP BY 1,2)
+            SELECT 100.0*count(*) FILTER (EXISTS (SELECT 1 FROM voz_entidades v
+                 WHERE v.grupo=e.grupo AND v.receptor_id=e.receptor_id AND v.anio < e.entrada))
+                 /count(*)
+            FROM e WHERE e.grupo='lilly' AND e.entrada=2025""")[0]
+        a.append(("ataque 12 · entrantes 2025 de Lilly con voz previa (%)", pct, P_1DEC))
+        a.append(("ataque 12 · entrantes 2025 de Lilly sin voz previa (%)", 100 - pct, P_1DEC))
+    novo_5k = q("""
+        WITH m AS (SELECT grupo, anio, receptor_id FROM glp1
+                   WHERE grupo_naturaleza='voz' AND receptor_id IS NOT NULL
+                   GROUP BY 1,2,3 HAVING sum(usd) >= 5000),
+             pares AS (SELECT m.anio, count(*) n,
+                       count(*) FILTER (EXISTS (SELECT 1 FROM m r WHERE r.grupo=m.grupo
+                            AND r.anio=m.anio+1 AND r.receptor_id=m.receptor_id)) ret
+                       FROM m WHERE m.grupo='novo' AND m.anio < 2025 GROUP BY 1)
+        SELECT max(100.0*(n-ret)/n) FROM pares""")[0]
+    a.append(("ataque 13 · rotación máxima de Novo con umbral de 5.000 (%)", novo_5k, P_1DEC))
+    fich = q("""
+        WITH m AS (SELECT DISTINCT grupo, anio, receptor_id FROM glp1
+                   WHERE grupo_naturaleza='voz' AND receptor_id IS NOT NULL)
+        SELECT count(*) FROM m
+        WHERE m.grupo='lilly' AND m.anio < 2025
+          AND NOT EXISTS (SELECT 1 FROM m r WHERE r.grupo='lilly'
+               AND r.anio=m.anio+1 AND r.receptor_id=m.receptor_id)
+          AND EXISTS (SELECT 1 FROM m r WHERE r.grupo='novo'
+               AND r.anio=m.anio+1 AND r.receptor_id=m.receptor_id)""")[0]
+    a.append(("ataque 13 · salidas de Lilly con voz del rival, peor caso", fich, P_ENTERO))
 
     # Ataque 11: el frente de Lilly. Origen de los profesionales y peso de Zepbound.
     con.sql(
