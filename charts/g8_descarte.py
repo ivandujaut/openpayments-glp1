@@ -19,24 +19,24 @@ CACHE = ROOT / "findings" / "cache" / "corte-05_rotacion.json"
 
 TEXTOS = {
     "es": {
-        "titulo": "El descarte publicado era 30% de rotación anual. Nadie lo tocó",
+        "titulo": "El límite que dejé escrito era 30% de rotación anual. Nadie lo tocó",
         "subtitulo": ("Rotación año a año del programa de voz GLP-1 (membresía D-012), "
                       "2021–2025 · CMS Open Payments"),
         "ylabel": "% del programa que no sigue al año siguiente",
         "novo": "Novo Nordisk", "lilly": "Eli Lilly",
-        "descarte": "descarte publicado: 30%",
-        "nota": ("El criterio quedó fijado en el caso anterior antes de correr este análisis. "
+        "descarte": "límite publicado: 30%",
+        "nota": ("El límite quedó escrito en el caso anterior, antes de correr este análisis. "
                  "El pico de Novo (28,4%) es el año previo a su recorte del gasto de voz."),
         "archivo": "g8_descarte",
     },
     "en": {
-        "titulo": "The published kill criterion was 30% annual turnover. Nobody touched it",
+        "titulo": "The limit I put in writing was 30% annual turnover. Nobody touched it",
         "subtitulo": ("Year-over-year turnover of the GLP-1 speaker program (D-012 membership), "
                       "2021–2025 · CMS Open Payments"),
         "ylabel": "% of the program gone the next year",
         "novo": "Novo Nordisk", "lilly": "Eli Lilly",
-        "descarte": "published kill criterion: 30%",
-        "nota": ("The criterion was fixed in the previous case before this analysis ran. "
+        "descarte": "published limit: 30%",
+        "nota": ("The limit was written down in the previous case, before this analysis ran. "
                  "Novo's peak (28.4%) is the year before its voice-budget cut."),
         "archivo": "g8_descarte.en",
     },
