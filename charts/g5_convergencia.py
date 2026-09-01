@@ -2,7 +2,7 @@
 
 Nace del ataque 08 (A5): el acumulado del corte 03 esconde una convergencia
 fuerte. La diferencia entre compañías en el peso de endocrinología pasó de 30
-puntos en 2023 a 3,3 en 2025.
+puntos en 2023 a 3,2 en 2025.
 
 Lee SOLO findings/cache/corte-03_especialidades.json (bloque serie).
 
@@ -30,7 +30,7 @@ TEXTOS = {
         "lilly": "Eli Lilly",
         "brecha": "brecha",
         "nota": ("El corte 03 publica el acumulado del período (Lilly 43,6% · Novo 31,5%), que esconde "
-                 "esta trayectoria. El pico de divergencia es 2023, el año del lanzamiento de Zepbound."),
+                 "esta trayectoria. El pico de divergencia es 2023."),
         "archivo": "g5_convergencia",
     },
     "en": {
@@ -42,7 +42,7 @@ TEXTOS = {
         "lilly": "Eli Lilly",
         "brecha": "gap",
         "nota": ("Cut 03 reports the period total (Lilly 43.6% · Novo 31.5%), which hides this path. "
-                 "Divergence peaks in 2023, the year Zepbound launched."),
+                 "Divergence peaks in 2023."),
         "archivo": "g5_convergencia.en",
     },
 }

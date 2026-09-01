@@ -30,7 +30,7 @@ TEXTOS = {
     "es": {
         "titulo": "5.367 endocrinólogos reciben casi el doble que 120.145 enfermeros y asistentes",
         "subtitulo": ("Gasto en GLP-1 por perfil del profesional que recibe el pago, 2021–2025. "
-                      "Lilly destina el 44% a endocrinología; Novo, el 31% · CMS Open Payments"),
+                      "Lilly destina el 43,6% a endocrinología; Novo, el 31,5% · CMS Open Payments"),
         "etiquetas": {
             "endocrinologia": "Endocrinología",
             "primaria": "Atención primaria\n(médico)",
@@ -51,7 +51,7 @@ TEXTOS = {
     "en": {
         "titulo": "5,367 endocrinologists receive nearly twice as much as 120,145 nurses and PAs",
         "subtitulo": ("GLP-1 spending by profile of the professional receiving the payment, 2021–2025. "
-                      "Lilly puts 44% into endocrinology; Novo, 31% · CMS Open Payments"),
+                      "Lilly puts 43.6% into endocrinology; Novo, 31.5% · CMS Open Payments"),
         "etiquetas": {
             "endocrinologia": "Endocrinology",
             "primaria": "Primary care\n(physician)",

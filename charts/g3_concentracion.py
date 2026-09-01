@@ -23,7 +23,7 @@ TOPS = (10, 50, 100, 500, 1000)
 
 TEXTOS = {
     "es": {
-        "titulo": "Cien médicos concentran el 36% de lo que Lilly gasta en GLP-1; en Novo, el 20%",
+        "titulo": "Cien profesionales concentran el 36% de lo que Lilly gasta en GLP-1; en Novo, el 20%",
         "subtitulo": ("Porcentaje del gasto en productos GLP-1 que recibe el top N de profesionales de cada "
                       "compañía, 2021–2025 · CMS Open Payments"),
         "ylabel": "% del gasto de la compañía",
@@ -36,7 +36,7 @@ TEXTOS = {
         "archivo": "g3_concentracion",
     },
     "en": {
-        "titulo": "One hundred doctors take 36% of Lilly's GLP-1 spending; at Novo, 20%",
+        "titulo": "One hundred professionals take 36% of Lilly's GLP-1 spending; at Novo, 20%",
         "subtitulo": ("Share of GLP-1 product spending going to each company's top N healthcare professionals, "
                       "2021–2025 · CMS Open Payments"),
         "ylabel": "% of company spending",
