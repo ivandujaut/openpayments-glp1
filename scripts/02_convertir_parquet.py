@@ -45,7 +45,9 @@ def convertir(anio: int) -> None:
     duckdb.sql(
         f"""
         COPY (SELECT * FROM read_csv('{csv_path}', header=true,
-                                     all_varchar=false, sample_size=200000))
+                                     all_varchar=false, sample_size=200000,
+                                     types={{'Recipient_Postal_Code': 'VARCHAR',
+                                             'Recipient_Zip_Code': 'VARCHAR'}}))
         TO '{destino}' (FORMAT parquet, COMPRESSION zstd)
         """
     )

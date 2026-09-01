@@ -219,6 +219,35 @@ def aserciones() -> list[tuple[str, str, float, float, float]]:
         ("04", "respiratorio Lilly 2025", 1.388e6, buscar(m, grupo="lilly", especialidad="respiratorio y sueño")["usd_final"], PREC_MILLON_3DEC),
         ("04", "respiratorio Novo 2025", 0.039e6, buscar(m, grupo="novo", especialidad="respiratorio y sueño")["usd_final"], PREC_MILLON_3DEC),
     ]
+    # ---------- corte 05 ----------
+    c5 = cargar("corte-05_rotacion")
+    rot = {(f["grupo"], int(f["anio"])): f for f in c5["retencion"]}
+    tabla_rot = {
+        ("lilly", 2021): (178, 25.3), ("lilly", 2022): (201, 10.0),
+        ("lilly", 2023): (230, 16.5), ("lilly", 2024): (357, 19.3),
+        ("novo", 2021): (690, 28.4), ("novo", 2022): (635, 26.9),
+        ("novo", 2023): (510, 14.7), ("novo", 2024): (548, 9.7),
+    }
+    for (g, anio), (n, pct) in tabla_rot.items():
+        a += [
+            ("05", f"miembros {g} {anio}", n, rot[(g, anio)]["miembros"], PREC_ENTERO),
+            ("05", f"rotación {g} {anio} (%)", pct, rot[(g, anio)]["rotacion_pct"], PREC_1DEC),
+        ]
+    t3 = {(f["grupo"], int(f["anio"])): f for f in c5["tres_anios"]}
+    a += [
+        ("05", "3 años Lilly 2021 (%)", 62.9, t3[("lilly", 2021)]["pct"], PREC_1DEC),
+        ("05", "3 años Lilly 2022 (%)", 78.6, t3[("lilly", 2022)]["pct"], PREC_1DEC),
+        ("05", "3 años Novo 2021 (%)", 51.7, t3[("novo", 2021)]["pct"], PREC_1DEC),
+        ("05", "3 años Novo 2022 (%)", 62.8, t3[("novo", 2022)]["pct"], PREC_1DEC),
+    ]
+    ac = {f["grupo"]: f for f in c5["acumulada"]}
+    a += [
+        ("05", "círculo Lilly (= corte 02)", 657, ac["lilly"]["circulo"], PREC_ENTERO),
+        ("05", "círculo Novo (= corte 02)", 1_139, ac["novo"]["circulo"], PREC_ENTERO),
+        ("05", "los cinco años Lilly", 105, ac["lilly"]["los_cinco"], PREC_ENTERO),
+        ("05", "los cinco años Novo", 318, ac["novo"]["los_cinco"], PREC_ENTERO),
+    ]
+
     wegovy = buscar(c4["emergentes_por_producto"], producto="WEGOVY")
     ozempic = buscar(c4["emergentes_por_producto"], producto="OZEMPIC")
     a += [
