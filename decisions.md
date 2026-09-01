@@ -767,3 +767,88 @@ vieja. Toda decisión se registra vía `/decidir` ANTES de implementarse.
   `scripts/05_verificar_findings.py`, `findings/corte-03_especialidades.md`,
   `findings/corte-04_convergencia.md`. Más el script de control de `resto`, nuevo.
 - **Estado:** vigente
+
+## D-012 — Membresía anual al programa de voz: un pago alcanza  (2026-09-01)
+- **Decisión:** un profesional pertenece al programa de voz de una compañía en el
+  año Y si recibió **al menos un pago** de naturaleza "voz" (D-006) atribuido a
+  productos GLP-1 (D-003) de esa compañía (D-002) durante Y. Sin umbral de monto
+  ni de cantidad.
+- **Alternativas rechazadas:**
+  - *Umbral en dólares.* Cualquier corte es acusable de elegido a conveniencia;
+    la sensibilidad al umbral se corre como ataque, no se esconde en la
+    definición.
+  - *Dos o más pagos.* Confunde frecuencia con pertenencia y borra justo a los
+    que están entrando o saliendo, que son el objeto del caso.
+- **Motivo (mirando el dato, no de memoria):** el profesional-año de voz con un
+  solo pago es raro (7,8% en Lilly, 6,1% en Novo) y ni siquiera el percentil 10
+  del monto anual es chico (USD 3.790 y 2.503). La membresía por presencia no
+  está dominada por consultas sueltas de dos dígitos; la mediana es 28 pagos y
+  USD 29.750 en Lilly, 7 y 13.943 en Novo.
+- **Qué la invalidaría:** que un refresh cambie la composición y los pagos
+  únicos pasen a pesar en serio (>20% de los profesional-año); ahí el umbral se
+  rediscute mirando la distribución nueva.
+- **Scripts afectados:** `analysis/corte-05_rotacion.py` (nuevo) y sus ataques.
+- **Estado:** vigente
+
+## D-013 — Dos cohortes: la anual manda, la acumulada responde al caso madre  (2026-09-01)
+- **Decisión:** la rotación se mide sobre **cohortes anuales** (membresía D-012
+  año a año). El grupo de los **657/1.139** del caso publicado (receptores de
+  voz del acumulado 2021-2025) se rastrea aparte, sólo para responder el
+  experimento que ese caso dejó fijado, y cada finding declara cuál de las dos
+  definiciones usa.
+- **Alternativas rechazadas:**
+  - *Sólo la acumulada.* No tiene noción de año, así que no puede medir rotación
+    anual, que es donde vive el criterio de descarte publicado (30%).
+  - *Redefinir los 657 como cohorte anual.* Cambiaría por la puerta de atrás un
+    número ya publicado y auditado.
+- **Motivo:** el 30% del descarte publicado es una tasa anual; el acumulado
+  publicado es un stock de cinco años. Son preguntas distintas con el mismo
+  vocabulario, y la confusión entre ambas es el error más probable del caso.
+- **Qué la invalidaría:** nada la invalida; es una partición de preguntas.
+- **Scripts afectados:** `analysis/corte-05_rotacion.py`, `scripts/05_verificar_findings.py`.
+- **Estado:** vigente
+
+## D-014 — Reapertura parcial de D-001: 2017-2020 sólo para des-censurar  (2026-09-01)
+- **Reabre:** **D-001**, que sigue vigente para la serie del caso. La ventana
+  primaria no cambia: todo corte, figura y titular opera sobre 2021-2025.
+- **Decisión:** se descargan PY2017-2020 y se usan **únicamente** como ataque de
+  censura a izquierda: cuánto de la cohorte 2021 ya cobraba voz antes, para no
+  subestimar duraciones. Ningún número de 2017-2020 entra a una figura ni a un
+  titular; entran al finding como control, declarados.
+- **PY2016 no está disponible:** CMS lo retiró de la publicación activa (404
+  bajo el sello vigente y bajo los sellos de refresh anteriores probados; el
+  catálogo de datasets arranca en 2019, y 2017-2018 sobreviven bajo el sello
+  P01302025_01212025). La censura a izquierda de la cohorte 2021 queda acotada a
+  cuatro años de pre-historia y eso se declara como límite.
+- **Alternativas rechazadas:**
+  - *Extender la serie primaria a 2017-2025.* Rechazada por los motivos intactos
+    de D-001 (la ruptura NPP de 2021) y por consistencia con el caso publicado.
+  - *No descargar y declarar la subestimación.* Era el plan B aprobado; con los
+    archivos disponibles, medir gana a declarar.
+- **Qué la invalidaría:** que CMS retire 2017-2018 de descarga antes de congelar
+  los checksums; el ataque pasaría a correr sólo con 2019-2020 y lo diría.
+- **Scripts afectados:** `scripts/01_descargar.py` (dict `URLS`),
+  `scripts/checksums.txt`, `analysis/ataque-12_censura.py` (nuevo).
+- **Estado:** vigente
+
+## D-015 — "Irse" tiene tres salidas distintas y se cuentan separadas  (2026-09-01)
+- **Decisión:** un miembro del año Y que no es miembro en Y+1 se clasifica en
+  exactamente una de tres salidas, en este orden: **(a) reasignado**, sigue
+  cobrando voz de la misma compañía ese año pero por productos no GLP-1;
+  **(b) fichado**, cobra voz por GLP-1 de la compañía rival en Y+1;
+  **(c) afuera**, ninguna de las dos. La rotación del titular es la suma de las
+  tres; el desglose acompaña siempre, porque "se fue del programa" y "se fue de
+  la relación" son afirmaciones distintas.
+- **Alternativas rechazadas:**
+  - *Rotación = c solamente.* Subestima la fragilidad del programa GLP-1, que es
+    la pregunta del caso.
+  - *No distinguir salidas.* El crudo tiene todos los pagos de todas las drogas;
+    no mirar la reasignación sería elegir no saber.
+- **Motivo:** el criterio de descarte publicado habla del programa GLP-1; las
+  tres salidas evitan que una reasignación interna se lea como éxodo.
+- **Qué la invalidaría:** que (a) requiera la vista cruda completa y el prorrateo
+  D-004 la vuelva ambigua fuera de GLP-1; se documentaría la regla de atribución
+  usada.
+- **Scripts afectados:** `src/vistas.py` (vista de voz sin filtro de producto,
+  nueva), `analysis/corte-05_rotacion.py`.
+- **Estado:** vigente

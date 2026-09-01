@@ -130,6 +130,7 @@ def conectar() -> duckdb.DuckDBPyConnection:
         """
     )
     _crear_vista_glp1(con)
+    _crear_vista_voz_entidades(con)
     return con
 
 
@@ -221,5 +222,36 @@ def _crear_vista_glp1(con: duckdb.DuckDBPyConnection) -> None:
             END                                 AS especialidad,
             b.especialidad_cruda, b.receptor_id, b.estado, b.n_pagos_agregados
         FROM base b, UNNEST(b.productos_glp1) AS p(producto)
+        """
+    )
+
+
+def _crear_vista_voz_entidades(con: duckdb.DuckDBPyConnection) -> None:
+    """Vista `voz_entidades`: TODO pago de voz de los dos grupos, sin filtro de
+    producto ni de año (D-015).
+
+    Existe para distinguir la salida (a) "reasignado": alguien que deja de
+    cobrar voz por GLP-1 pero sigue cobrando voz de la misma compañía por otros
+    productos. No prorratea (D-004 no aplica: acá no se atribuye a producto);
+    una fila es un Record_ID. El año se filtra en la consulta, no en la vista,
+    porque el ataque de censura (D-014) necesita los años previos a D-001.
+    """
+    ids_novo = _sql_lista(ENTIDADES["novo"])
+    ids = ENTIDADES["novo"] + ENTIDADES["lilly"]
+    voz = _sql_lista(NATURALEZA_VOZ)
+    con.sql(
+        f"""
+        CREATE VIEW voz_entidades AS
+        SELECT
+            Record_ID                                   AS record_id,
+            Program_Year                                AS anio,
+            Covered_Recipient_Profile_ID                AS receptor_id,
+            CASE WHEN Applicable_Manufacturer_or_Applicable_GPO_Making_Payment_ID
+                      IN {ids_novo} THEN 'novo' ELSE 'lilly' END AS grupo,
+            Total_Amount_of_Payment_USDollars           AS usd_fila
+        FROM pagos
+        WHERE Applicable_Manufacturer_or_Applicable_GPO_Making_Payment_ID IN {ids}
+          AND Nature_of_Payment_or_Transfer_of_Value IN {voz}
+          AND Covered_Recipient_Profile_ID IS NOT NULL
         """
     )

@@ -1,0 +1,321 @@
+{
+  "corte": "05_rotacion",
+  "ventana": [
+    2021,
+    2025
+  ],
+  "decisiones": [
+    "D-001",
+    "D-002",
+    "D-003",
+    "D-006",
+    "D-012",
+    "D-013",
+    "D-015"
+  ],
+  "unidad_lider": "profesionales (membresía D-012); dólares para costo de reemplazo",
+  "cohortes": [
+    {
+      "grupo": "lilly",
+      "anio": 2021,
+      "hcps": 178,
+      "usd": 4569962.5,
+      "pagos": 6521
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2022,
+      "hcps": 201,
+      "usd": 8660187.5,
+      "pagos": 8144
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2023,
+      "hcps": 230,
+      "usd": 8787268.75,
+      "pagos": 8245
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2024,
+      "hcps": 357,
+      "usd": 11981068.75,
+      "pagos": 11154
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2025,
+      "hcps": 493,
+      "usd": 14422331.25,
+      "pagos": 12604
+    },
+    {
+      "grupo": "novo",
+      "anio": 2021,
+      "hcps": 690,
+      "usd": 15191908.26,
+      "pagos": 7361
+    },
+    {
+      "grupo": "novo",
+      "anio": 2022,
+      "hcps": 635,
+      "usd": 17685921.65,
+      "pagos": 6493
+    },
+    {
+      "grupo": "novo",
+      "anio": 2023,
+      "hcps": 510,
+      "usd": 5477957.449999999,
+      "pagos": 4234
+    },
+    {
+      "grupo": "novo",
+      "anio": 2024,
+      "hcps": 548,
+      "usd": 6864890.22,
+      "pagos": 4314
+    },
+    {
+      "grupo": "novo",
+      "anio": 2025,
+      "hcps": 685,
+      "usd": 16505665.019999994,
+      "pagos": 5201
+    }
+  ],
+  "retencion": [
+    {
+      "grupo": "lilly",
+      "anio": 2021,
+      "miembros": 178,
+      "retenidos": 133,
+      "reasignados": 24,
+      "fichados": 4,
+      "afuera": 17,
+      "rotacion_pct": 25.3
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2022,
+      "miembros": 201,
+      "retenidos": 181,
+      "reasignados": 2,
+      "fichados": 1,
+      "afuera": 17,
+      "rotacion_pct": 10.0
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2023,
+      "miembros": 230,
+      "retenidos": 192,
+      "reasignados": 10,
+      "fichados": 4,
+      "afuera": 24,
+      "rotacion_pct": 16.5
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2024,
+      "miembros": 357,
+      "retenidos": 288,
+      "reasignados": 25,
+      "fichados": 6,
+      "afuera": 38,
+      "rotacion_pct": 19.3
+    },
+    {
+      "grupo": "novo",
+      "anio": 2021,
+      "miembros": 690,
+      "retenidos": 494,
+      "reasignados": 20,
+      "fichados": 12,
+      "afuera": 164,
+      "rotacion_pct": 28.4
+    },
+    {
+      "grupo": "novo",
+      "anio": 2022,
+      "miembros": 635,
+      "retenidos": 464,
+      "reasignados": 39,
+      "fichados": 15,
+      "afuera": 117,
+      "rotacion_pct": 26.9
+    },
+    {
+      "grupo": "novo",
+      "anio": 2023,
+      "miembros": 510,
+      "retenidos": 435,
+      "reasignados": 10,
+      "fichados": 7,
+      "afuera": 58,
+      "rotacion_pct": 14.7
+    },
+    {
+      "grupo": "novo",
+      "anio": 2024,
+      "miembros": 548,
+      "retenidos": 495,
+      "reasignados": 8,
+      "fichados": 4,
+      "afuera": 41,
+      "rotacion_pct": 9.7
+    }
+  ],
+  "acumulada": [
+    {
+      "grupo": "lilly",
+      "circulo": 657,
+      "anios_activo_prom": 2.22,
+      "un_solo_anio": 322,
+      "los_cinco": 105,
+      "de_punta_a_punta": 110
+    },
+    {
+      "grupo": "novo",
+      "circulo": 1139,
+      "anios_activo_prom": 2.69,
+      "un_solo_anio": 436,
+      "los_cinco": 318,
+      "de_punta_a_punta": 345
+    }
+  ],
+  "permanencia": [
+    {
+      "grupo": "lilly",
+      "anios_activo": 1,
+      "hcps": 322
+    },
+    {
+      "grupo": "lilly",
+      "anios_activo": 2,
+      "hcps": 133
+    },
+    {
+      "grupo": "lilly",
+      "anios_activo": 3,
+      "hcps": 42
+    },
+    {
+      "grupo": "lilly",
+      "anios_activo": 4,
+      "hcps": 55
+    },
+    {
+      "grupo": "lilly",
+      "anios_activo": 5,
+      "hcps": 105
+    },
+    {
+      "grupo": "novo",
+      "anios_activo": 1,
+      "hcps": 436
+    },
+    {
+      "grupo": "novo",
+      "anios_activo": 2,
+      "hcps": 210
+    },
+    {
+      "grupo": "novo",
+      "anios_activo": 3,
+      "hcps": 78
+    },
+    {
+      "grupo": "novo",
+      "anios_activo": 4,
+      "hcps": 97
+    },
+    {
+      "grupo": "novo",
+      "anios_activo": 5,
+      "hcps": 318
+    }
+  ],
+  "tres_anios": [
+    {
+      "grupo": "lilly",
+      "anio": 2021,
+      "miembros": 178,
+      "activos_3_despues": 112,
+      "pct": 62.9
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2022,
+      "miembros": 201,
+      "activos_3_despues": 158,
+      "pct": 78.6
+    },
+    {
+      "grupo": "novo",
+      "anio": 2021,
+      "miembros": 690,
+      "activos_3_despues": 357,
+      "pct": 51.7
+    },
+    {
+      "grupo": "novo",
+      "anio": 2022,
+      "miembros": 635,
+      "activos_3_despues": 399,
+      "pct": 62.8
+    }
+  ],
+  "gasto_nuevos_vs_retenidos": [
+    {
+      "grupo": "lilly",
+      "anio": 2022,
+      "usd_retenidos": 6391950.0,
+      "usd_nuevos": 2268237.5
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2023,
+      "usd_retenidos": 7531456.25,
+      "usd_nuevos": 1255812.5
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2024,
+      "usd_retenidos": 8069525.0,
+      "usd_nuevos": 3911543.75
+    },
+    {
+      "grupo": "lilly",
+      "anio": 2025,
+      "usd_retenidos": 10563081.25,
+      "usd_nuevos": 3859250.0
+    },
+    {
+      "grupo": "novo",
+      "anio": 2022,
+      "usd_retenidos": 15307298.600000001,
+      "usd_nuevos": 2378623.0499999993
+    },
+    {
+      "grupo": "novo",
+      "anio": 2023,
+      "usd_retenidos": 5143706.949999999,
+      "usd_nuevos": 334250.5
+    },
+    {
+      "grupo": "novo",
+      "anio": 2024,
+      "usd_retenidos": 5808796.77,
+      "usd_nuevos": 1056093.4500000002
+    },
+    {
+      "grupo": "novo",
+      "anio": 2025,
+      "usd_retenidos": 13044757.799999993,
+      "usd_nuevos": 3460907.2199999997
+    }
+  ]
+}

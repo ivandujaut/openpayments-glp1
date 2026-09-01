@@ -35,6 +35,13 @@ CABECERA = (
 # extrae solo el CSV OP_DTL_GNRL. Tamaños al día de captura: 2021 869 MB,
 # 2022 998 MB, 2023 1.2 GB, 2024 1.2 GB, 2025 1.3 GB (~5.5 GB en total).
 URLS: dict[int, str] = {
+    # D-014: 2017-2020 solo para el ataque de censura; 2016 no esta disponible
+    # (CMS lo retiro de la publicacion activa). 2017-2018 sobreviven bajo el
+    # sello P01302025; 2019-2020 bajo el vigente.
+    2017: "https://download.cms.gov/openpayments/PGYR2017_P01302025_01212025.zip",
+    2018: "https://download.cms.gov/openpayments/PGYR2018_P01302025_01212025.zip",
+    2019: "https://download.cms.gov/openpayments/PGYR2019_P06302026_06032026.zip",
+    2020: "https://download.cms.gov/openpayments/PGYR2020_P06302026_06032026.zip",
     2021: "https://download.cms.gov/openpayments/PGYR2021_P06302026_06032026.zip",
     2022: "https://download.cms.gov/openpayments/PGYR2022_P06302026_06032026.zip",
     2023: "https://download.cms.gov/openpayments/PGYR2023_P06302026_06032026.zip",
