@@ -1,0 +1,104 @@
+{
+  "ventana": "2021-2024 (la com\u00fan con Part D)",
+  "marcas_obesidad": [
+    "WEGOVY",
+    "ZEPBOUND",
+    "SAXENDA"
+  ],
+  "totales": {
+    "usd_ventana_comun": 131981742.98,
+    "usd_obesidad": 26164594.73,
+    "pct_obesidad": 19.82
+  },
+  "por_anio": [
+    {
+      "anio": 2021,
+      "usd_obesidad": 3766252.81,
+      "usd_diabetes": 26794053.86,
+      "pct_obesidad": 12.32
+    },
+    {
+      "anio": 2022,
+      "usd_obesidad": 4709831.37,
+      "usd_diabetes": 36168935.47,
+      "pct_obesidad": 11.52
+    },
+    {
+      "anio": 2023,
+      "usd_obesidad": 4740969.54,
+      "usd_diabetes": 22337654.28,
+      "pct_obesidad": 17.51
+    },
+    {
+      "anio": 2024,
+      "usd_obesidad": 12947541.02,
+      "usd_diabetes": 20516504.64,
+      "pct_obesidad": 38.69
+    }
+  ],
+  "por_producto": [
+    {
+      "producto": "MOUNJARO",
+      "grupo": "lilly",
+      "usd": 35529774.6,
+      "pagos": 635508,
+      "es_obesidad": false
+    },
+    {
+      "producto": "RYBELSUS",
+      "grupo": "novo",
+      "usd": 34189407.58,
+      "pagos": 1273037,
+      "es_obesidad": false
+    },
+    {
+      "producto": "OZEMPIC",
+      "grupo": "novo",
+      "usd": 27240042.53,
+      "pagos": 1295018,
+      "es_obesidad": false
+    },
+    {
+      "producto": "WEGOVY",
+      "grupo": "novo",
+      "usd": 13704920.05,
+      "pagos": 292367,
+      "es_obesidad": true
+    },
+    {
+      "producto": "TRULICITY",
+      "grupo": "lilly",
+      "usd": 8262584.97,
+      "pagos": 295686,
+      "es_obesidad": false
+    },
+    {
+      "producto": "SAXENDA",
+      "grupo": "novo",
+      "usd": 6422995.81,
+      "pagos": 110809,
+      "es_obesidad": true
+    },
+    {
+      "producto": "ZEPBOUND",
+      "grupo": "lilly",
+      "usd": 6036678.87,
+      "pagos": 173750,
+      "es_obesidad": true
+    },
+    {
+      "producto": "VICTOZA",
+      "grupo": "novo",
+      "usd": 586240.34,
+      "pagos": 879,
+      "es_obesidad": false
+    },
+    {
+      "producto": "XULTOPHY 100/3.6",
+      "grupo": "novo",
+      "usd": 9098.23,
+      "pagos": 40,
+      "es_obesidad": false
+    }
+  ]
+}

@@ -1,0 +1,1577 @@
+{
+  "pregunta": "\u00bfLa brecha de share entre quienes cobran honorarios y quienes no cobran nada sobrevive a imputarle a los invisibles las recetas que la censura de CMS puede estar escondiendo?",
+  "capturado": "2026-09-08",
+  "universo": "Prescriptores que recetaron al menos una marca GLP-1 del caso ese a\u00f1o y aparecen en el archivo by Provider. A quien no figura con la marca mirada se le imputan k recetas de esa marca.",
+  "imputaciones": [
+    0,
+    5,
+    10
+  ],
+  "minimo_por_celda": 20,
+  "advertencia": "k=10 es el techo del umbral de CMS y supone que TODOS los invisibles recetaron el m\u00e1ximo oculto, lo cual es imposible en conjunto: es el peor caso, no una estimaci\u00f3n. La lectura correcta es si la raz\u00f3n se sostiene a lo largo de la escala, no el valor de un solo escenario.",
+  "tamano_universo": [
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "sin pago",
+      "npi": 86240,
+      "figuran": 42010,
+      "invisibles": 44230,
+      "pct_invisible": 51.3
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "solo campo",
+      "npi": 41532,
+      "figuran": 29224,
+      "invisibles": 12308,
+      "pct_invisible": 29.6
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "voz",
+      "npi": 412,
+      "figuran": 405,
+      "invisibles": 7,
+      "pct_invisible": 1.7
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "sin pago",
+      "npi": 148244,
+      "figuran": 61016,
+      "invisibles": 87228,
+      "pct_invisible": 58.8
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "solo campo",
+      "npi": 51117,
+      "figuran": 35977,
+      "invisibles": 15140,
+      "pct_invisible": 29.6
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "voz",
+      "npi": 221,
+      "figuran": 215,
+      "invisibles": 6,
+      "pct_invisible": 2.7
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "sin pago",
+      "npi": 144614,
+      "figuran": 120092,
+      "invisibles": 24522,
+      "pct_invisible": 17.0
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "solo campo",
+      "npi": 54624,
+      "figuran": 50757,
+      "invisibles": 3867,
+      "pct_invisible": 7.1
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "voz",
+      "npi": 344,
+      "figuran": 342,
+      "invisibles": 2,
+      "pct_invisible": 0.6
+    }
+  ],
+  "razones": [
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "especialidad": "NP/PA",
+      "n_voz_k0": 49,
+      "n_sin_pago_k0": 24495,
+      "mediana_voz_k0": 5.227,
+      "mediana_sin_pago_k0": 0.0,
+      "razon_mediana_k0": null,
+      "razon_media_k0": 5.65,
+      "n_voz_k5": 49,
+      "n_sin_pago_k5": 24495,
+      "mediana_voz_k5": 5.227,
+      "mediana_sin_pago_k5": 0.342,
+      "razon_mediana_k5": 15.28,
+      "razon_media_k5": 4.87,
+      "n_voz_k10": 49,
+      "n_sin_pago_k10": 24495,
+      "mediana_voz_k10": 5.227,
+      "mediana_sin_pago_k10": 0.5,
+      "razon_mediana_k10": 10.45,
+      "razon_media_k10": 4.28
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "especialidad": "emergentes",
+      "n_voz_k0": 30,
+      "n_sin_pago_k0": 978,
+      "mediana_voz_k0": 1.069,
+      "mediana_sin_pago_k0": 0.256,
+      "razon_mediana_k0": 4.18,
+      "razon_media_k0": 2.02,
+      "n_voz_k5": 30,
+      "n_sin_pago_k5": 978,
+      "mediana_voz_k5": 1.069,
+      "mediana_sin_pago_k5": 0.357,
+      "razon_mediana_k5": 2.99,
+      "razon_media_k5": 1.84,
+      "n_voz_k10": 30,
+      "n_sin_pago_k10": 978,
+      "mediana_voz_k10": 1.069,
+      "mediana_sin_pago_k10": 0.469,
+      "razon_mediana_k10": 2.28,
+      "razon_media_k10": 1.69
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "especialidad": "endocrinologia",
+      "n_voz_k0": 249,
+      "n_sin_pago_k0": 3131,
+      "mediana_voz_k0": 5.042,
+      "mediana_sin_pago_k0": 2.922,
+      "razon_mediana_k0": 1.73,
+      "razon_media_k0": 1.48,
+      "n_voz_k5": 249,
+      "n_sin_pago_k5": 3131,
+      "mediana_voz_k5": 5.042,
+      "mediana_sin_pago_k5": 2.964,
+      "razon_mediana_k5": 1.7,
+      "razon_media_k5": 1.43,
+      "n_voz_k10": 249,
+      "n_sin_pago_k10": 3131,
+      "mediana_voz_k10": 5.042,
+      "mediana_sin_pago_k10": 3.055,
+      "razon_mediana_k10": 1.65,
+      "razon_media_k10": 1.38
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "especialidad": "primaria",
+      "n_voz_k0": 83,
+      "n_sin_pago_k0": 53442,
+      "mediana_voz_k0": 2.615,
+      "mediana_sin_pago_k0": 0.0,
+      "razon_mediana_k0": null,
+      "razon_media_k0": 8.88,
+      "n_voz_k5": 83,
+      "n_sin_pago_k5": 53442,
+      "mediana_voz_k5": 2.615,
+      "mediana_sin_pago_k5": 0.226,
+      "razon_mediana_k5": 11.57,
+      "razon_media_k5": 7.23,
+      "n_voz_k10": 83,
+      "n_sin_pago_k10": 53442,
+      "mediana_voz_k10": 2.615,
+      "mediana_sin_pago_k10": 0.312,
+      "razon_mediana_k10": 8.38,
+      "razon_media_k10": 6.08
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "especialidad": "endocrinologia",
+      "n_voz_k0": 136,
+      "n_sin_pago_k0": 3970,
+      "mediana_voz_k0": 4.946,
+      "mediana_sin_pago_k0": 2.935,
+      "razon_mediana_k0": 1.69,
+      "razon_media_k0": 1.57,
+      "n_voz_k5": 136,
+      "n_sin_pago_k5": 3970,
+      "mediana_voz_k5": 4.946,
+      "mediana_sin_pago_k5": 3.0,
+      "razon_mediana_k5": 1.65,
+      "razon_media_k5": 1.5,
+      "n_voz_k10": 136,
+      "n_sin_pago_k10": 3970,
+      "mediana_voz_k10": 4.946,
+      "mediana_sin_pago_k10": 3.131,
+      "razon_mediana_k10": 1.58,
+      "razon_media_k10": 1.43
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "especialidad": "primaria",
+      "n_voz_k0": 56,
+      "n_sin_pago_k0": 83662,
+      "mediana_voz_k0": 3.614,
+      "mediana_sin_pago_k0": 0.0,
+      "razon_mediana_k0": null,
+      "razon_media_k0": 17.89,
+      "n_voz_k5": 56,
+      "n_sin_pago_k5": 83662,
+      "mediana_voz_k5": 3.614,
+      "mediana_sin_pago_k5": 0.25,
+      "razon_mediana_k5": 14.46,
+      "razon_media_k5": 12.76,
+      "n_voz_k10": 56,
+      "n_sin_pago_k10": 83662,
+      "mediana_voz_k10": 3.614,
+      "mediana_sin_pago_k10": 0.365,
+      "razon_mediana_k10": 9.9,
+      "razon_media_k10": 9.91
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "especialidad": "NP/PA",
+      "n_voz_k0": 38,
+      "n_sin_pago_k0": 48086,
+      "mediana_voz_k0": 7.172,
+      "mediana_sin_pago_k0": 0.862,
+      "razon_mediana_k0": 8.32,
+      "razon_media_k0": 5.16,
+      "n_voz_k5": 38,
+      "n_sin_pago_k5": 48086,
+      "mediana_voz_k5": 7.172,
+      "mediana_sin_pago_k5": 0.913,
+      "razon_mediana_k5": 7.86,
+      "razon_media_k5": 4.76,
+      "n_voz_k10": 38,
+      "n_sin_pago_k10": 48086,
+      "mediana_voz_k10": 7.172,
+      "mediana_sin_pago_k10": 0.979,
+      "razon_mediana_k10": 7.33,
+      "razon_media_k10": 4.41
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "especialidad": "emergentes",
+      "n_voz_k0": 42,
+      "n_sin_pago_k0": 2909,
+      "mediana_voz_k0": 1.894,
+      "mediana_sin_pago_k0": 0.564,
+      "razon_mediana_k0": 3.36,
+      "razon_media_k0": 2.36,
+      "n_voz_k5": 42,
+      "n_sin_pago_k5": 2909,
+      "mediana_voz_k5": 1.894,
+      "mediana_sin_pago_k5": 0.626,
+      "razon_mediana_k5": 3.03,
+      "razon_media_k5": 2.21,
+      "n_voz_k10": 42,
+      "n_sin_pago_k10": 2909,
+      "mediana_voz_k10": 1.894,
+      "mediana_sin_pago_k10": 0.691,
+      "razon_mediana_k10": 2.74,
+      "razon_media_k10": 2.08
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "especialidad": "endocrinologia",
+      "n_voz_k0": 197,
+      "n_sin_pago_k0": 3578,
+      "mediana_voz_k0": 7.312,
+      "mediana_sin_pago_k0": 5.869,
+      "razon_mediana_k0": 1.25,
+      "razon_media_k0": 1.18,
+      "n_voz_k5": 197,
+      "n_sin_pago_k5": 3578,
+      "mediana_voz_k5": 7.312,
+      "mediana_sin_pago_k5": 5.882,
+      "razon_mediana_k5": 1.24,
+      "razon_media_k5": 1.17,
+      "n_voz_k10": 197,
+      "n_sin_pago_k10": 3578,
+      "mediana_voz_k10": 7.312,
+      "mediana_sin_pago_k10": 5.921,
+      "razon_mediana_k10": 1.23,
+      "razon_media_k10": 1.16
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "especialidad": "primaria",
+      "n_voz_k0": 66,
+      "n_sin_pago_k0": 82097,
+      "mediana_voz_k0": 3.746,
+      "mediana_sin_pago_k0": 0.743,
+      "razon_mediana_k0": 5.04,
+      "razon_media_k0": 4.06,
+      "n_voz_k5": 66,
+      "n_sin_pago_k5": 82097,
+      "mediana_voz_k5": 3.746,
+      "mediana_sin_pago_k5": 0.773,
+      "razon_mediana_k5": 4.85,
+      "razon_media_k5": 3.82,
+      "n_voz_k10": 66,
+      "n_sin_pago_k10": 82097,
+      "mediana_voz_k10": 3.746,
+      "mediana_sin_pago_k10": 0.81,
+      "razon_mediana_k10": 4.62,
+      "razon_media_k10": 3.62
+    }
+  ],
+  "share_por_escenario": {
+    "0": [
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 24495,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 1.141
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 13928,
+        "mediana_share_pct": 0.462,
+        "media_share_pct": 1.227
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "voz",
+        "n": 49,
+        "mediana_share_pct": 5.227,
+        "media_share_pct": 6.452
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 978,
+        "mediana_share_pct": 0.256,
+        "media_share_pct": 1.086
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 589,
+        "mediana_share_pct": 0.432,
+        "media_share_pct": 0.8
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "voz",
+        "n": 30,
+        "mediana_share_pct": 1.069,
+        "media_share_pct": 2.196
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3131,
+        "mediana_share_pct": 2.922,
+        "media_share_pct": 3.811
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 2077,
+        "mediana_share_pct": 3.265,
+        "media_share_pct": 3.927
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 249,
+        "mediana_share_pct": 5.042,
+        "media_share_pct": 5.65
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 53442,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.498
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 24381,
+        "mediana_share_pct": 0.255,
+        "media_share_pct": 0.499
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 83,
+        "mediana_share_pct": 2.615,
+        "media_share_pct": 4.422
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 125,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.745
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 30,
+        "mediana_share_pct": 0.111,
+        "media_share_pct": 1.509
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 4069,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 1.917
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 527,
+        "mediana_share_pct": 0.322,
+        "media_share_pct": 1.636
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 48673,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.932
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 20669,
+        "mediana_share_pct": 0.534,
+        "media_share_pct": 1.208
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 3912,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.402
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 378,
+        "mediana_share_pct": 0.36,
+        "media_share_pct": 0.909
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3970,
+        "mediana_share_pct": 2.935,
+        "media_share_pct": 3.745
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 1772,
+        "mediana_share_pct": 3.426,
+        "media_share_pct": 4.228
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 136,
+        "mediana_share_pct": 4.946,
+        "media_share_pct": 5.884
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 83662,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.423
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 27667,
+        "mediana_share_pct": 0.382,
+        "media_share_pct": 0.653
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 56,
+        "mediana_share_pct": 3.614,
+        "media_share_pct": 7.569
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 263,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.603
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 35,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.639
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 7764,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 1.528
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 596,
+        "mediana_share_pct": 0.352,
+        "media_share_pct": 1.41
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 48086,
+        "mediana_share_pct": 0.862,
+        "media_share_pct": 1.725
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 21232,
+        "mediana_share_pct": 1.097,
+        "media_share_pct": 1.777
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "voz",
+        "n": 38,
+        "mediana_share_pct": 7.172,
+        "media_share_pct": 8.899
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 2909,
+        "mediana_share_pct": 0.564,
+        "media_share_pct": 1.113
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 1349,
+        "mediana_share_pct": 0.692,
+        "media_share_pct": 1.094
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "voz",
+        "n": 42,
+        "mediana_share_pct": 1.894,
+        "media_share_pct": 2.632
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3578,
+        "mediana_share_pct": 5.869,
+        "media_share_pct": 6.465
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 2103,
+        "mediana_share_pct": 6.44,
+        "media_share_pct": 6.808
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 197,
+        "mediana_share_pct": 7.312,
+        "media_share_pct": 7.631
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 82097,
+        "mediana_share_pct": 0.743,
+        "media_share_pct": 1.128
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 29222,
+        "mediana_share_pct": 0.852,
+        "media_share_pct": 1.101
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 66,
+        "mediana_share_pct": 3.746,
+        "media_share_pct": 4.576
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 257,
+        "mediana_share_pct": 0.425,
+        "media_share_pct": 1.055
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 42,
+        "mediana_share_pct": 0.603,
+        "media_share_pct": 1.164
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 7687,
+        "mediana_share_pct": 1.007,
+        "media_share_pct": 3.234
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 676,
+        "mediana_share_pct": 0.926,
+        "media_share_pct": 1.54
+      }
+    ],
+    "5": [
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 24495,
+        "mediana_share_pct": 0.342,
+        "media_share_pct": 1.325
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 13928,
+        "mediana_share_pct": 0.462,
+        "media_share_pct": 1.227
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "voz",
+        "n": 49,
+        "mediana_share_pct": 5.227,
+        "media_share_pct": 6.452
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 978,
+        "mediana_share_pct": 0.357,
+        "media_share_pct": 1.192
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 589,
+        "mediana_share_pct": 0.432,
+        "media_share_pct": 0.8
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "voz",
+        "n": 30,
+        "mediana_share_pct": 1.069,
+        "media_share_pct": 2.196
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3131,
+        "mediana_share_pct": 2.964,
+        "media_share_pct": 3.95
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 2077,
+        "mediana_share_pct": 3.265,
+        "media_share_pct": 3.927
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 249,
+        "mediana_share_pct": 5.042,
+        "media_share_pct": 5.65
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 53442,
+        "mediana_share_pct": 0.226,
+        "media_share_pct": 0.612
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 24381,
+        "mediana_share_pct": 0.255,
+        "media_share_pct": 0.499
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 83,
+        "mediana_share_pct": 2.615,
+        "media_share_pct": 4.422
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 125,
+        "mediana_share_pct": 0.209,
+        "media_share_pct": 0.836
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 30,
+        "mediana_share_pct": 0.111,
+        "media_share_pct": 1.509
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 4069,
+        "mediana_share_pct": 0.714,
+        "media_share_pct": 2.499
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 527,
+        "mediana_share_pct": 0.322,
+        "media_share_pct": 1.636
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 48673,
+        "mediana_share_pct": 0.354,
+        "media_share_pct": 1.188
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 20669,
+        "mediana_share_pct": 0.534,
+        "media_share_pct": 1.208
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 3912,
+        "mediana_share_pct": 0.221,
+        "media_share_pct": 0.568
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 378,
+        "mediana_share_pct": 0.36,
+        "media_share_pct": 0.909
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3970,
+        "mediana_share_pct": 3.0,
+        "media_share_pct": 3.93
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 1772,
+        "mediana_share_pct": 3.426,
+        "media_share_pct": 4.228
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 136,
+        "mediana_share_pct": 4.946,
+        "media_share_pct": 5.884
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 83662,
+        "mediana_share_pct": 0.25,
+        "media_share_pct": 0.593
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 27667,
+        "mediana_share_pct": 0.382,
+        "media_share_pct": 0.653
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 56,
+        "mediana_share_pct": 3.614,
+        "media_share_pct": 7.569
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 263,
+        "mediana_share_pct": 0.253,
+        "media_share_pct": 0.795
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 35,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.639
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 7764,
+        "mediana_share_pct": 0.706,
+        "media_share_pct": 2.347
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 596,
+        "mediana_share_pct": 0.352,
+        "media_share_pct": 1.41
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 48086,
+        "mediana_share_pct": 0.913,
+        "media_share_pct": 1.87
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 21232,
+        "mediana_share_pct": 1.097,
+        "media_share_pct": 1.777
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "voz",
+        "n": 38,
+        "mediana_share_pct": 7.172,
+        "media_share_pct": 8.899
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 2909,
+        "mediana_share_pct": 0.626,
+        "media_share_pct": 1.19
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 1349,
+        "mediana_share_pct": 0.692,
+        "media_share_pct": 1.094
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "voz",
+        "n": 42,
+        "mediana_share_pct": 1.894,
+        "media_share_pct": 2.632
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3578,
+        "mediana_share_pct": 5.882,
+        "media_share_pct": 6.532
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 2103,
+        "mediana_share_pct": 6.44,
+        "media_share_pct": 6.808
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 197,
+        "mediana_share_pct": 7.312,
+        "media_share_pct": 7.631
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 82097,
+        "mediana_share_pct": 0.773,
+        "media_share_pct": 1.197
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 29222,
+        "mediana_share_pct": 0.852,
+        "media_share_pct": 1.101
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 66,
+        "mediana_share_pct": 3.746,
+        "media_share_pct": 4.576
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 257,
+        "mediana_share_pct": 0.496,
+        "media_share_pct": 1.183
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 42,
+        "mediana_share_pct": 0.603,
+        "media_share_pct": 1.164
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 7687,
+        "mediana_share_pct": 1.468,
+        "media_share_pct": 3.682
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 676,
+        "mediana_share_pct": 0.926,
+        "media_share_pct": 1.54
+      }
+    ],
+    "10": [
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 24495,
+        "mediana_share_pct": 0.5,
+        "media_share_pct": 1.508
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 13928,
+        "mediana_share_pct": 0.462,
+        "media_share_pct": 1.227
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "voz",
+        "n": 49,
+        "mediana_share_pct": 5.227,
+        "media_share_pct": 6.452
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 978,
+        "mediana_share_pct": 0.469,
+        "media_share_pct": 1.298
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 589,
+        "mediana_share_pct": 0.432,
+        "media_share_pct": 0.8
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "voz",
+        "n": 30,
+        "mediana_share_pct": 1.069,
+        "media_share_pct": 2.196
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3131,
+        "mediana_share_pct": 3.055,
+        "media_share_pct": 4.089
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 2077,
+        "mediana_share_pct": 3.265,
+        "media_share_pct": 3.927
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 249,
+        "mediana_share_pct": 5.042,
+        "media_share_pct": 5.65
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 53442,
+        "mediana_share_pct": 0.312,
+        "media_share_pct": 0.727
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 24381,
+        "mediana_share_pct": 0.255,
+        "media_share_pct": 0.499
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 83,
+        "mediana_share_pct": 2.615,
+        "media_share_pct": 4.422
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 125,
+        "mediana_share_pct": 0.306,
+        "media_share_pct": 0.928
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 30,
+        "mediana_share_pct": 0.111,
+        "media_share_pct": 1.509
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 4069,
+        "mediana_share_pct": 1.11,
+        "media_share_pct": 3.082
+      },
+      {
+        "anio": 2022,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 527,
+        "mediana_share_pct": 0.322,
+        "media_share_pct": 1.636
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 48673,
+        "mediana_share_pct": 0.55,
+        "media_share_pct": 1.445
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 20669,
+        "mediana_share_pct": 0.534,
+        "media_share_pct": 1.208
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 3912,
+        "mediana_share_pct": 0.364,
+        "media_share_pct": 0.733
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 378,
+        "mediana_share_pct": 0.36,
+        "media_share_pct": 0.909
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3970,
+        "mediana_share_pct": 3.131,
+        "media_share_pct": 4.115
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 1772,
+        "mediana_share_pct": 3.426,
+        "media_share_pct": 4.228
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 136,
+        "mediana_share_pct": 4.946,
+        "media_share_pct": 5.884
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 83662,
+        "mediana_share_pct": 0.365,
+        "media_share_pct": 0.764
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 27667,
+        "mediana_share_pct": 0.382,
+        "media_share_pct": 0.653
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 56,
+        "mediana_share_pct": 3.614,
+        "media_share_pct": 7.569
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 263,
+        "mediana_share_pct": 0.378,
+        "media_share_pct": 0.987
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 35,
+        "mediana_share_pct": 0.0,
+        "media_share_pct": 0.639
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 7764,
+        "mediana_share_pct": 1.215,
+        "media_share_pct": 3.165
+      },
+      {
+        "anio": 2024,
+        "marca": "MOUNJARO",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 596,
+        "mediana_share_pct": 0.352,
+        "media_share_pct": 1.41
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "sin pago",
+        "n": 48086,
+        "mediana_share_pct": 0.979,
+        "media_share_pct": 2.016
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "solo campo",
+        "n": 21232,
+        "mediana_share_pct": 1.097,
+        "media_share_pct": 1.777
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "NP/PA",
+        "clase": "voz",
+        "n": 38,
+        "mediana_share_pct": 7.172,
+        "media_share_pct": 8.899
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "sin pago",
+        "n": 2909,
+        "mediana_share_pct": 0.691,
+        "media_share_pct": 1.268
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "solo campo",
+        "n": 1349,
+        "mediana_share_pct": 0.692,
+        "media_share_pct": 1.094
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "emergentes",
+        "clase": "voz",
+        "n": 42,
+        "mediana_share_pct": 1.894,
+        "media_share_pct": 2.632
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "sin pago",
+        "n": 3578,
+        "mediana_share_pct": 5.921,
+        "media_share_pct": 6.598
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "solo campo",
+        "n": 2103,
+        "mediana_share_pct": 6.44,
+        "media_share_pct": 6.808
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "endocrinologia",
+        "clase": "voz",
+        "n": 197,
+        "mediana_share_pct": 7.312,
+        "media_share_pct": 7.631
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "sin pago",
+        "n": 82097,
+        "mediana_share_pct": 0.81,
+        "media_share_pct": 1.265
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "solo campo",
+        "n": 29222,
+        "mediana_share_pct": 0.852,
+        "media_share_pct": 1.101
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "primaria",
+        "clase": "voz",
+        "n": 66,
+        "mediana_share_pct": 3.746,
+        "media_share_pct": 4.576
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "sin pago",
+        "n": 257,
+        "mediana_share_pct": 0.536,
+        "media_share_pct": 1.311
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "respiratorio y sue\u00f1o",
+        "clase": "solo campo",
+        "n": 42,
+        "mediana_share_pct": 0.603,
+        "media_share_pct": 1.164
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "sin pago",
+        "n": 7687,
+        "mediana_share_pct": 1.859,
+        "media_share_pct": 4.131
+      },
+      {
+        "anio": 2024,
+        "marca": "OZEMPIC",
+        "especialidad": "resto",
+        "clase": "solo campo",
+        "n": 676,
+        "mediana_share_pct": 0.926,
+        "media_share_pct": 1.54
+      }
+    ]
+  }
+}

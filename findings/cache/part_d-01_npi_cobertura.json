@@ -1,0 +1,85 @@
+{
+  "fuente": "CMS Open Payments General Payments PY2021-2025, parquet locales",
+  "por_anio": [
+    {
+      "anio": 2021,
+      "pagos": 594759,
+      "pagos_con_npi": 594558,
+      "pct_pagos_con_npi": 99.97,
+      "usd": 31408739.07,
+      "usd_con_npi": 31299014.16,
+      "pct_usd_con_npi": 99.65,
+      "npi_distintos": 88464
+    },
+    {
+      "anio": 2022,
+      "pagos": 672787,
+      "pagos_con_npi": 672477,
+      "pct_pagos_con_npi": 99.95,
+      "usd": 41237815.5,
+      "usd_con_npi": 41223247.97,
+      "pct_usd_con_npi": 99.96,
+      "npi_distintos": 103179
+    },
+    {
+      "anio": 2023,
+      "pagos": 693418,
+      "pagos_con_npi": 693329,
+      "pct_pagos_con_npi": 99.99,
+      "usd": 27157405.48,
+      "usd_con_npi": 27145591.11,
+      "pct_usd_con_npi": 99.96,
+      "npi_distintos": 111672
+    },
+    {
+      "anio": 2024,
+      "pagos": 738827,
+      "pagos_con_npi": 738721,
+      "pct_pagos_con_npi": 99.99,
+      "usd": 33860360.37,
+      "usd_con_npi": 33835238.97,
+      "pct_usd_con_npi": 99.93,
+      "npi_distintos": 125305
+    },
+    {
+      "anio": 2025,
+      "pagos": 677991,
+      "pagos_con_npi": 677898,
+      "pct_pagos_con_npi": 99.99,
+      "usd": 48233000.26,
+      "usd_con_npi": 48190666.57,
+      "pct_usd_con_npi": 99.91,
+      "npi_distintos": 140647
+    }
+  ],
+  "por_tipo_receptor": [
+    {
+      "tipo_receptor": "Covered Recipient Physician",
+      "pagos": 1977839,
+      "pagos_con_npi": 1977424,
+      "pct_con_npi": 99.98,
+      "usd": 145605444.11
+    },
+    {
+      "tipo_receptor": "Covered Recipient Non-Physician Practitioner",
+      "pagos": 1399900,
+      "pagos_con_npi": 1399559,
+      "pct_con_npi": 99.98,
+      "usd": 36216603.57
+    },
+    {
+      "tipo_receptor": "Covered Recipient Teaching Hospital",
+      "pagos": 43,
+      "pagos_con_npi": 0,
+      "pct_con_npi": 0.0,
+      "usd": 75273.0
+    }
+  ],
+  "receptores": {
+    "npi_unicos": 247846,
+    "profile_id_unicos": 248126,
+    "usd_con_npi": 181693758.78,
+    "usd_total": 181897320.68,
+    "pares_npi_profile": 247846
+  }
+}
