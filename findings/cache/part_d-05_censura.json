@@ -1,0 +1,245 @@
+{
+  "que_mide": "recetas que el archivo de detalle no muestra porque el par prescriptor-droga tiene 10 o menos",
+  "fuente_publicada": "CMS Medicare Part D Spending by Drug, DSD_PTD_RY26_P04_V10_DY24_BGM.csv",
+  "fuente_detalle": "CMS Medicare Part D Prescribers by Provider and Drug, recorte GLP-1",
+  "por_anio": [
+    {
+      "anio": 2021,
+      "publicadas": 7377271,
+      "en_detalle": 6012362,
+      "no_visibles": 1364909,
+      "pct_no_visible": 18.5
+    },
+    {
+      "anio": 2022,
+      "publicadas": 9912066,
+      "en_detalle": 8241634,
+      "no_visibles": 1670432,
+      "pct_no_visible": 16.85
+    },
+    {
+      "anio": 2023,
+      "publicadas": 16062640,
+      "en_detalle": 13995539,
+      "no_visibles": 2067101,
+      "pct_no_visible": 12.87
+    },
+    {
+      "anio": 2024,
+      "publicadas": 21638167,
+      "en_detalle": 19517889,
+      "no_visibles": 2120278,
+      "pct_no_visible": 9.8
+    }
+  ],
+  "por_marca": [
+    {
+      "anio": 2021,
+      "marca": "OZEMPIC",
+      "recetas_publicadas": 2016177,
+      "recetas_en_detalle": 1703541,
+      "diferencia": 312636,
+      "pct_no_visible": 15.51
+    },
+    {
+      "anio": 2021,
+      "marca": "RYBELSUS",
+      "recetas_publicadas": 367858,
+      "recetas_en_detalle": 218708,
+      "diferencia": 149150,
+      "pct_no_visible": 40.55
+    },
+    {
+      "anio": 2021,
+      "marca": "TRULICITY",
+      "recetas_publicadas": 3704201,
+      "recetas_en_detalle": 3313160,
+      "diferencia": 391041,
+      "pct_no_visible": 10.56
+    },
+    {
+      "anio": 2021,
+      "marca": "VICTOZA",
+      "recetas_publicadas": 1234807,
+      "recetas_en_detalle": 750962,
+      "diferencia": 483845,
+      "pct_no_visible": 39.18
+    },
+    {
+      "anio": 2021,
+      "marca": "XULTOPHY 100/3.6",
+      "recetas_publicadas": 54228,
+      "recetas_en_detalle": 25991,
+      "diferencia": 28237,
+      "pct_no_visible": 52.07
+    },
+    {
+      "anio": 2022,
+      "marca": "MOUNJARO",
+      "recetas_publicadas": 121095,
+      "recetas_en_detalle": 39468,
+      "diferencia": 81627,
+      "pct_no_visible": 67.41
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "recetas_publicadas": 3410839,
+      "recetas_en_detalle": 2976893,
+      "diferencia": 433946,
+      "pct_no_visible": 12.72
+    },
+    {
+      "anio": 2022,
+      "marca": "RYBELSUS",
+      "recetas_publicadas": 686346,
+      "recetas_en_detalle": 457989,
+      "diferencia": 228357,
+      "pct_no_visible": 33.27
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "recetas_publicadas": 4610823,
+      "recetas_en_detalle": 4174280,
+      "diferencia": 436543,
+      "pct_no_visible": 9.47
+    },
+    {
+      "anio": 2022,
+      "marca": "VICTOZA",
+      "recetas_publicadas": 1032406,
+      "recetas_en_detalle": 569902,
+      "diferencia": 462504,
+      "pct_no_visible": 44.8
+    },
+    {
+      "anio": 2022,
+      "marca": "XULTOPHY 100/3.6",
+      "recetas_publicadas": 50557,
+      "recetas_en_detalle": 23102,
+      "diferencia": 27455,
+      "pct_no_visible": 54.31
+    },
+    {
+      "anio": 2023,
+      "marca": "MOUNJARO",
+      "recetas_publicadas": 1821486,
+      "recetas_en_detalle": 1521598,
+      "diferencia": 299888,
+      "pct_no_visible": 16.46
+    },
+    {
+      "anio": 2023,
+      "marca": "OZEMPIC",
+      "recetas_publicadas": 6927972,
+      "recetas_en_detalle": 6416007,
+      "diferencia": 511965,
+      "pct_no_visible": 7.39
+    },
+    {
+      "anio": 2023,
+      "marca": "RYBELSUS",
+      "recetas_publicadas": 1075026,
+      "recetas_en_detalle": 755052,
+      "diferencia": 319974,
+      "pct_no_visible": 29.76
+    },
+    {
+      "anio": 2023,
+      "marca": "TRULICITY",
+      "recetas_publicadas": 5316020,
+      "recetas_en_detalle": 4851616,
+      "diferencia": 464404,
+      "pct_no_visible": 8.74
+    },
+    {
+      "anio": 2023,
+      "marca": "VICTOZA",
+      "recetas_publicadas": 867680,
+      "recetas_en_detalle": 425747,
+      "diferencia": 441933,
+      "pct_no_visible": 50.93
+    },
+    {
+      "anio": 2023,
+      "marca": "WEGOVY",
+      "recetas_publicadas": 142,
+      "recetas_en_detalle": 26,
+      "diferencia": 116,
+      "pct_no_visible": 81.69
+    },
+    {
+      "anio": 2023,
+      "marca": "XULTOPHY 100/3.6",
+      "recetas_publicadas": 54314,
+      "recetas_en_detalle": 25493,
+      "diferencia": 28821,
+      "pct_no_visible": 53.06
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "recetas_publicadas": 5105397,
+      "recetas_en_detalle": 4694896,
+      "diferencia": 410501,
+      "pct_no_visible": 8.04
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "recetas_publicadas": 10417182,
+      "recetas_en_detalle": 9930484,
+      "diferencia": 486698,
+      "pct_no_visible": 4.67
+    },
+    {
+      "anio": 2024,
+      "marca": "RYBELSUS",
+      "recetas_publicadas": 1251733,
+      "recetas_en_detalle": 899704,
+      "diferencia": 352029,
+      "pct_no_visible": 28.12
+    },
+    {
+      "anio": 2024,
+      "marca": "TRULICITY",
+      "recetas_publicadas": 4305141,
+      "recetas_en_detalle": 3816376,
+      "diferencia": 488765,
+      "pct_no_visible": 11.35
+    },
+    {
+      "anio": 2024,
+      "marca": "VICTOZA",
+      "recetas_publicadas": 289589,
+      "recetas_en_detalle": 71722,
+      "diferencia": 217867,
+      "pct_no_visible": 75.23
+    },
+    {
+      "anio": 2024,
+      "marca": "WEGOVY",
+      "recetas_publicadas": 211575,
+      "recetas_en_detalle": 76176,
+      "diferencia": 135399,
+      "pct_no_visible": 64.0
+    },
+    {
+      "anio": 2024,
+      "marca": "XULTOPHY 100/3.6",
+      "recetas_publicadas": 57197,
+      "recetas_en_detalle": 28517,
+      "diferencia": 28680,
+      "pct_no_visible": 50.14
+    },
+    {
+      "anio": 2024,
+      "marca": "ZEPBOUND",
+      "recetas_publicadas": 353,
+      "recetas_en_detalle": 14,
+      "diferencia": 339,
+      "pct_no_visible": 96.03
+    }
+  ]
+}

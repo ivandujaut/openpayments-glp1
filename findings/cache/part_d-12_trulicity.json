@@ -1,0 +1,9 @@
+{
+  "pregunta": "De los que figuran recetando Trulicity en 2024 sin cobrar por Trulicity, \u00bfcu\u00e1ntos cobraron de Lilly ese a\u00f1o por otro GLP-1?",
+  "capturado": "2026-09-09",
+  "nota": "'Cobr\u00f3 de Lilly' es cualquier pago prorrateado de Lilly por cualquiera de sus GLP-1 del caso en 2024, no s\u00f3lo Mounjaro y Zepbound.",
+  "recetan_sin_cobrar_trulicity": 100299,
+  "cobraron_de_lilly_por_otra": 29049,
+  "pct": 29.0,
+  "no_cobraron_de_lilly": 71250
+}

@@ -1,0 +1,138 @@
+{
+  "pregunta": "\u00bfHace falta bajar NPPES para reconciliar la especialidad entre Part D y Open Payments, o el Prscrbr_Type de Part D alcanza?",
+  "capturado": "2026-09-08",
+  "nota": "Compara la categor\u00eda del caso derivada de cada archivo, sobre los NPI que est\u00e1n de los dos lados. NO mide cu\u00e1l de las dos tiene raz\u00f3n: mide si discrepan lo bastante como para que valga la pena una tercera fuente.",
+  "total": {
+    "npi": 87784,
+    "iguales": 84539,
+    "pct": 96.3
+  },
+  "por_categoria": [
+    {
+      "categoria_open_payments": "primaria",
+      "npi": 45148,
+      "coinciden": 44065,
+      "pct": 97.6,
+      "discrepancia_mas_comun": "resto"
+    },
+    {
+      "categoria_open_payments": "NP/PA",
+      "npi": 35293,
+      "coinciden": 34957,
+      "pct": 99.0,
+      "discrepancia_mas_comun": "primaria"
+    },
+    {
+      "categoria_open_payments": "endocrinologia",
+      "npi": 3852,
+      "coinciden": 3322,
+      "pct": 86.2,
+      "discrepancia_mas_comun": "primaria"
+    },
+    {
+      "categoria_open_payments": "emergentes",
+      "npi": 1981,
+      "coinciden": 1685,
+      "pct": 85.1,
+      "discrepancia_mas_comun": "primaria"
+    },
+    {
+      "categoria_open_payments": "resto",
+      "npi": 1283,
+      "coinciden": 464,
+      "pct": 36.2,
+      "discrepancia_mas_comun": "primaria"
+    },
+    {
+      "categoria_open_payments": "respiratorio y sue\u00f1o",
+      "npi": 167,
+      "coinciden": 57,
+      "pct": 34.1,
+      "discrepancia_mas_comun": "primaria"
+    },
+    {
+      "categoria_open_payments": "medicina de obesidad",
+      "npi": 60,
+      "coinciden": 0,
+      "pct": 0.0,
+      "discrepancia_mas_comun": "primaria"
+    }
+  ],
+  "discrepancias": [
+    {
+      "open_payments": "resto",
+      "part_d": "primaria",
+      "npi": 731
+    },
+    {
+      "open_payments": "primaria",
+      "part_d": "resto",
+      "npi": 679
+    },
+    {
+      "open_payments": "endocrinologia",
+      "part_d": "primaria",
+      "npi": 502
+    },
+    {
+      "open_payments": "NP/PA",
+      "part_d": "primaria",
+      "npi": 287
+    },
+    {
+      "open_payments": "emergentes",
+      "part_d": "primaria",
+      "npi": 269
+    },
+    {
+      "open_payments": "primaria",
+      "part_d": "endocrinologia",
+      "npi": 228
+    },
+    {
+      "open_payments": "primaria",
+      "part_d": "emergentes",
+      "npi": 151
+    },
+    {
+      "open_payments": "respiratorio y sue\u00f1o",
+      "part_d": "primaria",
+      "npi": 100
+    },
+    {
+      "open_payments": "resto",
+      "part_d": "NP/PA",
+      "npi": 66
+    },
+    {
+      "open_payments": "medicina de obesidad",
+      "part_d": "primaria",
+      "npi": 53
+    },
+    {
+      "open_payments": "NP/PA",
+      "part_d": "resto",
+      "npi": 41
+    },
+    {
+      "open_payments": "endocrinologia",
+      "part_d": "resto",
+      "npi": 22
+    },
+    {
+      "open_payments": "emergentes",
+      "part_d": "resto",
+      "npi": 21
+    },
+    {
+      "open_payments": "primaria",
+      "part_d": "respiratorio y sue\u00f1o",
+      "npi": 21
+    },
+    {
+      "open_payments": "resto",
+      "part_d": "endocrinologia",
+      "npi": 17
+    }
+  ]
+}

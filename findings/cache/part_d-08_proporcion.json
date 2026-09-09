@@ -1,0 +1,274 @@
+{
+  "que_mide": "El GLP-1 como proporci\u00f3n de la pr\u00e1ctica de Medicare de cada prescriptor, usando el archivo 'by Provider' como denominador. Separa 'receta m\u00e1s' de 'tiene el consultorio m\u00e1s grande'.",
+  "capturado": "2026-09-08",
+  "cobertura_denominador": [
+    {
+      "anio": 2021,
+      "npi_en_cruce": 102512,
+      "con_practica": 102512,
+      "pct": 100.0
+    },
+    {
+      "anio": 2022,
+      "npi_en_cruce": 128184,
+      "con_practica": 128184,
+      "pct": 100.0
+    },
+    {
+      "anio": 2023,
+      "npi_en_cruce": 171393,
+      "con_practica": 171393,
+      "pct": 100.0
+    },
+    {
+      "anio": 2024,
+      "npi_en_cruce": 199582,
+      "con_practica": 199582,
+      "pct": 100.0
+    }
+  ],
+  "share_por_clase": [
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "sin pago",
+      "n": 42010,
+      "mediana_recetas_marca": 21.0,
+      "mediana_recetas_totales": 4354.0,
+      "mediana_share_pct": 0.57,
+      "media_share_pct": 1.8
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "solo campo",
+      "n": 29224,
+      "mediana_recetas_marca": 29.0,
+      "mediana_recetas_totales": 5639.5,
+      "mediana_share_pct": 0.55,
+      "media_share_pct": 1.33
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "voz",
+      "n": 405,
+      "mediana_recetas_marca": 196.0,
+      "mediana_recetas_totales": 4662.0,
+      "mediana_share_pct": 4.35,
+      "media_share_pct": 5.34
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "clase": "sin pago",
+      "n": 74291,
+      "mediana_recetas_marca": 24.0,
+      "mediana_recetas_totales": 4475.0,
+      "mediana_share_pct": 0.64,
+      "media_share_pct": 1.38
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "clase": "solo campo",
+      "n": 21006,
+      "mediana_recetas_marca": 33.0,
+      "mediana_recetas_totales": 5573.0,
+      "mediana_share_pct": 0.63,
+      "media_share_pct": 1.29
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "clase": "voz",
+      "n": 92,
+      "mediana_recetas_marca": 220.5,
+      "mediana_recetas_totales": 4694.5,
+      "mediana_share_pct": 5.18,
+      "media_share_pct": 5.87
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "sin pago",
+      "n": 61016,
+      "mediana_recetas_marca": 25.0,
+      "mediana_recetas_totales": 4487.0,
+      "mediana_share_pct": 0.65,
+      "media_share_pct": 1.79
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "solo campo",
+      "n": 35977,
+      "mediana_recetas_marca": 35.0,
+      "mediana_recetas_totales": 5272.0,
+      "mediana_share_pct": 0.74,
+      "media_share_pct": 1.44
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "voz",
+      "n": 215,
+      "mediana_recetas_marca": 197.0,
+      "mediana_recetas_totales": 4511.0,
+      "mediana_share_pct": 4.74,
+      "media_share_pct": 6.95
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "sin pago",
+      "n": 120092,
+      "mediana_recetas_marca": 31.0,
+      "mediana_recetas_totales": 3720.5,
+      "mediana_share_pct": 0.98,
+      "media_share_pct": 1.89
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "solo campo",
+      "n": 50757,
+      "mediana_recetas_marca": 50.0,
+      "mediana_recetas_totales": 4941.0,
+      "mediana_share_pct": 1.03,
+      "media_share_pct": 1.71
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "voz",
+      "n": 342,
+      "mediana_recetas_marca": 297.0,
+      "mediana_recetas_totales": 5179.5,
+      "mediana_share_pct": 6.46,
+      "media_share_pct": 6.61
+    }
+  ],
+  "tamano_de_practica": [
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "sin pago",
+      "n": 42010,
+      "mediana_practica": 4354.0,
+      "p25_practica": 2219.0,
+      "p75_practica": 7513.8,
+      "mediana_costo_practica": 486080.59
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "solo campo",
+      "n": 29224,
+      "mediana_practica": 5639.5,
+      "p25_practica": 3168.5,
+      "p75_practica": 9509.3,
+      "mediana_costo_practica": 691516.78
+    },
+    {
+      "anio": 2022,
+      "marca": "OZEMPIC",
+      "clase": "voz",
+      "n": 405,
+      "mediana_practica": 4662.0,
+      "p25_practica": 2899.0,
+      "p75_practica": 7114.0,
+      "mediana_costo_practica": 2091281.46
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "clase": "sin pago",
+      "n": 74291,
+      "mediana_practica": 4475.0,
+      "p25_practica": 2343.0,
+      "p75_practica": 7712.5,
+      "mediana_costo_practica": 476261.51
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "clase": "solo campo",
+      "n": 21006,
+      "mediana_practica": 5573.0,
+      "p25_practica": 3189.0,
+      "p75_practica": 9451.0,
+      "mediana_costo_practica": 677617.54
+    },
+    {
+      "anio": 2022,
+      "marca": "TRULICITY",
+      "clase": "voz",
+      "n": 92,
+      "mediana_practica": 4694.5,
+      "p25_practica": 2875.0,
+      "p75_practica": 8924.0,
+      "mediana_costo_practica": 2207560.17
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "sin pago",
+      "n": 61016,
+      "mediana_practica": 4487.0,
+      "p25_practica": 2324.0,
+      "p75_practica": 7714.0,
+      "mediana_costo_practica": 500191.66
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "solo campo",
+      "n": 35977,
+      "mediana_practica": 5272.0,
+      "p25_practica": 2969.0,
+      "p75_practica": 8844.0,
+      "mediana_costo_practica": 626876.61
+    },
+    {
+      "anio": 2024,
+      "marca": "MOUNJARO",
+      "clase": "voz",
+      "n": 215,
+      "mediana_practica": 4511.0,
+      "p25_practica": 2375.5,
+      "p75_practica": 7538.0,
+      "mediana_costo_practica": 2175387.36
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "sin pago",
+      "n": 120092,
+      "mediana_practica": 3720.5,
+      "p25_practica": 1891.0,
+      "p75_practica": 6527.0,
+      "mediana_costo_practica": 363150.95
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "solo campo",
+      "n": 50757,
+      "mediana_practica": 4941.0,
+      "p25_practica": 2752.0,
+      "p75_practica": 8384.0,
+      "mediana_costo_practica": 566163.07
+    },
+    {
+      "anio": 2024,
+      "marca": "OZEMPIC",
+      "clase": "voz",
+      "n": 342,
+      "mediana_practica": 5179.5,
+      "p25_practica": 2928.5,
+      "p75_practica": 8207.3,
+      "mediana_costo_practica": 2146029.75
+    }
+  ]
+}
