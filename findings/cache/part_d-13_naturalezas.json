@@ -1,0 +1,247 @@
+{
+  "pregunta": "\u00bfQu\u00e9 proporci\u00f3n de los pagos de GLP-1 es cada naturaleza, en cantidad y en dinero? Decide con qu\u00e9 palabra nombrar cada grupo en el texto.",
+  "capturado": "2026-09-09",
+  "nota": "'pagos' cuenta Record_ID distintos, as\u00ed que un pago que declara dos GLP-1 no se cuenta dos veces. 'mediana_usd_del_pago' es sobre el monto de la fila sin prorratear, porque la pregunta es cu\u00e1nto vale un pago, no cu\u00e1nto se le atribuye a un producto.",
+  "por_naturaleza": [
+    {
+      "anio": 2021,
+      "naturaleza": "Food and Beverage",
+      "grupo_naturaleza": "campo",
+      "pagos": 575658,
+      "pct_pagos": 96.79,
+      "usd": 9543220.81,
+      "pct_usd": 31.23,
+      "mediana_usd_del_pago": 14.59
+    },
+    {
+      "anio": 2021,
+      "naturaleza": "Compensation for services other than consulting, including serving as faculty or as a speaker at a venue other than a continuing education program",
+      "grupo_naturaleza": "voz",
+      "pagos": 13326,
+      "pct_pagos": 2.24,
+      "usd": 18970582.01,
+      "pct_usd": 62.08,
+      "mediana_usd_del_pago": 1000.0
+    },
+    {
+      "anio": 2021,
+      "naturaleza": "Travel and Lodging",
+      "grupo_naturaleza": "campo",
+      "pagos": 4268,
+      "pct_pagos": 0.72,
+      "usd": 1219402.63,
+      "pct_usd": 3.99,
+      "mediana_usd_del_pago": 104.28
+    },
+    {
+      "anio": 2021,
+      "naturaleza": "Education",
+      "grupo_naturaleza": "campo",
+      "pagos": 944,
+      "pct_pagos": 0.16,
+      "usd": 27637.47,
+      "pct_usd": 0.09,
+      "mediana_usd_del_pago": 32.27
+    },
+    {
+      "anio": 2021,
+      "naturaleza": "Consulting Fee",
+      "grupo_naturaleza": "voz",
+      "pagos": 556,
+      "pct_pagos": 0.09,
+      "usd": 791288.75,
+      "pct_usd": 2.59,
+      "mediana_usd_del_pago": 1020.0
+    },
+    {
+      "anio": 2021,
+      "naturaleza": "Space rental or facility fees (teaching hospital only)",
+      "grupo_naturaleza": "campo",
+      "pagos": 7,
+      "pct_pagos": 0.0,
+      "usd": 8175.0,
+      "pct_usd": 0.03,
+      "mediana_usd_del_pago": 1500.0
+    },
+    {
+      "anio": 2022,
+      "naturaleza": "Food and Beverage",
+      "grupo_naturaleza": "campo",
+      "pagos": 649049,
+      "pct_pagos": 96.47,
+      "usd": 12304380.71,
+      "pct_usd": 30.1,
+      "mediana_usd_del_pago": 15.19
+    },
+    {
+      "anio": 2022,
+      "naturaleza": "Compensation for services other than consulting, including serving as faculty or as a speaker at a venue other than a continuing education program",
+      "grupo_naturaleza": "voz",
+      "pagos": 14365,
+      "pct_pagos": 2.14,
+      "usd": 25874666.15,
+      "pct_usd": 63.3,
+      "mediana_usd_del_pago": 1400.0
+    },
+    {
+      "anio": 2022,
+      "naturaleza": "Travel and Lodging",
+      "grupo_naturaleza": "campo",
+      "pagos": 8053,
+      "pct_pagos": 1.2,
+      "usd": 2184904.0,
+      "pct_usd": 5.34,
+      "mediana_usd_del_pago": 125.12
+    },
+    {
+      "anio": 2022,
+      "naturaleza": "Education",
+      "grupo_naturaleza": "campo",
+      "pagos": 1044,
+      "pct_pagos": 0.16,
+      "usd": 40372.97,
+      "pct_usd": 0.1,
+      "mediana_usd_del_pago": 32.27
+    },
+    {
+      "anio": 2022,
+      "naturaleza": "Consulting Fee",
+      "grupo_naturaleza": "voz",
+      "pagos": 272,
+      "pct_pagos": 0.04,
+      "usd": 471443.0,
+      "pct_usd": 1.15,
+      "mediana_usd_del_pago": 1020.0
+    },
+    {
+      "anio": 2022,
+      "naturaleza": "Space rental or facility fees (teaching hospital only)",
+      "grupo_naturaleza": "campo",
+      "pagos": 4,
+      "pct_pagos": 0.0,
+      "usd": 3000.0,
+      "pct_usd": 0.01,
+      "mediana_usd_del_pago": 500.0
+    },
+    {
+      "anio": 2023,
+      "naturaleza": "Food and Beverage",
+      "grupo_naturaleza": "campo",
+      "pagos": 675576,
+      "pct_pagos": 97.43,
+      "usd": 12117616.54,
+      "pct_usd": 44.75,
+      "mediana_usd_del_pago": 16.2
+    },
+    {
+      "anio": 2023,
+      "naturaleza": "Compensation for services other than consulting, including serving as faculty or as a speaker at a venue other than a continuing education program",
+      "grupo_naturaleza": "voz",
+      "pagos": 12342,
+      "pct_pagos": 1.78,
+      "usd": 13923922.45,
+      "pct_usd": 51.42,
+      "mediana_usd_del_pago": 900.0
+    },
+    {
+      "anio": 2023,
+      "naturaleza": "Travel and Lodging",
+      "grupo_naturaleza": "campo",
+      "pagos": 3788,
+      "pct_pagos": 0.55,
+      "usd": 626681.91,
+      "pct_usd": 2.31,
+      "mediana_usd_del_pago": 50.8
+    },
+    {
+      "anio": 2023,
+      "naturaleza": "Education",
+      "grupo_naturaleza": "campo",
+      "pagos": 1570,
+      "pct_pagos": 0.23,
+      "usd": 60250.17,
+      "pct_usd": 0.22,
+      "mediana_usd_del_pago": 32.27
+    },
+    {
+      "anio": 2023,
+      "naturaleza": "Consulting Fee",
+      "grupo_naturaleza": "voz",
+      "pagos": 137,
+      "pct_pagos": 0.02,
+      "usd": 341303.75,
+      "pct_usd": 1.26,
+      "mediana_usd_del_pago": 2325.0
+    },
+    {
+      "anio": 2023,
+      "naturaleza": "Space rental or facility fees (teaching hospital only)",
+      "grupo_naturaleza": "campo",
+      "pagos": 5,
+      "pct_pagos": 0.0,
+      "usd": 8849.0,
+      "pct_usd": 0.03,
+      "mediana_usd_del_pago": 1750.0
+    },
+    {
+      "anio": 2024,
+      "naturaleza": "Food and Beverage",
+      "grupo_naturaleza": "campo",
+      "pagos": 715896,
+      "pct_pagos": 96.9,
+      "usd": 13599863.46,
+      "pct_usd": 40.64,
+      "mediana_usd_del_pago": 17.2
+    },
+    {
+      "anio": 2024,
+      "naturaleza": "Compensation for services other than consulting, including serving as faculty or as a speaker at a venue other than a continuing education program",
+      "grupo_naturaleza": "voz",
+      "pagos": 15147,
+      "pct_pagos": 2.05,
+      "usd": 17906058.72,
+      "pct_usd": 53.51,
+      "mediana_usd_del_pago": 900.0
+    },
+    {
+      "anio": 2024,
+      "naturaleza": "Travel and Lodging",
+      "grupo_naturaleza": "campo",
+      "pagos": 5196,
+      "pct_pagos": 0.7,
+      "usd": 920564.46,
+      "pct_usd": 2.75,
+      "mediana_usd_del_pago": 60.0
+    },
+    {
+      "anio": 2024,
+      "naturaleza": "Education",
+      "grupo_naturaleza": "campo",
+      "pagos": 2258,
+      "pct_pagos": 0.31,
+      "usd": 80608.77,
+      "pct_usd": 0.24,
+      "mediana_usd_del_pago": 32.27
+    },
+    {
+      "anio": 2024,
+      "naturaleza": "Consulting Fee",
+      "grupo_naturaleza": "voz",
+      "pagos": 321,
+      "pct_pagos": 0.04,
+      "usd": 939900.25,
+      "pct_usd": 2.81,
+      "mediana_usd_del_pago": 2200.0
+    },
+    {
+      "anio": 2024,
+      "naturaleza": "Space rental or facility fees (teaching hospital only)",
+      "grupo_naturaleza": "campo",
+      "pagos": 9,
+      "pct_pagos": 0.0,
+      "usd": 17050.0,
+      "pct_usd": 0.05,
+      "mediana_usd_del_pago": 1625.0
+    }
+  ]
+}
